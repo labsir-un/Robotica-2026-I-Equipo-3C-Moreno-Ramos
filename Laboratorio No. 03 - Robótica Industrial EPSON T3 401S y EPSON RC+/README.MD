@@ -54,18 +54,29 @@
 
 ## Configuración de la posición Home
 
-Para el desarrollo de este laboratorio, definimos una configuración de Home personalizada en el EPSON T3-401S, reemplazando la postura que el software EPSON RC+ asigna por defecto. Con esto buscábamos que el manipulador iniciara centrado exactamente en la mitad de su área de trabajo y con el brazo extendido hacia adelante. Esto nos garantiza un alcance simétrico hacia ambos extremos de la mesa y evita que el robot comience el movimiento sesgado o limitado hacia un costado.
+Para el desarrollo de este laboratorio, se definió una configuración de Home personalizada en el EPSON T3-401S, reemplazando la postura que el software EPSON RC+ asigna por defecto al inicio. Con esto se busca que el manipulador iniciara centrado exactamente en la mitad de su área de trabajo y con el brazo extendido hacia adelante. Esto garantiza un alcance simétrico hacia ambos extremos de la mesa y evita que el robot comience el movimiento sesgado o limitado hacia un costado.
 
-Para lograrlo, configuramos la primera articulación (J1) a 90°, lo que en el controlador equivale a 204800 pulsos. Con este punto base establecido, alineamos los demás ejes para conseguir una postura completamente estable y segura para la manipulación.
+Para lograrlo, se configuró la primera articulación (J1) a 90°, lo que en el controlador equivale a un total de "204800 pulsos". Con este punto base establecido, se alineó los demás ejes para conseguir una postura completamente estable y segura para la manipulación.
 
-A continuación, detallamos los parámetros asignados a cada una de las articulaciones para nuestro Home personalizado:
+A continuación, se presentan los parámetros  detallados asignados a cada una de las articulaciones para nuestro Home personalizado:
 
 * **Articulación 1 (J1 - Rotación Base):** 90° (204800 pulsos) Orienta el brazo principal hacia el centro del área de trabajo.
 * **Articulación 2 (J2 - Rotación Brazo):** 0° (0 pulsos) Mantiene el segundo brazo alineado hacia el frente.
 * **Articulación 3 (J3 - Eje Z Vertical):** 0 (0 pulsos) Define una altura elevada y segura para evitar colisiones con la cubeta.
 * **Articulación 4 (J4/U - Rotación de Herramienta):** 0° (0 pulsos) Mantiene el eje del gripper totalmente recto y alineado.
 
-![Pulsos](images/pulsos.png)
+![](/)
+
+<p align="center">
+  <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="800">
+</p>
+
+
+<p align="center">
+  <img src="Images/TpHome1.jpg" alt="TpHome1" width="800">
+</p>
+
+
 
 Esta posición de Home es la referencia fundamental de todo el laboratorio. A partir de ella calibramos el origen de la cubeta de 30 posiciones ($6 \times 5$) mediante el comando `Pallet 1` y registramos la ubicación inicial de los dos huevos que interactúan en la rutina. Aunque el programa simula el recorrido independiente de dos elementos (Huevo 1 y Huevo 2), físicamente ambos comparten la misma matriz de posiciones. Por lo tanto, iniciar desde un punto inicial idéntico y reproducible era indispensable para que el conteo de las coordenadas del paletizado no acumulara desfases.
 
