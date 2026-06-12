@@ -68,12 +68,12 @@ A continuación, se presentan los parámetros  detallados asignados a cada una d
 
 
 <p align="center">
-  <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="800">
+  <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="400">
 </p>
 
 
 <p align="center">
-  <img src="images/pulsos.png" alt="pulsos" width="800">
+  <img src="images/pulsos.png" alt="pulsos" width="400">
 </p>
 
 
