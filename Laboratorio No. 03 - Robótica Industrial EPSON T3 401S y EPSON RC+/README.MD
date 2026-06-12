@@ -73,7 +73,7 @@ A continuación, se presentan los parámetros  detallados asignados a cada una d
 
 
 <p align="center">
-  <img src="images/TpHome1.jpg" alt="TpHome1" width="800">
+  <img src="images/pulsos.png" alt="pulsos" width="800">
 </p>
 
 
