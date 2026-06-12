@@ -65,7 +65,7 @@ A continuación, se presentan los parámetros  detallados asignados a cada una d
 * **Articulación 3 (J3 - Eje Z Vertical):** 0 (0 pulsos) Define una altura elevada y segura para evitar colisiones con la cubeta.
 * **Articulación 4 (J4/U - Rotación de Herramienta):** 0° (0 pulsos) Mantiene el eje del gripper totalmente recto y alineado.
 
-![](/)
+
 
 <p align="center">
   <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="800">
@@ -73,7 +73,7 @@ A continuación, se presentan los parámetros  detallados asignados a cada una d
 
 
 <p align="center">
-  <img src="Images/TpHome1.jpg" alt="TpHome1" width="800">
+  <img src="images/TpHome1.jpg" alt="TpHome1" width="800">
 </p>
 
 
