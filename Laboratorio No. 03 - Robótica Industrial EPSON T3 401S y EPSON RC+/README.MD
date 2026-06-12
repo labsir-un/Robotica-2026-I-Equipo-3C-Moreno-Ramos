@@ -65,11 +65,18 @@ A continuación, se presentan los parámetros  detallados asignados a cada una d
 * **Articulación 3 (J3 - Eje Z Vertical):** 0 (0 pulsos) Define una altura elevada y segura para evitar colisiones con la cubeta.
 * **Articulación 4 (J4/U - Rotación de Herramienta):** 0° (0 pulsos) Mantiene el eje del gripper totalmente recto y alineado.
 
-<p align="center">
-  <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="380" style="margin-right: 10px;">
-  <img src="images/pulsos.png" alt="pulsos" width="380">
-</p>
-
+<div align="center">
+  <table border="0" style="border-collapse: collapse; border: none;">
+    <tr style="border: none;">
+      <td style="border: none; padding: 10px;">
+        <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="380">
+      </td>
+      <td style="border: none; padding: 10px;">
+        <img src="images/pulsos.png" alt="pulsos" width="380">
+      </td>
+    </tr>
+  </table>
+</div>
 
 Esta posición de Home es la referencia fundamental de todo el laboratorio. A partir de ella calibramos el origen de la cubeta de 30 posiciones ($6 \times 5$) mediante el comando `Pallet 1` y registramos la ubicación inicial de los dos huevos que interactúan en la rutina. Aunque el programa simula el recorrido independiente de dos elementos (Huevo 1 y Huevo 2), físicamente ambos comparten la misma matriz de posiciones. Por lo tanto, iniciar desde un punto inicial idéntico y reproducible era indispensable para que el conteo de las coordenadas del paletizado no acumulara desfases.
 
