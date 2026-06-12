@@ -36,7 +36,7 @@
 
 | Característica | **EPSON T3-401S** | **Motoman MH6** | **ABB IRB140** |
 |:----------------:|:--------------------:|:------------------:|:----------------:|
-| :**Tipo de robot** | SCARA (4 ejes) | Articulado (6 ejes) | Articulado (6 ejes) |
+| **Tipo de robot** | SCARA (4 ejes) | Articulado (6 ejes) | Articulado (6 ejes) |
 | **Grados de libertad (DOF)** | 4 | 6 | 6 |
 | **Carga máxima (Payload)** | 3 kg | 6 kg | 6 kg |
 | **Alcance máximo** | 400 mm | 1373 mm | 810 mm |
