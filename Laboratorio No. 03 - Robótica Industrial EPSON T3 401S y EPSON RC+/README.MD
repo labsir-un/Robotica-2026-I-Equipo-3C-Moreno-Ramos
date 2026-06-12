@@ -66,7 +66,7 @@ A continuación, se presentan los parámetros  detallados asignados a cada una d
 * **Articulación 4 (J4/U - Rotación de Herramienta):** 0° (0 pulsos) Mantiene el eje del gripper totalmente recto y alineado.
 
 <p style="display: flex; justify-content: center; align-items: center; gap: 20px; background: transparent !important;">
-  <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="440" style="border: none !important; box-shadow: none !important;">
+  <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="550" style="border: none !important; box-shadow: none !important;">
   <img src="images/pulsos.png" alt="pulsos" width="350" style="border: none !important; box-shadow: none !important;">
 </p>
 
