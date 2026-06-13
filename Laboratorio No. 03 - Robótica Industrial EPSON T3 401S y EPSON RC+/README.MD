@@ -65,7 +65,7 @@ A continuación, se presentan los parámetros  detallados asignados a cada una d
 * **Articulación 3 (J3 - Eje Z Vertical):** 0 (0 pulsos) Define una altura elevada y segura para evitar colisiones con la cubeta.
 * **Articulación 4 (J4/U - Rotación de Herramienta):** 0° (0 pulsos) Mantiene el eje del gripper totalmente recto y alineado.
 
-<p style="display: flex; justify-content: center; align-items: center; gap: 20px; background: transparent !important;">
+<p align-items: center; gap: 20px; background: transparent !important;">
   <img src="images/Articulaciones Epson.png" alt="Articulaciones Epson" width="550" style="border: none !important; box-shadow: none !important;">
   <img src="images/pulsos.png" alt="pulsos" width="285" style="border: none !important; box-shadow: none !important;">
 </p>
@@ -83,7 +83,7 @@ Para mover el robot manualmente (hacer *jogging*) desde EPSON RC+ 7.0, se utiliz
 El primer paso consiste en abrir el **Administrador de robot** y presionar el botón **Reset**. Esto limpia cualquier alarma activa, falla de comunicación o estado previo que bloquee al manipulador. Con el sistema limpio, se activan los motores haciendo clic en **Motor ON**; en ese instante escucharemos el enganche físico de los frenos y el robot quedará listo para ser operado de forma manual.
 
 <p align="center">
-  <img src="image/robot_manager.png" alt="Robot manager" width="800">
+  <img src="images/robot_manager.png" alt="Robot manager" width="800">
 </p>
 
 
@@ -249,7 +249,12 @@ flowchart TD
 
 ## Código desarrollado en SPEL+
 
-El código desarrollado está en la carpeta /codigo del repositorio, junto con los puntos utilizados para el paletizado.
+El código desarrollado se encuentra en la carpeta /codigo del repositorio,los puntos utilizados para el paletizado fueron los siguientes :
+
+<p align="center">
+  <img src="codigo/puntos.png" alt="puntos.png" width="800">
+</p>
+
 
 ## Videos demostrativos
 
