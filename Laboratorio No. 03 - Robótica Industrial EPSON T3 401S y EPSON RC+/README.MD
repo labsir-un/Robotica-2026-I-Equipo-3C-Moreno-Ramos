@@ -266,7 +266,7 @@ flowchart TD
         RoutineLoop -- No --> EndRoutine["Finalizar Paletizado_01"]
 
     end
-style Paletizado_01 fill:#TuColor,stroke:#ColorBorde,stroke-width:1px
+style Paletizado_01 fill:#transparent
 ```
 
 ## Plano de planta y ubicación inicial
