@@ -269,7 +269,7 @@ A continuación se presentan los videos requeridos por la guía de laboratorio d
 
 <p align="center">
   <a href="https://drive.google.com/file/d/1ncUSyCpmaQdeZ-cfhXGmuzgUaalBSjXP/view?usp=sharing">
-    <img src="images/videoimplentacion.png" alt="Ver video de Simulación" width="600">
+    <img src="images/Portada Imagen.jpeg" alt="Ver video de Simulación" width="600">
   </a>
 </p>
 
