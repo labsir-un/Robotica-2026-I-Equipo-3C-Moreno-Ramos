@@ -239,7 +239,7 @@ flowchart TD
         RoutineLoop -- No --> EndRoutine["Finalizar Paletizado_01"]
     end
 
-
+```
 
 ## Plano de planta y ubicación inicial
 
