@@ -238,11 +238,12 @@ flowchart TD
         
         RoutineLoop -- No --> EndRoutine["Finalizar Paletizado_01"]
     end
-    
-    CallRoutine --> Paletizado_01
+
     EndRoutine --> GoHome2(["Regresar a posición segura: Home"])
     GoHome2 --> EndProg([Fin del Programa])
 
+    %% Estilos para volver invisible el fondo y borde del recuadro del subgraph
+    style Paletizado_01 fill:transparent,stroke:#555,stroke-width:1px,stroke-dasharray: 5 5
 ```
 
 ## Plano de planta y ubicación inicial
