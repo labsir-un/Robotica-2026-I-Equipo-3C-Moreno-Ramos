@@ -20,7 +20,7 @@
 
 # Índice
 
-1. [Cuadro comparativo](#Cuadro-comparativo-de-manipuladores)
+1. [#Cuadro comparativo de manipuladores](#Cuadro-comparativo-de-manipuladores)
 2. [Configuración de la posición Home](#configuración-de-la-posición-home)
 3. [Procedimiento de movimientos manuales](#procedimiento-de-movimientos-manuales)
 4. [Control y niveles de velocidad](#control-y-niveles-de-velocidad)
