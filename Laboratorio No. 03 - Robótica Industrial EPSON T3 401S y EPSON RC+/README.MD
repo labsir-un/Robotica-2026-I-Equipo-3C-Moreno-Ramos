@@ -210,8 +210,23 @@ Para el correcto laboratorio, **EPSON RC+ 7.0** resultó ser la herramienta idea
 Para entender cómo se comporta el robot durante la ejecución del algoritmo, se diseño el siguiente diagrama de flujo. Este mapa representa tanto la configuración inicial del sistema en la rutina principal, como la lógica secuencial que se repite a lo largo de las 29 rutinas para mover los huevos siguiendo el patrón tipico de un de ajedrez.
 
 
+
 ```mermaid
 
+flowchart TD
+    Start([Inicio del Programa]) --> Main["Función main"]
+    Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
+    Init --> GoHome1(["Mover a posición segura: Home"])
+    GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
+
+    CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
+    GoHome2 --> EndProg([Fin del Programa])
+```
+
+
+```mermaid
+
+<div align="center">
 flowchart TD
     Start([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
     
@@ -236,21 +251,7 @@ flowchart TD
     
     
 ```
-```mermaid
-
-flowchart TD
-    Start([Inicio del Programa]) --> Main["Función main"]
-    Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
-    Init --> GoHome1(["Mover a posición segura: Home"])
-    GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
-
-    CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
-    GoHome2 --> EndProg([Fin del Programa])
-```
-
-
-
-
+</div>
 
 
 
