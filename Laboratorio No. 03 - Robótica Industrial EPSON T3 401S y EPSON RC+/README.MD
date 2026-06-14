@@ -212,42 +212,44 @@ Para entender cómo se comporta el robot durante la ejecución del algoritmo, se
 
 
 ```mermaid
+flowchart LR
+    %%  Izquierda---
+    subgraph M ["Programa Principal (Main)"]
+        direction TD
+        Start1([Inicio del Programa]) --> Main["Función main"]
+        Main --> Init["Configuración Inicial:<br>- Motores On<br>- Power Low<br>- Accel 100, 100<br>- Speed 100"]
+        Init --> GoHome1(["Mover a Home"])
+        GoHome1 --> CallRoutine[["Llamar a Paletizado_01"]]
+        CallRoutine --> GoHome2(["Regresar a Home"])
+        GoHome2 --> EndProg([Fin del Programa])
+    end
 
-flowchart TD
-    Start([Inicio del Programa]) --> Main["Función main"]
-    Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
-    Init --> GoHome1(["Mover a posición segura: Home"])
-    GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
-
-    CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
-    GoHome2 --> EndProg([Fin del Programa])
-```
-
-
-
-```mermaid
-flowchart TD
-    Start([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
-    
-    DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
-    RoutineLoop -- No --> EndRoutine([Fin: Finalizar Paletizado_01])
-    RoutineLoop -- Sí --> PrintMsg["Imprimir en Consola:<br>Voy en la Rutina X"]
-    
-    PrintMsg --> PickH1["Jump Pallet a Posición de Huevo 1<br>Esperar estabilización (Wait)"]
-    PickH1 --> GrabH1["Apagar Salida Digital: Off DO_09<br>Activar Vacío / Agarrar Huevo 1"]
-    
-    GrabH1 --> DropH1["Jump Pallet a Destino de Huevo 1<br>Esperar de estabilización (Wait)"]
-    DropH1 --> ReleaseH1["Encender Salida Digital: On DO_09<br>Desactivar Vacío / Soltar Huevo 1"]
-    
-    ReleaseH1 --> PickH2["Jump Pallet a Posición de Huevo 2<br>Esperar de estabilización (Wait)"]
-    PickH2 --> GrabH2["Apagar Salida Digital: Off DO_09<br>Activar Vacío / Agarrar Huevo 2"]
-    
-    GrabH2 --> DropH2["Jump Pallet a Destino de Huevo 2<br>Esperar de estabilización (Wait)"]
-    DropH2 --> ReleaseH2["Encender Salida Digital: On DO_09<br>Desactivar Vacío / Soltar Huevo 2"]
-    
-    ReleaseH2 --> NextRoutine["Avanzar a la Siguiente Rutina: X = X + 1"]
-    NextRoutine --> RoutineLoop
-    
+    %% Derecha ---
+    subgraph P ["Función Paletizado_01"]
+        direction TD
+        Start2([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 (6x5 posiciones)"]
+        
+        DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
+        RoutineLoop -- No --> EndRoutine([Fin: Finalizar Paletizado_01])
+        RoutineLoop -- Sí --> PrintMsg["Imprimir en Consola:<br>Voy en la Rutina X"]
+        
+        PrintMsg --> PickH1["Jump Pallet a Huevo 1<br>Wait"]
+        PickH1 --> GrabH1["Off DO_09<br>Activar Vacío / Agarrar Huevo 1"]
+        
+        GrabH1 --> DropH1["Jump Pallet a Destino 1<br>Wait"]
+        DropH1 --> ReleaseH1["On DO_09<br>Desactivar Vacío / Soltar Huevo 1"]
+        
+        ReleaseH1 --> PickH2["Jump Pallet a Huevo 2<br>Wait"]
+        PickH2 --> GrabH2["Off DO_09<br>Activar Vacío / Agarrar Huevo 2"]
+        
+        GrabH2 --> DropH2["Jump Pallet a Destino 2<br>Wait"]
+        DropH2 --> ReleaseH2["On DO_09<br>Desactivar Vacío / Soltar Huevo 2"]
+        
+        ReleaseH2 --> NextRoutine["Avanzar Rutina: X = X + 1"]
+        NextRoutine --> RoutineLoop
+    end
+    style M fill:#1e1e24,stroke:#333,stroke-width:2px,color:#fff
+    style P fill:#1e1e24,stroke:#333,stroke-width:2px,color:#fff
     
 ```
 
