@@ -229,7 +229,7 @@ flowchart LR
         direction TD
         
         %% TRUCO DE ANCHO: Espacios invisibles muy largos para estirar el contenedor
-        AnchoIzq["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"] --- AnchoDer["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
+        AnchoIzq["&nbsp;"] --- AnchoDer["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
         style AnchoIzq fill:none,stroke:none
         style AnchoDer fill:none,stroke:none
         
