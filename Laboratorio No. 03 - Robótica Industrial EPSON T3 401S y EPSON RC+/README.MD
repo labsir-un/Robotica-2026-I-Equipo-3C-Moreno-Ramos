@@ -224,7 +224,7 @@ Se adjuntas las imagenes del gripper diseñado, su ensamblaje y su función :
 
 <p align="center">
   <img src="images/GripperIso.png" alt="GripperIso.png" width="310">
-  <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="360">
+  <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="350">
 </p>
 
 <p align="center">
