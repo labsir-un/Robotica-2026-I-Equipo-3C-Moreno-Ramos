@@ -224,7 +224,7 @@ flowchart TD
     Start([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
     
     DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
-    
+    RoutineLoop -- No --> EndRoutine([Fin: Finalizar Paletizado_01])
     RoutineLoop -- Sí --> PrintMsg["Imprimir en Consola:<br>Voy en la Rutina X"]
     
     PrintMsg --> PickH1["Jump Pallet a Posición de Huevo 1<br>Esperar estabilización (Wait)"]
@@ -242,7 +242,7 @@ flowchart TD
     ReleaseH2 --> NextRoutine["Avanzar a la Siguiente Rutina: X = X + 1"]
     NextRoutine --> RoutineLoop
     
-    RoutineLoop -- No --> EndRoutine([Fin: Finalizar Paletizado_01])
+    
 
 ```
     
