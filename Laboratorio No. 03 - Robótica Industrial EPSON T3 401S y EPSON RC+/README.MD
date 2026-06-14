@@ -243,7 +243,7 @@ flowchart TD
     GoHome2 --> EndProg([Fin del Programa])
 
     %% Estilos para volver invisible el fondo y borde del recuadro del subgraph
-    style Paletizado_01 fill:transparent
+    style Paletizado_01 fill:transparent,stroke:transparent
 ```
 
 ## Plano de planta y ubicación inicial
