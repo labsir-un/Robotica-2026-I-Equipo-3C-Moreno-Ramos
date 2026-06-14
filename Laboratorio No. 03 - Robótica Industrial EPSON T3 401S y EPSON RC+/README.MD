@@ -213,7 +213,7 @@ Para entender cómo se comporta el robot durante la ejecución del algoritmo, se
 
 ```mermaid
 flowchart LR
-    %%  Izquierda---
+    %% --- DIAGRAMA DE LA IZQUIERDA (MAIN) ---
     subgraph M ["Programa Principal (Main)"]
         direction TD
         Start1([Inicio del Programa]) --> Main["Función main"]
@@ -224,9 +224,15 @@ flowchart LR
         GoHome2 --> EndProg([Fin del Programa])
     end
 
-    %% Derecha ---
+    %% --- DIAGRAMA DE LA DERECHA (FUNCIÓN) ---
     subgraph P ["Función Paletizado_01"]
         direction TD
+        
+        %% TRUCO: Nodos invisibles para estirar la caja proporcionalmente
+        Izquierda[ ] --- Derecha[ ]
+        style Izquierda fill:none,stroke:none
+        style Derecha fill:none,stroke:none
+        
         Start2([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 (6x5 posiciones)"]
         
         DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
@@ -248,6 +254,8 @@ flowchart LR
         ReleaseH2 --> NextRoutine["Avanzar Rutina: X = X + 1"]
         NextRoutine --> RoutineLoop
     end
+
+    %% Estilos estéticos para las cajas contenedoras
     style M fill:#1e1e24,stroke:#333,stroke-width:2px,color:#fff
     style P fill:#1e1e24,stroke:#333,stroke-width:2px,color:#fff
     
