@@ -227,11 +227,7 @@ flowchart TD
 <div style="margin-left">
 
 ```mermaid
----
-config:
-  layout: fixed
-  theme: redux
----
+
 flowchart TB
     Start(["Inicio: Función Paletizado_01"]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
     DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
