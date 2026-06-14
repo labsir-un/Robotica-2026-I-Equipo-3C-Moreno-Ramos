@@ -207,7 +207,7 @@ Para el correcto laboratorio, **EPSON RC+ 7.0** resultó ser la herramienta idea
 
 Aunque se informó que no era necesario la manufactura del gripper ya que por cuestiones de tiempo se utilizaria el que se encuentra en el laboratorio, se diseño y modelo el gripper en el sofware inventor con los siguientes componentes y cualidades :
 
--Soporte/Union : Se realizo un soporte el cual ensambla el griper con el robot a travez de dos tornillos pasantes, se visualiza que solo uno sera funcional por que el efector final del robot solo cuenta con un agujero para este, pero por cuestiones de simetria se colocan los dos .
+- Soporte/Union : Se realizo un soporte el cual ensambla el griper con el robot a travez de dos tornillos pasantes, se visualiza que solo uno sera funcional por que el efector final del robot solo cuenta con un agujero para este, pero por cuestiones de simetria se colocan los dos .
 
 - Tornillo Pasante : Tornillos roscado metálico para unir el gripper con el robot .
 
