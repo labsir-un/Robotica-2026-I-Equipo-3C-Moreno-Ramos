@@ -270,6 +270,34 @@ flowchart TB
 
 ## Plano de planta y ubicación inicial
 
+Se adjunta a continuación el plano de planta con la posicioón de la cubeta de huevos y posiciones iniciales de los huevos , despues de varios intentos consideramos que fue la posición mas exitosa para el correcto desarrollo de el laboratorio ,  46,8 mm lejos de la base frontoal del robot y 126,5 mm la exquina lateral izquierda, se puede enconntrar de igual forma el plano en la seccion "PlanoPlanta" del repositorio.
+
+
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1ncUSyCpmaQdeZ-cfhXGmuzgUaalBSjXP/view?usp=sharing">
+    <img src="images/Portada Imagen.jpeg" alt="Ver video de Simulación" width="600">
+  </a>
+</p>
+
+<p align="center">
+  <b>
+    Video de implementación Final
+      
+  </b><br>
+</p>
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1zcaH6DsCg6bbYIwTE01ld8Er0W8gi8Cl/view?usp=sharing">
+    <img src="images/simulacion.png" alt="Ver video en Drive" width="600">
+  </a>
+</p>
+
+
+
+
+
+
 ## Código desarrollado en SPEL+
 
 El código desarrollado se encuentra en la carpeta /codigo del repositorio,los puntos utilizados para el paletizado fueron los siguientes :
