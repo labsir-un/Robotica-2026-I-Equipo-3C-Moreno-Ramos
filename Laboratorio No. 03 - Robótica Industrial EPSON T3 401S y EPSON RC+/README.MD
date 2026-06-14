@@ -215,14 +215,12 @@ flowchart TD
     Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
     Init --> GoHome1(["Mover a posición segura: Home"])
     GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
-    
-    %% Nota: El uso de doble borde [[]] indica conceptualmente que llama a otro proceso
-    CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
+    endRoutine --> GoHome2(["Regresar a posición segura: Home"])
     GoHome2 --> EndProg([Fin del Programa])
 ```
 ```mermaid
 flowchart TD
-    StartRoutine([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
+    Start([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
     
     DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
     
