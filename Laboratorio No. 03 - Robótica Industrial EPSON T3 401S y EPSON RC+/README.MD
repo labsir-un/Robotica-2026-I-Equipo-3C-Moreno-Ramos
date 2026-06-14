@@ -223,10 +223,10 @@ flowchart TD
     GoHome2 --> EndProg([Fin del Programa])
 ```
 
-
+<div align="center">
 ```mermaid
 
-<div align="center">
+
 flowchart TD
     Start([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
     
