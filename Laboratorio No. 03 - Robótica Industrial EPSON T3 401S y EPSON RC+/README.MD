@@ -223,12 +223,12 @@ Se adjuntas las imagenes del gripper diseñado, su ensamblaje y su función :
 </p>
 
 <p align="center">
-  <img src="images/GripperIso.png" alt="GripperIso.png" width="325">
-  <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="375">
+  <img src="images/GripperIso.png" alt="GripperIso.png" width="310">
+  <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="360">
 </p>
 
 <p align="center">
-  <img src="images/GripperYrobot.png" alt="GripperYrobot" width="300">
+  <img src="images/GripperYrobot.png" alt="GripperYrobot" width="320">
 </p>
 
 
