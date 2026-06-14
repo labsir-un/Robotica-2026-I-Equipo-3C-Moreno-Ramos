@@ -216,20 +216,19 @@ Aunque se informó que no era necesario la manufactura del gripper ya que por cu
 Se adjuntas las imagenes del gripper diseñado y su función :
 
 <p align="center">
-  <img src="images/Esquematico.pngg" alt="Esquematico" width="800">
+  <img src="images/Esquematico.png" alt="Esquematico" width="400">
 </p>
 
 <p align="center">
-  <img src="images/GripperYrobot.png" alt="GripperYrobot" width="800">
+  <img src="images/GripperYrobot.png" alt="GripperYrobot" width="400">
 </p>
 
 <p align="center">
-  <img src="images/GripperIso.png" alt="GripperIso.png" width="800">
+  <img src="images/GripperIso.png" alt="GripperIso.png" width="400">
+  <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="400">
 </p>
 
-<p align="center">
-  <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="800">
-</p>
+
 
 
 
