@@ -224,7 +224,6 @@ flowchart TD
 ```
 
 
-<div style="margin-left">
 
 ```mermaid
 
@@ -245,8 +244,6 @@ flowchart TB
     NextRoutine --> RoutineLoop
 ```
 
-</div>
-no se por que la de abajo me sale corrida por ma que todo lo que la hago la de arriba no tiene nada y a un asi esta centrada{
 
 
 
