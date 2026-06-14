@@ -217,7 +217,7 @@ Se adjuntas las imagenes del gripper diseñado y su función :
 
 <p align="center">
   <img src="images/Esquematico.png" alt="Esquematico" width="400">
-  <img src="images/GripperYrobot.png" alt="GripperYrobot" width="400">
+  <img src="images/GripperYrobot.png" alt="GripperYrobot" width="300">
 </p>
 
 
