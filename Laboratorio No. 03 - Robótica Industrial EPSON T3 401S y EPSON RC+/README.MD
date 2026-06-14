@@ -226,9 +226,11 @@ A continuación las imagenes del gripper diseñado, su ensamblaje y su función 
   <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="350">
 </p>
 
+<p align="center">
+  <img src="images/GripperYrobot.png" alt="GripperYrobot" width="320">
+</p>
 
-
-
+Se adjuntan los modelados del gripper con su respectivo ensamblaje en el apartado "Cads" del repositorio 
 
 ## Diagrama de flujo de la trayectoria
 
