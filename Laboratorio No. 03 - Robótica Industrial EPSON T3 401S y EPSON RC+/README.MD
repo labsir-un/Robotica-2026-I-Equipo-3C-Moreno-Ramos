@@ -243,7 +243,21 @@ flowchart TB
     ReleaseH2 --> NextRoutine["Avanzar a la Siguiente Rutina: X = X + 1"]
     NextRoutine --> RoutineLoop
 ```
-
+```mermaid
+flowchart TB
+    Start(["Inicio del Programa"]) --> Main["Función main"]
+    Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
+    Init --> GoHome1(["Mover a posición segura: Home"])
+    GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
+    CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
+    GoHome2 --> EndProg(["Fin del Programa"])
+    n1(["Inicio del Programa"]) --> n2["Función main"]
+    n2 --> n3["Configuración Inicial del Robot:<br>- Activar Motor2s (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
+    n3 --> n4(["Mover a posición segura: Home"])
+    n4 --> n5[["Llamar a Función Paletizado_01"]]
+    n5 --> n6(["Regresar a posición segura: Home"])
+    n6 --> n7(["Fin del Programa"])
+```
 
 
 
