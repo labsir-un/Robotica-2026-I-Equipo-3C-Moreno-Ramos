@@ -214,11 +214,37 @@ flowchart TD
     Start([Inicio del Programa]) --> Main["Función main"]
     Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
     Init --> GoHome1(["Mover a posición segura: Home"])
-    GoHome1 --> CallRoutine["Llamar a Función Paletizado_01"]
-    EndRoutine --> GoHome2(["Regresar a posición segura: Home"])
-    GoHome2 --> EndProg([Fin del Programa])
-
+    GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
     
+    %% Nota: El uso de doble borde [[]] indica conceptualmente que llama a otro proceso
+    CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
+    GoHome2 --> EndProg([Fin del Programa])
+```
+```mermaid
+flowchart TD
+    StartRoutine([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
+    
+    DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
+    
+    RoutineLoop -- Sí --> PrintMsg["Imprimir en Consola:<br>Voy en la Rutina X"]
+    
+    PrintMsg --> PickH1["Jump Pallet a Posición de Huevo 1<br>Esperar estabilización (Wait)"]
+    PickH1 --> GrabH1["Apagar Salida Digital: Off DO_09<br>Activar Vacío / Agarrar Huevo 1"]
+    
+    GrabH1 --> DropH1["Jump Pallet a Destino de Huevo 1<br>Esperar de estabilización (Wait)"]
+    DropH1 --> ReleaseH1["Encender Salida Digital: On DO_09<br>Desactivar Vacío / Soltar Huevo 1"]
+    
+    ReleaseH1 --> PickH2["Jump Pallet a Posición de Huevo 2<br>Esperar de estabilización (Wait)"]
+    PickH2 --> GrabH2["Apagar Salida Digital: Off DO_09<br>Activar Vacío / Agarrar Huevo 2"]
+    
+    GrabH2 --> DropH2["Jump Pallet a Destino de Huevo 2<br>Esperar de estabilización (Wait)"]
+    DropH2 --> ReleaseH2["Encender Salida Digital: On DO_09<br>Desactivar Vacío / Soltar Huevo 2"]
+    
+    ReleaseH2 --> NextRoutine["Avanzar a la Siguiente Rutina: X = X + 1"]
+    NextRoutine --> RoutineLoop
+    
+    RoutineLoop -- No --> EndRoutine([Fin: Finalizar Paletizado_01])
+
 ```
     
 
