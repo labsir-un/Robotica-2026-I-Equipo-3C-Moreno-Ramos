@@ -205,15 +205,17 @@ Para el correcto laboratorio, **EPSON RC+ 7.0** resultó ser la herramienta idea
 
 ## Diseño técnico del gripper neumático por vacío
 
-Aunque se informó que no era necesario la manufactura del gripper ya que por cuestiones de tiempo se utilizaria el que esta en el laboratorio, se diseño el gripper en inventor con los siguientes componentes y cualidades :
+Aunque se informó que no era necesario la manufactura del gripper ya que por cuestiones de tiempo se utilizaria el que se encuentra en el laboratorio, se diseño y modelo el gripper en el sofware inventor con los siguientes componentes y cualidades :
 
-- Racor / Tornillo Pasante : Tubo roscado metálico hueca que tiene la función de soporte mecánico para unir con el robot y ademas  conduce el aire del comprensor al objeto ,se introduce de abajo hacia arriba a través del orificio del soporte que está en la punta del eje Z del robot EPSON.
+-Soporte/Union : Se realizo un soporte el cual ensambla el griper con el robot a travez de dos tornillos pasantes, se visualiza que solo uno sera funcional por que el efector final del robot solo cuenta con un agujero para este, pero por cuestiones de simetria se colocan los dos .
 
-- Tuerca :  Tuerca hexagonal estándar (o a veces un par de tuercas para hacer contratuerca) que coincide exactamente con la rosca externa del tornillo pasante mencionado arriba para dar soporte y facilidaded de enganche y desenganche al robot .
+- Tornillo Pasante : Tornillos roscado metálico para unir el gripper con el robot .
 
-- Ventosa de vacio : Al tener pliegues cuando el robot baja en el eje Z y toca el objeto, la ventosa se comprime ligeramente. Esto actúa como un resorte que absorbe el impacto (evitando romper piezas delicadas como el huevo), Cuando el robot activa el vacío, el aire atrapado entre la ventosa y la pieza es succionado a través del tornillo mencionado al comienzo . Al bajar la presión interna, la presión atmosférica del exterior "empuja" la pieza contra la ventosa transformando el robot en pick and places.
+- Union roscada neunatica :  Se realizo una union que une la ventosa de vacio con el soporte y ademas con el tubo neumatico que hace la unión al compresor de aire o a la bomba de vacio .
 
-Se adjuntas las imagenes del gripper diseñado y su función :
+- Ventosa de vacio : Al tener pliegues cuando el robot baja en el eje Z y toca el objeto, la ventosa se comprime ligeramente. Esto actúa como un resorte que absorbe el impacto (evitando romper piezas delicadas como el huevo), Cuando el robot activa el vacío, el aire atrapado entre la ventosa y la pieza es succionado a través del tornillo mencionado al comienzo . Al bajar la presión interna, la presión atmosférica del exterior "empuja" la pieza contra la ventosa transformando el robot en  uno de tipo pick and place neumatico .
+
+Se adjuntas las imagenes del gripper diseñado, su ensamblaje y su función :
 
 <p align="center">
   <img src="images/Esquematico.png" alt="Esquematico" width="400">
