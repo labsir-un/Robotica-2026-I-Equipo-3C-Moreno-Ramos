@@ -221,7 +221,8 @@ flowchart TB
     CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
     GoHome2 --> EndProg(["Fin del Programa"])
     Start1(["Inicio: Función Paletizado_01"]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
-    DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
+    DefPallet -->x["X=0"]
+    x --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
     RoutineLoop -- No --> EndRoutine(["Fin: Finalizar Paletizado_01"])
     RoutineLoop -- Sí --> PrintMsg["Imprimir en Consola:<br>Voy en la Rutina X"]
     PrintMsg --> PickH1["Jump Pallet a Posición de Huevo 1<br>Esperar estabilización (Wait)"]
