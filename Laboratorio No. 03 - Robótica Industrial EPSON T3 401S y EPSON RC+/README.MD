@@ -236,6 +236,7 @@ flowchart TD
     
     
 ```
+```mermaid
 
 flowchart TD
     Start([Inicio del Programa]) --> Main["Función main"]
