@@ -215,7 +215,8 @@ flowchart TD
     Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
     Init --> GoHome1(["Mover a posición segura: Home"])
     GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
-    endRoutine --> GoHome2(["Regresar a posición segura: Home"])
+
+    CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
     GoHome2 --> EndProg([Fin del Programa])
 ```
 ```mermaid
