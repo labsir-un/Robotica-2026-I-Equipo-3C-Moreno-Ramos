@@ -228,10 +228,10 @@ flowchart LR
     subgraph P ["Función Paletizado_01"]
         direction TD
         
-        %% TRUCO: Nodos invisibles para estirar la caja proporcionalmente
-        Izquierda[ ] --- Derecha[ ]
-        style Izquierda fill:none,stroke:none
-        style Derecha fill:none,stroke:none
+        %% TRUCO DE ANCHO: Espacios invisibles muy largos para estirar el contenedor
+        AnchoIzq["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"] --- AnchoDer["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
+        style AnchoIzq fill:none,stroke:none
+        style AnchoDer fill:none,stroke:none
         
         Start2([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 (6x5 posiciones)"]
         
