@@ -215,21 +215,7 @@ Aunque se informó que no era necesario la manufactura del gripper ya que por cu
 
 - Ventosa de vacio : Al tener pliegues cuando el robot baja en el eje Z y toca el objeto, la ventosa se comprime ligeramente. Esto actúa como un resorte que absorbe el impacto (evitando romper piezas delicadas como el huevo), Cuando el robot activa el vacío, el aire atrapado entre la ventosa y la pieza es succionado a través del tornillo mencionado al comienzo . Al bajar la presión interna, la presión atmosférica del exterior "empuja" la pieza contra la ventosa transformando el robot en  uno de tipo pick and place neumatico .
 
-Se adjuntas las imagenes del gripper diseñado, su ensamblaje y su función :
-
-<p align="center">
-  <img src="images/Esquematico.png" alt="Esquematico" width="430">
- 
-</p>
-
-<p align="center">
-  <img src="images/GripperIso.png" alt="GripperIso.png" width="310">
-  <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="350">
-</p>
-
-<p align="center">
-  <img src="images/GripperYrobot.png" alt="GripperYrobot" width="320">
-</p>}
+A continuación las imagenes del gripper diseñado, su ensamblaje y su función :
 
 
 
