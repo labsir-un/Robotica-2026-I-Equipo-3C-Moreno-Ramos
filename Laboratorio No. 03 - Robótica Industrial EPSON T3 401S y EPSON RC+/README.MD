@@ -227,6 +227,11 @@ flowchart TD
 <div style="margin-left">
 
 ```mermaid
+---
+config:
+  layout: fixed
+  theme: neo
+---
 flowchart TB
     Start(["Inicio: Función Paletizado_01"]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
     DefPallet --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
@@ -242,7 +247,6 @@ flowchart TB
     DropH2 --> ReleaseH2["Encender Salida Digital: On DO_09<br>Desactivar Vacío / Soltar Huevo 2"]
     ReleaseH2 --> NextRoutine["Avanzar a la Siguiente Rutina: X = X + 1"]
     NextRoutine --> RoutineLoop
-      
 ```
 
 </div>
