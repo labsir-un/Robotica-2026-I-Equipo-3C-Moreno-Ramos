@@ -318,12 +318,9 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 
 <p align="center">
 
-    <img src="images/SuperiorReal.jpegg" alt="SuperiorR" width="600">
+    <img src="images/SuperiorReal.jpeg" alt="SuperiorR" width="600">
   
 </p>
-
-
-
 
 
 
