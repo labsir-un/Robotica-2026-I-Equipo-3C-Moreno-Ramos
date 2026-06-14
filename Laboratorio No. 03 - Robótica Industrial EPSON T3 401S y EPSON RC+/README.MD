@@ -215,8 +215,8 @@ flowchart TD
     Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
     Init --> GoHome1(["Mover a posición segura: Home"])
     GoHome1 --> CallRoutine["Llamar a Función Paletizado_01"]
-    end
-subgraph Paletizado_01 ["Función Paletizado_01"]
+    
+    subgraph Paletizado_01 ["Función Paletizado_01"]
         DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"] --> RoutineLoop{"¿Ejecutar Rutina X?<br>(X va desde 1 hasta 29)"}
         
         RoutineLoop -- Sí --> PrintMsg["Imprimir en Consola:<br>Voy en la Rutina X"]
@@ -237,11 +237,11 @@ subgraph Paletizado_01 ["Función Paletizado_01"]
         NextRoutine --> RoutineLoop
         
         RoutineLoop -- No --> EndRoutine["Finalizar Paletizado_01"]
+    end
 
     EndRoutine --> GoHome2(["Regresar a posición segura: Home"])
     GoHome2 --> EndProg([Fin del Programa])
 
-    %% Estilos para volver invisible el fondo y borde del recuadro del subgraph
     style Paletizado_01 fill:transparent,stroke:transparent
 ```
 
