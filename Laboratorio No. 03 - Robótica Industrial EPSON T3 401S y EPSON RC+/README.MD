@@ -209,6 +209,13 @@ Para el correcto laboratorio, **EPSON RC+ 7.0** resultó ser la herramienta idea
 
 Para entender cómo se comporta el robot durante la ejecución del algoritmo, se diseño el siguiente diagrama de flujo. Este mapa representa tanto la configuración inicial del sistema en la rutina principal, como la lógica secuencial que se repite a lo largo de las 29 rutinas para mover los huevos siguiendo el patrón tipico de un de ajedrez.
 
+<div style="
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 40px; 
+  width: 100%; 
+  margin: 20px 0;
 ```mermaid
 flowchart TD
     Start([Inicio del Programa]) --> Main["Función main"]
@@ -219,6 +226,7 @@ flowchart TD
     CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
     GoHome2 --> EndProg([Fin del Programa])
 ```
+
 ```mermaid
 flowchart TD
     Start([Inicio: Función Paletizado_01]) --> DefPallet["Definir Matriz de la Cubeta:<br>Pallet 1 con dimensiones de 6x5 posiciones"]
@@ -243,8 +251,14 @@ flowchart TD
     NextRoutine --> RoutineLoop
     
     
-
 ```
+
+</div>
+
+
+
+
+
     
 
 ## Plano de planta y ubicación inicial
