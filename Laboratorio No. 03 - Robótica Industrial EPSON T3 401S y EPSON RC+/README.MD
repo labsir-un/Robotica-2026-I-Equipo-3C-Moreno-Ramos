@@ -225,7 +225,7 @@ flowchart TD
 
 
 
-<div align="center">
+<div style="display: flex; justify-content: center; margin-right: 50px;">
 
 ```mermaid
 flowchart TD
