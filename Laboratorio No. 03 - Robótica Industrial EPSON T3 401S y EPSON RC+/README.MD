@@ -217,6 +217,17 @@ Aunque se informó que no era necesario la manufactura del gripper ya que por cu
 
 A continuación las imagenes del gripper diseñado, su ensamblaje y su función :
 
+<p align="center">
+  <img src="images/Esquematico.png" alt="Esquematico" width="430">
+</p>
+
+<p align="center">
+  <img src="images/GripperIso.png" alt="GripperIso.png" width="310">
+  <img src="images/GripperIsoPosterior.png" alt="GripperIsoPosterior" width="350">
+</p>
+
+
+
 
 
 ## Diagrama de flujo de la trayectoria
