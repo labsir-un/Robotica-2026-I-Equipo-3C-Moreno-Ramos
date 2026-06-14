@@ -274,24 +274,54 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 
 
 
-<p align="center">
-  <a href="https://drive.google.com/file/d/1ncUSyCpmaQdeZ-cfhXGmuzgUaalBSjXP/view?usp=sharing">
-    <img src="images/Portada Imagen.jpeg" alt="Ver video de Simulación" width="600">
-  </a>
-</p>
 
 <p align="center">
   <b>
-    Video de implementación Final
-      
+    Plano de planta 
   </b><br>
 </p>
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1zcaH6DsCg6bbYIwTE01ld8Er0W8gi8Cl/view?usp=sharing">
-    <img src="images/simulacion.png" alt="Ver video en Drive" width="600">
-  </a>
+
+    <img src="PlanoPlanta/Planodeplantpdf.pdf" alt="PlanoPlanta" width="600">
+  
 </p>
+
+<p align="center">
+  <b>
+    Vistas
+  </b><br>
+</p>
+
+
+<p align="center">
+
+    <img src="images/IsoRobotyHuevos.png" alt="IsoRobotyHuevos" width="600">
+  
+</p>
+<p align="center">
+
+    <img src="images/LateralRobotyHuevos.png" alt="LateralRobotyHuevos" width="600">
+  
+</p>
+<p align="center">
+
+    <img src="images/SuperiorRobotyHuevos.png" alt="SuperiorRobotyHuevos.png" width="600">
+  
+</p>
+
+<p align="center">
+  <b>
+    Vista Real Superior
+  </b><br>
+</p>
+
+<p align="center">
+
+    <img src="images/SuperiorReal.jpegg" alt="SuperiorR" width="600">
+  
+</p>
+
 
 
 
