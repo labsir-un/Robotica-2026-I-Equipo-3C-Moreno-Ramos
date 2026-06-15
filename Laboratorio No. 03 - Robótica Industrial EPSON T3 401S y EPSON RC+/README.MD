@@ -277,7 +277,7 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 </p>
 
 <p align="center">
-    <img src="PlanoPlanta/Planodeplantpdf.pdf" alt="PlanoPlanta" width="600">
+    <img src="images/PlanoPlanta.png" alt="PlanoPlanta" width="600">
 </p>
 
 <p align="center">
