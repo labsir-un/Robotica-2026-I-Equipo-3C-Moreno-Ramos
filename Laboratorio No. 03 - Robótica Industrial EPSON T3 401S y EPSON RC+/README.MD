@@ -264,7 +264,7 @@ flowchart TB
 ```
 ## Plano de planta y ubicación inicial
 
-Se adjunta a continuación el plano de planta con la posicioón de la cubeta de huevos y posiciones iniciales de los huevos , despues de varios intentos consideramos que fue la posición mas exitosa para el correcto desarrollo de el laboratorio ,  46,8 mm lejos de la base frontoal del robot y 126,5 mm la exquina lateral izquierda, se puede enconntrar de igual forma el plano en la seccion "PlanoPlanta" del repositorio.
+Se adjunta a continuación el plano de planta con la posición de la cubeta de huevos y posiciones iniciales de los huevos , despues de varios intentos consideramos que fue la posición mas exitosa para el correcto desarrollo de el laboratorio ,  46,8 mm lejos de la base frontal del robot y 126,5 mm a la exquina lateral izquierda, se puede enconntrar de igual forma el plano en la seccion "PlanoPlanta" del repositorio.
 
 <p align="center">
   <b>
@@ -313,7 +313,7 @@ El código desarrollado se encuentra en la carpeta /codigo del repositorio,los p
 
 ## Videos demostrativos
 
-A continuación se presentan los videos requeridos por la guía de laboratorio de simulacion e implementación con su respectiva introducción en donde se observa la implementación en simulación y en el robot real. Los videos están subidos en la carpeta /videos de este repositorio pero también se puede acceder abajo dando click a la imagen y será dirigido a drive. 
+A continuación se presentan los videos requeridos por la guía de laboratorio de simulacion e implementación con su respectiva introducción en donde se observa la implementación en simulación y en el robot real. Los videos están subidos en la carpeta /videos de este repositorio pero también se puede acceder abajo dando click a la imagen siendo dirigido a drive. 
 
 <p align="center">
   <b>
