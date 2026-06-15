@@ -273,10 +273,6 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 </p>
 
 <p align="center">
-    <img src="images/robot_manager.png" alt="Robot manager" width="800">
-</p>
-
-<p align="center">
     <img src="images/PlanoPlanta.png" alt="PlanoPlanta" width="600">
 </p>
 
