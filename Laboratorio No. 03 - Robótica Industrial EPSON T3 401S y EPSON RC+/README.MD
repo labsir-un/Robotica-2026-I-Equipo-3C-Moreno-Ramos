@@ -56,7 +56,7 @@
 
 Para el desarrollo de este laboratorio, se definió una configuración de Home personalizada en el EPSON T3-401S, reemplazando la postura que el software EPSON RC+ asigna por defecto al inicio. Con esto se busca que el manipulador iniciara centrado exactamente en la mitad de su área de trabajo y con el brazo extendido hacia adelante. Esto garantiza un alcance simétrico hacia ambos extremos de la mesa y evita que el robot comience el movimiento sesgado o limitado hacia un costado.
 
-Para lograrlo, se configuró la primera articulación (J1) a 90°, lo que en el controlador equivale a un total de "204800 pulsos". Con este punto base establecido, se alineó los demás ejes para conseguir una postura completamente estable y segura para la manipulación.
+Para lograrlo, se configuró la primera articulación (J1) a 90°, lo que en el controlador equivale a un total de "204800 pulsos". Con este punto base establecido, se alinearon los demás ejes para conseguir una postura completamente estable y segura para la manipulación.
 
 A continuación, se presentan los parámetros  detallados asignados a cada una de las articulaciones para nuestro Home personalizado:
 
@@ -70,9 +70,9 @@ A continuación, se presentan los parámetros  detallados asignados a cada una d
   <img src="images/pulsos.png" alt="pulsos" width="285" style="border: none !important; box-shadow: none !important;">
 </p>
 
-Esta posición de Home es la referencia fundamental de todo el laboratorio desaroolador. A partir de ella se calibra el origen de la cubeta de 30 posiciones ($6 \times 5$) mediante el comando `Pallet 1` registrando la ubicación inicial de los dos huevos que interactúan en la rutina. Aunque el programa simula el recorrido independiente de dos elementos (Huevo 1 y Huevo 2), físicamente ambos comparten la misma matriz de posiciones. Por lo tanto, iniciar desde un punto inicial idéntico y reproducible es indispensable para que el conteo de las coordenadas del paletizado no acumulara desfases.
+Esta posición de Home es la referencia fundamental de todo el laboratorio desarrollado. A partir de ella se calibra el origen de la cubeta de 30 posiciones ($6 \times 5$) mediante el comando `Pallet 1` registrando la ubicación inicial de los dos huevos que interactúan en la rutina. Aunque el programa simula el recorrido independiente de dos elementos (Huevo 1 y Huevo 2), físicamente ambos comparten la misma matriz de posiciones. Por lo tanto, iniciar desde un punto inicial idéntico y reproducible es indispensable para que el conteo de las coordenadas del paletizado no acumulara desfases.
 
-Por otra parte, la configuración de Home juega un rol crucial en la seguridad de la manipulación neumática. Debido a que la electroválvula de vacío trabaja con lógica invertida (donde `Off DO_09` activa el agarre succionando el huevo y `On DO_09` libera el huevo), necesitábamos que el robot iniciara lo suficientemente lejos de la superficie. Al arrancar en Home y ejecutar los traslados mediante el comando `Jump Pallet(1, posición)`, el controlador se ve obligado a levantar el gripper verticalmente hasta el plano z seguro antes de descender sobre el huevo, reduciendo el riesgo de romper el objeto, la herramienta y/o tropezar con la cubeta durante los desplazamientos horizontales.
+Por otra parte, la configuración de Home juega un rol crucial en la seguridad de la manipulación neumática. Debido a que la electroválvula de vacío trabaja con lógica invertida (donde `Off DO_09` activa el agarre succionando el huevo y `On DO_09` libera el huevo), Se necesita que el robot iniciara lo suficientemente lejos de la superficie. Al arrancar en Home y ejecutar los traslados mediante el comando `Jump Pallet(1, posición)`, el controlador se ve obligado a levantar el gripper verticalmente hasta el plano z seguro antes de descender sobre el huevo, reduciendo el riesgo de romper el objeto, la herramienta y/o tropezar con la cubeta durante los desplazamientos horizontales.
 
 Finalmente, esta postura garantiza la repetibilidad del código en cada ciclo de trabajo. Como se observa en el programa desarrollado, la instrucción `Home` se ejecuta al iniciar la función `main` para limpiar cualquier postura previa del manipulador, y se vuelve a llamar al terminar la rutina `Paletizado_01`. Esto asegura que toda la secuencia basada en el patrón de caballo de ajedrez se ejecute bajo las mismas condiciones exactas en cada simulación o prueba física.
 
@@ -101,14 +101,14 @@ Para ejecutar los desplazamientos en el modo cartesiano, el software presenta un
 
 En cuanto a las rotaciones, al tratarse de un robot SCARA de 4 ejes, el EPSON T3-401S solo cuenta con la capacidad de rotar sobre su propio eje vertical a través de la coordenada **U** (los botones **V** y **W** permanecen inhabilitados ya que son exclusivos para manipuladores de 6 grados de libertad). Al presionar `+U` o `-U`, se logra que el gripper neumático gire sobre su propio centro, lo cual es clave para orientar correctamente la succión al interactuar con la cubeta.
 
-En esta misma ventana se controla la velocidad del jogging seleccionando entre los niveles **Low, Medium o High**, así como la distancia de avance por cada pulsación en el modo síncrono (*Jog Dist*). Esta combinación de herramientas es la que nos permite aproximar el robot con total precisión a la superficie, registrar los puntos exactos de la cubeta de huevos y verificar que no existan riesgos de colisión antes de correr el código definitivo.
+En esta misma ventana se controla la velocidad del jogging seleccionando entre los niveles **Low, Medium o High**, así como la distancia de avance por cada pulsación en el modo síncrono (*Jog Dist*). Esta combinación de herramientas es la que permite aproximar el robot con total precisión a la superficie, registrar los puntos exactos de la cubeta de huevos y verificar que no existan riesgos de colisión antes de correr el código definitivo.
 
 ## Control y niveles de velocidad
 
 Para controlar qué tan rápido y qué tan preciso se desplaza el robot cuando lo operamos de forma manual, la interfaz **Jog & Teach** de EPSON RC+ 7.0 ofrece dos paneles de configuración complementarios: el control directo de velocidad (**Speed**) y la distancia de avance (**Jog Distance**). La combinación de ambos es lo que determina la sensibilidad del robot durante el jogging.
 
 ### 1. Niveles de velocidad directa 
-En la parte superior de la interfaz, contamos con un selector de dos niveles de velocidad de ejecución para los motores: **Baja (Low)** y **Alta (High)**. 
+En la parte superior de la interfaz, Se cuenta con un selector de dos niveles de velocidad de ejecución para los motores: **Baja (Low)** y **Alta (High)**. 
 
 * Para las pruebas iniciales y la aproximación a la cubeta de huevos, se mantuvo el nivel en **Low**. Esto aplica un límite seguro a la potencia de los motores, evitando reacciones bruscas o colisiones por algún error de digitación.
 
@@ -158,7 +158,7 @@ Al activar el controlador virtual, se habilita su simulador tridimensional. Este
 
 Es importante destacar que el software EPSON RC+ instalado en la computadora no manipula directamente los motores del robot; en su lugar, delega esa tarea mediante el siguiente proceso interno:
 
-1. **Compilación del código:** Cuando ordenamos correr el programa, EPSON RC+ traduce nuestras instrucciones de alto nivel (como `Home`, `Jump Pallet` o `Off DO_09`) en comandos binarios de bajo nivel.
+1. **Compilación del código:** Cuando se ordena correr el programa, EPSON RC+ traduce nuestras instrucciones de alto nivel (como `Home`, `Jump Pallet` o `Off DO_09`) en comandos binarios de bajo nivel.
 
 2. **Envío de datos:** Estas instrucciones procesadas se transmiten en paquetes de datos a través del cable USB hacia el controlador del robot.
 
@@ -234,14 +234,14 @@ Se adjuntan los modelados del gripper con su respectivo ensamblaje en el apartad
 
 ## Diagrama de flujo de la trayectoria
 
-Para entender cómo se comporta el robot durante la ejecución del algoritmo, se diseño el siguiente diagrama de flujo. Este mapa representa tanto la configuración inicial del sistema en la rutina principal, como la lógica secuencial que se repite a lo largo de las 29 rutinas para mover los huevos siguiendo el patrón tipico de un de ajedrez.
+Para entender cómo se comporta el robot durante la ejecución del algoritmo, se diseño el siguiente diagrama de flujo. Este mapa representa tanto la configuración inicial del sistema en la rutina principal, como la lógica secuencial que se repite a lo largo de las 29 rutinas para mover los huevos siguiendo el patrón tipico de un caballo de ajedrez.
 
 
 ```mermaid
 
 flowchart TB
     Start(["Inicio del Programa"]) --> Main["Función main"]
-    Main --> Init["Configuración Inicial del Robot:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
+    Main --> Init["Configuración Inicial del<br>Robot<br>:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
     Init --> GoHome1(["Mover a posición segura: Home"])
     GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
     CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
