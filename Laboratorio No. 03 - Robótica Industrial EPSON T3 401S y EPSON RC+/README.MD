@@ -273,7 +273,7 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 </p>
 
 <p align="center">
-    <img src="images/PlanoPlanta.png" alt="PlanoPlanta" width="600">
+    <img src="images/PlanoPlanta.png" alt="PlanoPlanta" width="800">
 </p>
 
 <p align="center">
@@ -283,12 +283,12 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 </p>
 
 <p align="center">
-    <img src="images/IsoRobotyHuevos.png" alt="IsoRobotyHuevos" width="310">
-    <img src="images/LateralRobotyHuevos.png" alt="LateralRobotyHuevos" width="310">
+    <img src="images/IsoRobotyHuevos.png" alt="IsoRobotyHuevos" width="410">
+    <img src="images/LateralRobotyHuevos.png" alt="LateralRobotyHuevos" width="410">
 </p>
 
 <p align="center">
-    <img src="images/SuperiorRobotyHuevos.png" alt="SuperiorRobotyHuevos.png" width="400"> 
+    <img src="images/SuperiorRobotyHuevos.png" alt="SuperiorRobotyHuevos.png" width="350"> 
 </p>
 
 <p align="center">
