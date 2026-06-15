@@ -262,18 +262,9 @@ flowchart TB
     ReleaseH2 --> NextRoutine["Avanzar a la Siguiente Rutina: X = X + 1"]
     NextRoutine --> RoutineLoop
 ```
-
-
-
-
-    
-
 ## Plano de planta y ubicación inicial
 
 Se adjunta a continuación el plano de planta con la posicioón de la cubeta de huevos y posiciones iniciales de los huevos , despues de varios intentos consideramos que fue la posición mas exitosa para el correcto desarrollo de el laboratorio ,  46,8 mm lejos de la base frontoal del robot y 126,5 mm la exquina lateral izquierda, se puede enconntrar de igual forma el plano en la seccion "PlanoPlanta" del repositorio.
-
-
-
 
 <p align="center">
   <b>
@@ -282,9 +273,11 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 </p>
 
 <p align="center">
+    <img src="images/robot_manager.png" alt="Robot manager" width="800">
+</p>
 
+<p align="center">
     <img src="PlanoPlanta/Planodeplantpdf.pdf" alt="PlanoPlanta" width="600">
-  
 </p>
 
 <p align="center">
@@ -293,21 +286,16 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
   </b><br>
 </p>
 
-
 <p align="center">
-
     <img src="images/IsoRobotyHuevos.png" alt="IsoRobotyHuevos" width="600">
-  
 </p>
-<p align="center">
 
+<p align="center">
     <img src="images/LateralRobotyHuevos.png" alt="LateralRobotyHuevos" width="600">
-  
 </p>
-<p align="center">
 
-    <img src="images/SuperiorRobotyHuevos.png" alt="SuperiorRobotyHuevos.png" width="600">
-  
+<p align="center">
+    <img src="images/SuperiorRobotyHuevos.png" alt="SuperiorRobotyHuevos.png" width="600"> 
 </p>
 
 <p align="center">
@@ -317,12 +305,8 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 </p>
 
 <p align="center">
-
     <img src="images/SuperiorReal.jpeg" alt="SuperiorR" width="600">
-  
 </p>
-
-
 
 
 ## Código desarrollado en SPEL+
