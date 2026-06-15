@@ -284,7 +284,7 @@ Se adjunta a continuación el plano de planta con la posicioón de la cubeta de 
 
 <p align="center">
     <img src="images/IsoRobotyHuevos.png" alt="IsoRobotyHuevos" width="410">
-    <img src="images/LateralRobotyHuevos.png" alt="LateralRobotyHuevos" width="410">
+    <img src="images/LateralRobotyHuevos.png" alt="LateralRobotyHuevos" width="445">
 </p>
 
 <p align="center">
