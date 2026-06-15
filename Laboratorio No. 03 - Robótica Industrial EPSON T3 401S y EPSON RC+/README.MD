@@ -241,7 +241,7 @@ Para entender cómo se comporta el robot durante la ejecución del algoritmo, se
 
 flowchart TB
     Start(["Inicio del Programa"]) --> Main["Función main"]
-    Main --> Init["Configuración Inicial del<br>Robot<br>:<br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
+    Main --> Init["Configuración Inicial del<br>Robot:<br><br>- Activar Motores (Motor On)<br>- Modo de Baja Potencia (Power Low)<br>- Aceleración al 100% (Accel 100, 100)<br>- Velocidad al 100% (Speed 100)"]
     Init --> GoHome1(["Mover a posición segura: Home"])
     GoHome1 --> CallRoutine[["Llamar a Función Paletizado_01"]]
     CallRoutine --> GoHome2(["Regresar a posición segura: Home"])
