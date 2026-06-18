@@ -213,7 +213,7 @@ Aunque se informó que no era necesario la manufactura del gripper ya que por cu
 
 - Union roscada neunatica :  Se realizo una union que une la ventosa de vacio con el soporte y ademas con el tubo neumatico que hace la unión al compresor de aire o a la bomba de vacio .
 
-- Ventosa de vacio : Al tener pliegues cuando el robot baja en el eje Z y toca el objeto, la ventosa se comprime ligeramente. Esto actúa como un resorte que absorbe el impacto (evitando romper piezas delicadas como el huevo), Cuando el robot activa el vacío, el aire atrapado entre la ventosa y la pieza es succionado a través del tornillo mencionado al comienzo . Al bajar la presión interna, la presión atmosférica del exterior "empuja" la pieza contra la ventosa transformando el robot en  uno de tipo pick and place neumatico .
+- Ventosa de vacio : Al tener pliegues cuando el robot baja en el eje Z y toca el objeto, la ventosa se comprime ligeramente. Esto actúa como un resorte que absorbe el impacto (evitando romper piezas delicadas como el huevo), Cuando el robot activa el vacío, el aire atrapado entre la ventosa y la pieza es succionado a través del tornillo mencionado al comienzo . Al bajar la presión interna, la presión atmosférica del exterior "empuja" la pieza contra la ventosa transformando el robot en  uno de tipo pick and place neumático .
 
 A continuación las imagenes del gripper diseñado, su ensamblaje y su función :
 
