@@ -243,3 +243,43 @@ Este acoplamiento cinemático asíncrono permite que `turtle2` persiga al líder
 
 > **Evidencia de Funcionamiento (Líder-Seguidor Completo):**
 > ![Líder Seguidor](images/liderseguidor.png)
+
+## 6. Diagrama de Flujo del Sistema (Mermaid)
+
+El siguiente diagrama integrado representa de extremo a extremo el flujo operativo de la arquitectura lógica, contemplando la inicialización sincrónica de servicios, el procesamiento asíncrono de interrupciones de hardware y el lazo proporcional multiagente. 
+
+Gracias al soporte nativo de GitHub, este diagrama se renderizará automáticamente en el repositorio:
+
+```mermaid
+graph TD
+    A[Inicio de la Arquitectura] --> B[Inicializar rclpy en Nodos]
+    B --> C[Nodo Seguidor: Llama servicio /spawn]
+    C --> D{¿turtle2 ya existe?}
+    D -- No --> E[Crear turtle2 en x=2.0, y=2.0]
+    D -- Sí --> F[Atrapar Excepción y Continuar]
+    E --> G[Configurar Temporizadores @20Hz]
+    F --> G
+    G --> H[Lectura No Bloqueante del Teclado get_key]
+    H --> I{¿Código es \x03 o \x1a?}
+    I -- Sí --> J[Finalización Segura: Restaurar Terminal y Destruir Nodos]
+    I -- No --> K{Evaluación de Tecla Pulsada}
+    
+    K -- Flechas Direccionales --> L[Asignar Velocidad Manual Directa Twist]
+    K -- Teclas 'S' / 'T' --> M[Inyectar Comandos MOVE por tiempo en Cola]
+    K -- Teclas Iniciales --> N[Inyectar Waypoints GO absolutos en Cola]
+    K -- Tecla 'A' --> O[Conmutar Estado de Modo Evasión]
+    K -- Tecla 'R' / 'P' --> P[Llamar Servicio /reset o /set_pen]
+    
+    L --> Q[Bucle Principal: Ejecutar Tarea Prioritaria]
+    M --> Q
+    N --> Q
+    O --> Q
+    P --> Q
+    
+    Q --> R[Publicar Velocidad en /turtle1/cmd_vel]
+    R --> S[Nodo Seguidor: Lee /turtle1/pose y /turtle2/pose]
+    S --> T[Calcular Error Espacial y Aplicar Control Proporcional P]
+    T --> U[Publicar Velocidad en /turtle2/cmd_vel]
+    U --> H
+```
+
