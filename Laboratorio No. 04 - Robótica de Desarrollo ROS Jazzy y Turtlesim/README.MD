@@ -52,6 +52,7 @@ La arquitectura de este sistema es distribuida y desacoplada, compuesta por tres
 * **Tópicos:**
   * `/turtle1/cmd_vel` y `/turtle2/cmd_vel` (`geometry_msgs/msg/Twist`): Canales donde se publican las velocidades lineales y angulares.
   * `/turtle1/pose` y `/turtle2/pose` (`turtlesim/msg/Pose`): Canales de telemetría que transmiten la posición $(x, y, \theta)$ de cada tortuga.
+  * `/turtle1/color_sensor` y `/turtle2/color_sensor` (`turtlesim/msg/Color`): Canales nativos del simulador que publican constantemente los valores RGB del lienzo justo debajo de cada tortuga. Aunque no se emplean activamente en el algoritmo de seguimiento, son parte inherente de la arquitectura del nodo `turtlesim`.
 * **Servicios:**
   * `/spawn` (`turtlesim/srv/Spawn`): Usado de forma autónoma por el seguidor para instanciar a `turtle2`.
   * `/reset` (`std_srvs/srv/Empty`): Resetea el lienzo a su estado inicial.
@@ -90,7 +91,14 @@ Lista los servicios síncronos activos. Permite verificar la existencia de los p
 ![ros2 service list 2](images/ros2servicelist2.png)
 
 #### 6. Mapeo Gráfico de la Infraestructura (`rqt_graph`)
-Herramienta analítica visual indispensable que grafica de manera interactiva la topología de la red actual. Evidencia la relación directa y el flujo de datos del sistema, demostrando visualmente que el nodo seguidor se alimenta de la posición del líder para controlar autónomamente los motores de la segunda tortuga.
+Herramienta analítica visual indispensable que grafica de manera interactiva la topología de la red actual. Para lograr una comprensión profunda de la arquitectura implementada, se realizó el análisis bajo dos filtros de visualización distintos:
+
+Vista 1: Nodos y Tópicos Completos (`Nodes/Topics all`)
+Esta visualización evidencia los espacios de nombres (rectángulos indicando el namespace `/turtle1 y /turtle2`) y los tópicos que habitan dentro de ellos. Se observa claramente el puente de datos: cómo el nodo `/turtle_follower` (derecha) extrae información de los tópicos `/turtle1/pose` y `/turtle2/pose`, calcula la trayectoria, y envía las órdenes correspondientes al tópico `/turtle2/cmd_vel`.
 
 ![rqt_graph](images/rqtgraph.png)
+
+Vista 2: Dependencia Directa entre Nodos (`Nodes only`)
+Al aplicar este filtro, rqt_graph oculta los tópicos para mostrar estrictamente cómo los procesos de software interactúan entre sí. Esta gráfica valida de forma contundente la directriz del laboratorio: El controlador envía datos al simulador (/turtle_controller $\rightarrow$ /turtlesim), y a su vez, el simulador alimenta de posiciones al seguidor para que este retroalimente el ciclo enviando nuevas velocidades al simulador (/turtlesim $\leftrightarrow$ /turtle_follower).
+
 ![rqt graph nodes](images/rqtgraphnodes.png)
