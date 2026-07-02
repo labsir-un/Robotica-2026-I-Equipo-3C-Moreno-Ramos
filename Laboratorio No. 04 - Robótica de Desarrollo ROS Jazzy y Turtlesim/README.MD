@@ -66,8 +66,9 @@ A continuación, se presentan los comandos de diagnóstico ejecutados en ROS 2 J
 #### 1. Verificación de Nodos Activos (`ros2 node list`)
 Este comando interroga al *Graph de ROS 2* para listar todos los procesos de software independientes que se están ejecutando y comunicando entre sí. Permite comprobar que tanto el líder, el seguidor y el simulador se encuentran vivos de forma simultánea.
 
-```bash
-ros2 node list
-```
-
 ![ros2 node list](images/ros2nodelist.png)
+
+#### 2. Auditoría de Canales de Comunicación (`ros2 topic list`)
+Muestra todos los tópicos registrados en el sistema. Es fundamental para verificar que los canales de telemetría (`pose`) y comandos de velocidad (`cmd_vel`) de ambas tortugas fueron creados correctamente por la infraestructura de ROS 2.
+
+![ros2 topic list](images/ros2topiclist.png)
