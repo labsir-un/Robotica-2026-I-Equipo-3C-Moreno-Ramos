@@ -176,12 +176,12 @@ La lógica subyacente se fundamenta en un **Controlador Proporcional (P)** (la b
 1. **Cálculo del Error Espacial:**
    $$\text{distance} = \sqrt{(x_{\text{target}} - x_{\text{current}})^2 + (y_{\text{target}} - y_{\text{current}})^2}$$
    $$\theta_{\text{target}} = \text{atan2}(y_{\text{target}} - y_{\text{current}}, x_{\text{target}} - x_{\text{current}})$$
-   $$\text{angle\_error} = \text{atan2}(\sin(\theta_{\text{target}} - \theta_{\text{current}}), \cos(\theta_{\text{target}} - \theta_{\text{current}}))$$
+   $$\text{angle error} = \text{atan2}(\sin(\theta_{target} - \theta_{current}), \cos(\theta_{target} - \theta_{current}))$$
 
 2. **Leyes de Control Proporcional:**
    Se aplican constantes de ganancia ($K_p$) proporcionales al error calculado para reducir la velocidad a medida que el robot se acerca al objetivo, garantizando una llegada suave y sin oscilaciones:
-   $$v = K_{p,\text{linear}} \cdot \text{distance}$$
-   $$\omega = K_{p,\text{angular}} \cdot \text{angle\_error}$$
+   $$v = K_{p,linear} \cdot \text{distance}$$
+   $$\omega = K_{p,angular} \cdot \text{angle error}$$
 
 El algoritmo orienta primero el robot hacia el punto de destino y posteriormente avanza en línea recta. Al cruzar un umbral crítico de tolerancia ($\text{distance} \le 0.05$), el comando se elimina de la cola mediante `.popleft()` y el sistema procede inmediatamente con el siguiente trazo. Se intercalan comandos tipo `PEN` para levantar (`off`) o asentar (`on`) el lápiz del simulador de forma transparente entre cada letra.
 
@@ -234,10 +234,10 @@ Para asegurar un comportamiento dinámico natural y mitigar el riesgo de colisi�
 
 * **Distancia de Seguridad ($d_{\text{safety}} = 0.8$):** Define el radio crítico de aproximación. Si la distancia euclidiana entre ambos robots es menor o igual a este valor, las velocidades del seguidor caen a cero, deteniéndose a una distancia prudente detrás del líder.
 * **Control Lineal Proporcional ($K_{p,\text{linear}} = 1.5$):** Si el líder se aleja más allá de la distancia de seguridad, la velocidad de avance del seguidor se escala linealmente en función del error remanente:
-  $$v = K_{p,\text{linear}} \cdot (\text{distance} - d_{\text{safety}})$$
+  $$v = K_{p,linear} \cdot (\text{distance} - d_{safety})$$
   Se acota la salida a un valor límite superior de $3.0\text{ m/s}$ para evitar aceleraciones desproporcionadas o inestabilidad si el líder se teletransporta o realiza movimientos bruscos.
 * **Control Angular Proporcional ($K_{p,\text{angular}} = 4.5$):** Para que el seguidor trace curvas suaves y copie de manera fiel las trayectorias complejas (como las letras o giros evasivos), se aplica una ganancia angular elevada sobre el error normalizado de orientación:
-  $$\omega = K_{p,\text{angular}} \cdot \text{angle\_error}$$
+  $$\omega = K_{p,angular} \cdot \text{angle error}$$
 
 Este acoplamiento cinemático asíncrono permite que `turtle2` persiga al líder sin importar si este último se mueve por comandos manuales del teclado, se encuentra ejecutando la evasión de bordes o trazando iniciales mediante coordenadas absolutas.
 
