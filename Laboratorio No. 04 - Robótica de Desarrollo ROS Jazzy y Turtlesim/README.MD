@@ -72,3 +72,25 @@ Este comando interroga al *Graph de ROS 2* para listar todos los procesos de sof
 Muestra todos los tópicos registrados en el sistema. Es fundamental para verificar que los canales de telemetría (`pose`) y comandos de velocidad (`cmd_vel`) de ambas tortugas fueron creados correctamente por la infraestructura de ROS 2.
 
 ![ros2 topic list](images/ros2topiclist.png)
+
+#### 3. Monitorización de Telemetría en Tiempo Real (`ros2 topic echo /turtle1/pose`)
+Vuelca en la terminal el flujo continuo de datos de un tópico. Permite certificar matemáticamente que el nodo líder está publicando sus coordenadas bidimensionales de forma ininterrumpida y con total precisión posicional.
+
+![ros2 topic echo](images/ros2topicecho.png)
+
+#### 4. Análisis de Metadatos del Canal (`ros2 topic info /turtle1/cmd_vel`)
+Nos detalla el tipo exacto de estructura de datos (`geometry_msgs/msg/Twist`) que viaja por el canal, así como el conteo de nodos suscritos y publicadores conectados. Permite comprobar que el nodo move_turtle actúa exitosamente como publicador único de dicho canal.
+
+![ros2 topic info](images/ros2topicinfo.png)
+
+#### 5. Catálogo de Servicios Disponibles (`ros2 service list`)
+Lista los servicios síncronos activos. Permite verificar la existencia de los puntos de acceso indispensables (`/spawn, /reset, /set_pen`) mediante los cuales nuestros nodos interactúan directamente con la configuración interna del simulador.
+
+![ros2 service list](images/ros2servicelist.png)
+![ros2 service list 2](images/ros2servicelist2.png)
+
+#### 6. Mapeo Gráfico de la Infraestructura (`rqt_graph`)
+Herramienta analítica visual indispensable que grafica de manera interactiva la topología de la red actual. Evidencia la relación directa y el flujo de datos del sistema, demostrando visualmente que el nodo seguidor se alimenta de la posición del líder para controlar autónomamente los motores de la segunda tortuga.
+
+![rqt_graph](images/rqtgraph.png)
+![rqt graph nodes](images/rqtgraphnodes.png)
