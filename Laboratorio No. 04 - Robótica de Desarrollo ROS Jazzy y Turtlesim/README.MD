@@ -68,5 +68,6 @@ Este comando interroga al *Graph de ROS 2* para listar todos los procesos de sof
 
 ```bash
 ros2 node list
+`
 
 ![ros2 node list](images/ros2nodelist.png)
