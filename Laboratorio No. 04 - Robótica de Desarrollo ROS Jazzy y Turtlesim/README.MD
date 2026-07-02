@@ -206,3 +206,40 @@ def generate_avoidance_sequence(self):
 
 Esta lógica garantiza que la tortuga sea completamente autónoma e inmune a colisiones contra las paredes virtuales del simulador, sin bloquear el hilo principal de ROS 2.
 
+## 5. Sistema Líder-Seguidor (Control Multiagente)
+
+El sistema de seguimiento multiagente se implementa mediante un esquema descentralizado en un nodo independiente llamado `follower_controller.py`. Este nodo opera en un lazo cerrado continuo a una frecuencia de 20 Hz, actuando como un supervisor cinemático autónomo para la segunda tortuga (`turtle2`).
+
+### A. Inicialización y Autogestión del Entorno (`/spawn`)
+Para eliminar la dependencia de configuración manual por parte del operario al iniciar el sistema, el nodo seguidor se conecta inmediatamente durante su arranque con el servicio `/spawn` expuesto por el simulador. 
+
+Envía de manera asíncrona una petición estructurada para instanciar a `turtle2` en las coordenadas iniciales fijas $(x=2.0, y=2.0, \theta=0.0)$. Si el servicio detecta que la entidad ya se encuentra cargada en el mapa, el manejador de excepciones atrapa el evento limpiamente y evita el colapso del nodo de ROS 2.
+
+### B. Algoritmo de Seguimiento Proporcional en Lazo Cerrado
+El nodo se suscribe de manera simultánea a los canales de telemetría `/turtle1/pose` (Líder) y `/turtle2/pose` (Seguidor). En cada ciclo del temporizador, extrae las coordenadas y calcula los errores espaciales relativos entre ambos agentes:
+
+```python
+dx = self.leader_pose.x - self.follower_pose.x
+dy = self.leader_pose.y - self.follower_pose.y
+
+distance = math.sqrt(dx**2 + dy**2)
+target_angle = math.atan2(dy, dx)
+
+angle_error = target_angle - self.follower_pose.theta
+# Normalización del ángulo al rango [-pi, pi] para el giro más corto
+angle_error = math.atan2(math.sin(angle_error), math.cos(angle_error))
+```
+
+Para asegurar un comportamiento dinámico natural y mitigar el riesgo de colisión por alcance, el guiado se rige bajo las siguientes leyes de Control Proporcional (P):
+
+* **Distancia de Seguridad ($d_{safety} = 0.8$):** Define el radio crítico de aproximación. Si la distancia euclidiana entre ambos robots es menor o igual a este valor, las velocidades del seguidor caen a cero, deteniéndose a una distancia prudente detrás del líder.
+* **Control Lineal Proporcional ($K_{p,linear} = 1.5$):** Si el líder se aleja más allá de la distancia de seguridad, la velocidad de avance del seguidor se escala linealmente en función del error remanente:
+  $$v = K_{p,linear} \cdot (\text{distance} - d_{safety})$$
+  Se acota la salida a un valor límite superior de $3.0\text{ m/s}$ para evitar aceleraciones desproporcionadas o inestabilidad si el líder se teletransporta o realiza movimientos bruscos.
+* **Control Angular Proporcional ($K_{p,angular} = 4.5$):** Para que el seguidor trace curvas suaves y copie de manera fiel las trayectorias complejas (como las letras o giros evasivos), se aplica una ganancia angular elevada sobre el error normalizado de orientación:
+  $$\omega = K_{p,angular} \cdot \text{angle\_error}$$
+
+Este acoplamiento cinemático asíncrono permite que `turtle2` persiga al líder sin importar si este último se mueve por comandos manuales del teclado, se encuentra ejecutando la evasión de bordes o trazando iniciales mediante coordenadas absolutas.
+
+> **Evidencia de Funcionamiento (Líder-Seguidor Completo):**
+> ![Líder Seguidor](images/liderseguidor.png)
