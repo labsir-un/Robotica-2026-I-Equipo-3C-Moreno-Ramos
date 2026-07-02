@@ -149,3 +149,60 @@ Esta validación eleva intencionalmente una excepción `KeyboardInterrupt`, forz
 
 > **Evidencia de Ejecución (Teleoperación Manual):**
 > ![Movimiento Manual](images/movimientomanual.png)
+
+## 4. Funciones Automáticas y Trazado de Iniciales
+
+Para dotar al robot líder de un comportamiento autónomo complejo sin bloquear el procesamiento interno ni interferir con la lectura del teclado, se diseñó una **arquitectura híbrida basada en una cola de comandos asíncrona** (`automation_queue`). Esta estructura de datos almacena dinámicamente tareas secuenciales que el bucle de control (`control_loop`) procesa paso a paso a una frecuencia de 20 Hz (cada 0.05 segundos).
+
+### A. Trayectorias Geométricas Clásicas (Estrategia Relativa por Tiempo)
+Para el dibujo del cuadrado (tecla `S`) y del triángulo (tecla `T`), se utiliza una estrategia de control en lazo abierto basada en temporización por "ticks" (ciclos de reloj del timer). Un comando de tipo `MOVE` inyecta una velocidad constante y un contador de duración en la cola:
+
+```python
+# Estructura del comando en cola: ['MOVE', velocidad_lineal, velocidad_angular, ticks]
+self.automation_queue.append(['MOVE', lin, ang, ticks])
+```
+
+* **Ajuste de Frecuencia:** Debido a que el temporizador principal opera de forma acelerada (0.05 segundos) para garantizar fluidez en la teleoperación y en el trazo de letras, el número de *ticks* se calculó específicamente para mantener las proporciones exactas de las figuras geométricas, garantizando esquinas de $90^\circ$ para el cuadrado y $120^\circ$ para el triángulo.
+
+> **Evidencia de Ejecución (Figuras Geométricas):**
+> ![Tríangulo](images/triangulo.png)
+> ![Cuadrado](images/cuadrado.png)
+
+### B. Trazado de Iniciales Personalizadas (Controlador Proporcional - PID)
+Para asegurar que el dibujo de las letras mantenga proporciones e identidades gráficas perfectas sin importar en qué parte del mapa se encuentre la tortuga, se implementó un sistema de control en bucle cerrado basado en navegación por puntos de paso (*Waypoints*). 
+
+La lógica subyacente se fundamenta en un **Controlador Proporcional (P)** (la base fundamental de un controlador PID). Al no existir inercia en el simulador, se prescinde de las acciones Integral y Derivativa. El lazo calcula dinámicamente la cinemática en cada iteración del timer utilizando las siguientes ecuaciones:
+
+1. **Cálculo del Error Espacial:**
+   $$\text{distance} = \sqrt{(x_{target} - x_{current})^2 + (y_{target} - y_{current})^2}$$
+   $$\theta_{target} = \text{atan2}(y_{target} - y_{current}, x_{target} - x_{current})$$
+   $$\text{angle\_error} = \text{atan2}(\sin(\theta_{target} - \theta_{current}), \cos(\theta_{target} - \theta_{current}))$$
+
+2. **Leyes de Control Proporcional:**
+   Se aplican constantes de ganancia ($K_p$) proporcionales al error calculado para reducir la velocidad a medida que el robot se acerca al objetivo, garantizando una llegada suave y sin oscilaciones:
+   $$v = K_{p,linear} \cdot \text{distance}$$
+   $$\omega = K_{p,angular} \cdot \text{angle\_error}$$
+
+El algoritmo orienta primero el robot hacia el punto de destino y posteriormente avanza en línea recta. Al cruzar un umbral crítico de tolerancia ($\text{distance} \le 0.05$), el comando se elimina de la cola mediante `.popleft()` y el sistema procede inmediatamente con el siguiente trazo. Se intercalan comandos tipo `PEN` para levantar (`off`) o asentar (`on`) el lápiz del simulador de forma transparente entre cada letra.
+
+> **Evidencia de Ejecución (Letras Personalizadas):**
+> ![Iniciales MRC](images/mrc.png)
+> ![Iniciales JAMB](images/jamb.png)
+
+### C. Modo de Evasión de Obstáculos Autónomo
+Al presionar la tecla `A`, el nodo transiciona a una máquina de estados de patrullaje evasivo. Si los datos de telemetría indican que `turtle1` vulnera un umbral perimetral seguro de 1.2 unidades respecto a los bordes del mapa (cuyas dimensiones son $11.0 \times 11.0$), el nodo reacciona de la siguiente manera:
+1. Detiene los motores instantáneamente.
+2. Limpia cualquier orden pendiente en la cola asíncrona (`self.automation_queue.clear()`).
+3. Inyecta una nueva secuencia de comandos de emergencia para retroceder y girar de forma aleatoria:
+
+```python
+def generate_avoidance_sequence(self):
+    self.automation_queue.clear()
+    # Retroceder durante 10 ticks (0.5 segundos)
+    self.add_move(-1.5, 0.0, 10)                           
+    # Girar +/- 90 grados aleatoriamente durante 20 ticks (1.0 segundo)
+    self.add_move(0.0, random.choice([-1.57, 1.57]), 20)  
+```
+
+Esta lógica garantiza que la tortuga sea completamente autónoma e inmune a colisiones contra las paredes virtuales del simulador, sin bloquear el hilo principal de ROS 2.
+
