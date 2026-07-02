@@ -102,3 +102,50 @@ Vista 2: Dependencia Directa entre Nodos (`Nodes only`)
 Al aplicar este filtro, rqt_graph oculta los tópicos para mostrar estrictamente cómo los procesos de software interactúan entre sí. Esta gráfica valida de forma contundente la directriz del laboratorio: El controlador envía datos al simulador (/turtle_controller $\rightarrow$ /turtlesim), y a su vez, el simulador alimenta de posiciones al seguidor para que este retroalimente el ciclo enviando nuevas velocidades al simulador (/turtlesim $\leftrightarrow$ /turtle_follower).
 
 ![rqt graph nodes](images/rqtgraphnodes.png)
+
+## 3. Control Manual de la Tortuga
+
+Para cumplir estrictamente con las restricciones del laboratorio y evitar el uso del nodo preconstruido `turtle_teleop_key`, se desarrolló un sistema de teleoperación nativo embebido directamente en el ciclo de ejecución asíncrono del nodo supervisor (`move_turtle.py`).
+
+### A. Mecanismo de Lectura del Teclado en Modo Crudo (Raw Mode)
+La captura de pulsaciones se realiza a través de la función de bajo nivel `get_key()`. Esta utiliza las librerías nativas de Linux `tty` y `termios` para modificar temporalmente los atributos del descriptor de archivo de la entrada estándar (`sys.stdin`).
+
+```python
+def get_key():
+    tty.setraw(sys.stdin.fileno())
+    rlist, _, _ = select.select([sys.stdin], [], [], 0.05)
+    if rlist:
+        key = sys.stdin.read(1)
+        if key == '\x1b':
+            key += sys.stdin.read(2)
+    else:
+        key = ''
+    termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+    return key
+```
+
+* **Funcionamiento asíncrono:** Se configura la terminal en modo `raw`, lo que elimina la necesidad de presionar la tecla `Enter` para transmitir los datos al script. La función `select.select` actúa como un mecanismo no bloqueante con un *timeout* de 0.05 segundos (alineado a los 20 Hz del nodo). Si no se detecta ninguna pulsación en ese intervalo, el hilo de ejecución continúa de largo, evitando congelar el ecosistema de comunicación de ROS 2.
+
+### B. Mapeo de Teclas y Entrada de Control
+El procesamiento de los comandos de movimiento se gestiona dentro del bucle de control principal (`control_loop`). Las flechas direccionales del teclado envían secuencias de escape estándar de 3 bytes, las cuales son interpretadas mediante condicionales para asignar las velocidades correspondientes en un mensaje de tipo `geometry_msgs/msg/Twist`:
+
+| Tecla Pulsada | Código Capturado | Acción Cinemática | Comando Asignado (`Twist`) |
+| :--- | :--- | :--- | :--- |
+| **Flecha Arriba** | `\x1b[A` | Avance lineal hacia adelante | `linear.x = 1.5` |
+| **Flecha Abajo** | `\x1b[B` | Retroceso lineal | `linear.x = -1.5` |
+| **Flecha Izquierda** | `\x1b[D` | Giro antihorario sobre su propio eje | `angular.z = 1.5` |
+| **Flecha Derecha** | `\x1b[C` | Giro horario sobre su propio eje | `angular.z = -1.5` |
+
+### C. Finalización Segura y Gestión de Interrupciones
+Al operar la terminal de Ubuntu en modo crudo, las señales estándar del sistema operativo como `SIGINT` (`Ctrl+C`) y `SIGTSTP` (`Ctrl+Z`) no detienen el proceso normalmente, sino que se reciben como caracteres puros (`\x03` y `\x1a` respectivamente). Para evitar bloqueos permanentes en el entorno de desarrollo y fugas de memoria, se implementó una trampa explícita al inicio de la lectura de teclas:
+
+```python
+if key == '\x03' or key == '\x1a':
+    self.get_logger().warn('🛑 Cerrando el nodo de forma segura...')
+    raise KeyboardInterrupt
+```
+
+Esta validación eleva intencionalmente una excepción `KeyboardInterrupt`, forzando al bloque `finally` de la función `main()` a restaurar de inmediato los parámetros originales de la terminal mediante `termios.tcsetattr` justo antes de destruir el nodo y apagar `rclpy`.
+
+> **Evidencia de Ejecución (Teleoperación Manual):**
+> ![Movimiento Manual](images/movimientomanual.png)
