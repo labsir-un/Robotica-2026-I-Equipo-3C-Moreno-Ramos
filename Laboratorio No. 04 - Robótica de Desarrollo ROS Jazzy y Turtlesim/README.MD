@@ -283,7 +283,7 @@ graph TD
     U --> H
 ```
 
-## 7.
+## 7. Video Explicativo con Evidencias de Funcionamiento
 
 Para visualizar el funcionamiento integral de la arquitectura, incluyendo el control manual, el trazado de figuras, la navegación autónoma para las iniciales, el modo de evasión de obstáculos y el sistema de seguimiento multiagente, por favor consulta el siguiente video demostrativo:
 ** El video está subido en la carpeta /video de este laboratorio pero también se puede visualizar en el link de drive proporcionado abajo.
