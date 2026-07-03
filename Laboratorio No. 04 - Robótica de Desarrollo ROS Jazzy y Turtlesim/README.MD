@@ -25,9 +25,8 @@
 - [4. Funciones Automáticas y Trazado de Iniciales](#4-funciones-automáticas-y-trazado-de-iniciales)
 - [5. Sistema Líder-Seguidor](#5-sistema-líder-seguidor)
 - [6. Diagrama de Flujo del Sistema](#6-diagrama-de-flujo-del-sistema)
-- [7. Verificación de la Arquitectura (Comandos de Inspección)](#7-verificación-de-la-arquitectura-comandos-de-inspección)
-- [8. Evidencias de Funcionamiento](#8-evidencias-de-funcionamiento)
-- [9. Video Explicativo y Conclusiones](#9-video-explicativo-y-conclusiones)
+- [7. Video Explicativo con Evidencias de Funcionamiento](#7-video-explicativo-con-evidencias-de-funcionamiento)
+- [8. Conclusiones](#9-video-explicativo-y-conclusiones)
 
 ---
 
@@ -206,6 +205,8 @@ def generate_avoidance_sequence(self):
 
 Esta lógica garantiza que la tortuga sea completamente autónoma e inmune a colisiones contra las paredes virtuales del simulador, sin bloquear el hilo principal de ROS 2.
 
+> ![evasión](images/evasion.png)
+
 ## 5. Sistema Líder-Seguidor (Control Multiagente)
 
 El sistema de seguimiento multiagente se implementa mediante un esquema descentralizado en un nodo independiente llamado `follower_controller.py`. Este nodo opera en un lazo cerrado continuo a una frecuencia de 20 Hz, actuando como un supervisor cinemático autónomo para la segunda tortuga (`turtle2`).
@@ -248,8 +249,6 @@ Este acoplamiento cinemático asíncrono permite que `turtle2` persiga al líder
 
 El siguiente diagrama integrado representa de extremo a extremo el flujo operativo de la arquitectura lógica, contemplando la inicialización sincrónica de servicios, el procesamiento asíncrono de interrupciones de hardware y el lazo proporcional multiagente. 
 
-Gracias al soporte nativo de GitHub, este diagrama se renderizará automáticamente en el repositorio:
-
 ```mermaid
 graph TD
     A[Inicio de la Arquitectura] --> B[Inicializar rclpy en Nodos]
@@ -283,3 +282,15 @@ graph TD
     U --> H
 ```
 
+## 7.
+
+Para visualizar el funcionamiento integral de la arquitectura, incluyendo el control manual, el trazado de figuras, la navegación autónoma para las iniciales, el modo de evasión de obstáculos y el sistema de seguimiento multiagente, por favor consulta el siguiente video demostrativo:
+
+> **[Enlace al Video Demostrativo]**(AQUÍ_PONES_TU_LINK_DE_YOUTUBE_O_DRIVE)
+
+## 8. Conclusiones
+
+* **Dominio de la Arquitectura ROS 2:** Se implementó exitosamente un ecosistema robótico distribuido y desacoplado. La separación estricta de responsabilidades entre el nodo supervisor (`move_turtle`) y el nodo de seguimiento (`follower_controller`) comprobó la robustez, baja latencia y eficiencia del paso de mensajes (tópicos) y la ejecución de servicios de forma asíncrona.
+* **Teleoperación Asíncrona de Bajo Nivel:** El desarrollo de un mecanismo de lectura de teclado en modo crudo (*raw mode*) mediante las librerías `tty` y `termios` de Linux, permitió controlar el sistema en tiempo real sin bloquear el hilo de ejecución principal de ROS 2, superando con éxito la restricción de no utilizar herramientas preconstruidas de teleoperación.
+* **Aplicación Práctica de Sistemas de Control (Controlador P):** La traducción de ecuaciones matemáticas a código para el Controlador Proporcional demostró ser ideal para la cinemática de `turtlesim`. Este lazo de control garantizó una precisión absoluta en la navegación por coordenadas espaciales (trazado de iniciales) y permitió a la segunda tortuga perseguir al líder de manera dinámica, describiendo curvas suaves y respetando estrictamente los radios de seguridad configurados.
+* **Gestión Híbrida de Estados y Tareas:** La integración de una cola de automatización de comandos (`automation_queue`) dotó al robot de un comportamiento híbrido avanzado. El sistema demostró la capacidad de priorizar y transicionar de manera ininterrumpida entre el control manual del usuario, la ejecución de trayectorias geométricas programadas y las rutinas autónomas de emergencia para la evasión de bordes.
