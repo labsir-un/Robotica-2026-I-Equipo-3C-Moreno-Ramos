@@ -244,6 +244,7 @@ Este acoplamiento cinemático asíncrono permite que `turtle2` persiga al líder
 
 > **Evidencia de Funcionamiento (Líder-Seguidor Completo):**
 > ![Líder Seguidor](images/liderseguidor.png)
+> ![Líder Seguidor 2](images/seguidor2.png)
 
 ## 6. Diagrama de Flujo del Sistema (Mermaid)
 
