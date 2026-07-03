@@ -286,8 +286,9 @@ graph TD
 ## 7.
 
 Para visualizar el funcionamiento integral de la arquitectura, incluyendo el control manual, el trazado de figuras, la navegación autónoma para las iniciales, el modo de evasión de obstáculos y el sistema de seguimiento multiagente, por favor consulta el siguiente video demostrativo:
+** El video está subido en la carpeta /video de este laboratorio pero también se puede visualizar en el link de drive proporcionado abajo.
 
-> **[Enlace al Video Demostrativo]**(AQUÍ_PONES_TU_LINK_DE_YOUTUBE_O_DRIVE)
+> **[<video controls src="SustentaciónLaboratorio4.mp4" title="Title"></video>]**(https://drive.google.com/file/d/16v6Gsqj2gl53IUDU0CbqzRQ-Mxhfakrz/view?usp=sharing)
 
 ## 8. Conclusiones
 
