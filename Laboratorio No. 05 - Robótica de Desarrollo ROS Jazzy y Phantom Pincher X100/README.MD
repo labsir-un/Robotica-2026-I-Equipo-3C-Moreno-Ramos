@@ -77,8 +77,37 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 |      5       |    00    |    00    |    00    |    00    |    00    |
 
 <h4>Los primeros cuatro valores corresponden al brazo y el quinto corresponde a la pinza. </h4>
+
 ---
-- Modo Trayectorias
+### Modo Trayectoria
+
+* **Genera una trayectoria entre dos configuraciones aleajdas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica **
+
+* **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
+* **Pose Final ** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
+* **Articulación a graficar:** Selecionar cual recorrido de las 5 articulaciones se va a graficar .
+* **Duración:** Duración en segundos de la grafica .
+* **Muestras:** Cuantas Muestras se van a tomar para la interpolación .
+* **Interpolaciòn:** Seleccionar el tipo de interpolación (Lineal,Cúbica,Quintica) .
+* **Enviar Trayectoria:** Envia la trayectoria que se le indico al robot.
+* **Graficar Trayectoria:** Grafica latrayectoria en posición angular vs tiempo con su respectiva interpolación lineal vs cubica/Quintica.
+* **Grafica Trayectoria:** Muestra la Grafica.
+
+---
+### Modo Senoidal
+
+* **Genera una trayectoria entre dos configuraciones aleajdas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica **
+
+* **Pose Inicia:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
+* **Pose Inicia:** Ingresar directamente a cual posición ya preestablecidad o actual va a it el robot .
+* **Articulación a graficar:** Selecionar cual recorrido de las 5 articulaciones se va a graficar .
+* **Duración:** Duración en segundos de la grafica .
+* **Muestras:** Cuantas Muestras se van a tomar para la interpolación .
+* **Interpolaciòn:** Seleccionar el tipo de interpolación (Lineal,Cúbica,Quintica) .
+* **Enviar Trayectoria:** Envia la trayectoria que se le indico al robot.
+* **Graficar Trayectoria:** Grafica latrayectoria en posición angular vs tiempo con su respectiva interpolación lineal vs cubica/Quintica.
+* **Grafica Trayectoria:** Muestra la Grafica.
+
 
 
 
