@@ -429,10 +429,10 @@ Desde la interfaz gráfica es posible ejecutar RViz y visualizar el modelo tridi
 def emergency_stop(self):
 ```
 La parada de emergencia desactiva el torque de todos los motores y bloquea el envío de nuevos comandos, garantizando la seguridad del sistema y del usuario.
-
-*Aclaraciones importantes*
-
 ```
+Aclaraciones importantes*
+
+
 def r2_all_motors(self, list_q):
 
     # Convertir radianes a Dynmixel
@@ -444,6 +444,7 @@ def r2_all_motors(self, list_q):
                 break
 
             self.move_motor(motor_id, point_q[index])
+```
 
 ## Diagramas digitales y DH utilizado
 
