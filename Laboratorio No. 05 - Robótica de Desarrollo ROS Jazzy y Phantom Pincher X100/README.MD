@@ -84,7 +84,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 **Genera una trayectoria entre dos configuraciones alejadas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
 
 * **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
-* **Pose Final** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
+* **Pose Final:** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
 * **Articulación a graficar:** Selecionar cual recorrido de las 5 articulaciones se va a graficar .
 * **Duración:** Duración en segundos de la grafica .
 * **Muestras:** Cuantas Muestras se van a tomar para la interpolación .
@@ -111,6 +111,44 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 * **Posición enviada vs Posición medida:** Grafica de la operación.
 
 ---
+### Modo Enseñanza
+
+**Registra poses con su respectivo nombre de acuerdo a la posición del robot en el espacio gracias al modo manual, guarda el registro de loas poses en un yaml, las reproduce en orden con el tiempo de transición que se desea al igual que reproducir la que el usuario quiera **
+
+
+* **Nombre de la pose:** Ingresar por teclado el nombre de la pose actual .
+* **Guardar:** Guarda la pose actual con su respectivo nombre.
+* **Poses Registradas:** Lista de poses en orden de creación con sus parametros.
+* **Ir a la Pose seleccionada:** Envia la pose seleccionada al robot .
+* **Eliminar Pose seleccionada:**  Elimina la pose seleccionada de la lista .
+* **Guardar yaml:** Guarda el archivo yaml en /home/juan-moreno/pincher_taught_poses.yaml .
+* **Recargar yaml:** Elimina variables nuevas y va al ultimo archivo yaml creado.
+* **Tiempo de transición :** Tiempo de segundos entre poses cuando se repodruzcan en orden .
+* **Reproducir Todas:** Reproduce las poses de la lista en el tiempo preestablecio.
+* **Detener:** Detiene la reproducción de las poses.
+
+---
+
+### Modo Enseñanza
+
+**Registra poses con su respectivo nombre de acuerdo a la posición del robot en el espacio gracias al modo manual, guarda el registro de loas poses en un yaml, las reproduce en orden con el tiempo de transición que se desea al igual que reproducir la que el usuario quiera **
+
+
+* **Nombre de la pose:** Ingresar por teclado el nombre de la pose actual .
+* **Guardar:** Guarda la pose actual con su respectivo nombre.
+* **Poses Registradas:** Lista de poses en orden de creación con sus parametros.
+* **Ir a la Pose seleccionada:** Envia la pose seleccionada al robot .
+* **Eliminar Pose seleccionada:**  Elimina la pose seleccionada de la lista .
+* **Guardar yaml:** Guarda el archivo yaml en /home/juan-moreno/pincher_taught_poses.yaml .
+* **Recargar yaml:** Elimina variables nuevas y va al ultimo archivo yaml creado.
+* **Tiempo de transición :** Tiempo de segundos entre poses cuando se repodruzcan en orden .
+* **Reproducir Todas:** Reproduce las poses de la lista en el tiempo preestablecio.
+* **Detener:** Detiene la reproducción de las poses.
+
+---
+
+
+
 
 
 
