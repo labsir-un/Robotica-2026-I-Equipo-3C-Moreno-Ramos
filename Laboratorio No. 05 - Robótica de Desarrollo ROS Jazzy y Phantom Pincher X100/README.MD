@@ -459,47 +459,75 @@ La cinemática directa se implementó usando parámetros Denavit-Hartenberg medi
 
 A continuación los diagramas utilizados.
 
-![Diagrama DH](images/dh.jpg)
+
+<p align="center">
+  <img src="images/dh.jpg" alt="Diagrama DH" width="800">
+</p>
+
 
 Visualización completa en MATLAB
 
-![MATLAB](images/dhcompleto.jpg)
-![alt text](images/dhcompleto2.jpg)
+<p align="center">
+  <img src="images/dhcompleto.jpg" alt="MATLAB" width="800">
+</p>
 
-A continuación podemos observar la interfaz que implementamos.
+<p align="center">
+  <img src="images/dhcompleto2.jpg" alt="alt text" width="800">
+</p>
+  
 
-AA VAN LAS IMAGENES
 
 ## Graficas digitales comparativas
 A continuación los diagramas digitales de las diferentes poses.
 Empezando por HOME:
-![Diagrama digital pose HOME](images/diagramadig2.png)
+
+<p align="center">
+  <img src="images/diagramadig2.png" alt="Diagrama digital pose HOME" width="800">
+</p>
+
 
 Continuamos con la pose R4:
-![Diagrama digital pose R4](images/diagramadig.jpg)
+
+<p align="center">
+  <img src="images/diagramadig.jpg" alt="Diagrama digital pose R4" width="800">
+</p>
+
 
 Poses r2 y r3, estas dos poses son equivalentes, solamente cambia q1.
-![Diagrama digital pose R2 y R3](images/rutinar2yr3.png)
+
+<p align="center">
+  <img src="images/rutinar2yr3.png" alt="Diagrama digital pose R2 y R3" width="800">
+</p>
+
+
 
 A continuación las fotos de las poses implementadas:
 HOME:
-![Home](images/homereal.jpg)
-
+<p align="center">
+  <img src="images/homereal.jpg" alt="Home" width="800">
+</p>
+R1:
+<p align="center">
+  <img src="images/r2.jpg" alt="Rutina R2" width="800">
+</p>
 R2:
-![Rutina R2](images/r2.jpg)
+<p align="center">
+  <img src="images/r3.jpg" alt="Rutina R3" width="800">
+</p>
+R3:
+<p align="center">
+  <img src="images/rutinar2yr3.png" alt="Diagrama digital pose R2 y R3" width="800">
+</p>
+R4:
+<p align="center">
+  <img src="images/r4.jpg" alt="Rutina R4" width="800">
+</p>
+R5:
+<p align="center">
+  <img src="images/r5.jpg" alt="Rutina R5" width="800">
+</p>
 
-R3
-![Rutina R3](images/r3.jpg)
 
-R4
-![Rutina R4](images/r4.jpg)
-
-R5
-![Rutina R5](images/r5.jpg)
-
-## Diagrama de flujo de acciones del robot
-
-## Arquitectura de Software: PhantomX Pincher X100 (ROS 2)
 
 
 ## Videos 
