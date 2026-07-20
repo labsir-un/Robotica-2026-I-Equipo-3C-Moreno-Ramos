@@ -66,7 +66,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Presets 
 
-* **Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio**
+**Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio**
 
 | Articulación | Preset 1 | Preset 2 | Preset 3 | Preset 4 | Preset 5 |
 | ------------ | -------- | -------- | -------- | -------- | -------- | 
@@ -81,7 +81,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Trayectoria
 
-* **Genera una trayectoria entre dos configuraciones aleajdas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
+* **Genera una trayectoria entre dos configuraciones alejadas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
 
 * **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
 * **Pose Final** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
