@@ -802,7 +802,7 @@ Desplazamiento de Cero
 ---
 ### Interpolación
 
-Se presentan a continuacion las graficas de interpolación lineal y cubica de las diferentes artiulaciones (Menos de la pinza ya que no cambia) para una trayectoria de Home a la Pose 5 con una duracio de 5 Segundos.
+Se presentan a continuaciòn las graficas de interpolación lineal y cubica de las diferentes artiulaciones (Menos de la pinza ya que no cambia) para una trayectoria de Home a la Pose 5 con una duracio de 5 Segundos.
 
 <div align="center">
 
@@ -841,7 +841,42 @@ Muñeca
 </p>
 
 ---
-###trayectoria sinusoidal
+### Trayectoria sinusoidal
+
+Se presentan a continuaciòn las graficas de 4 pruebas de la trayectoria de la articulación 1 (Base) de acuerdo a la función  $q(t) = q_0 + A \sin(2\pi f t)$ cib yba duraciòn de 10 segundos a una frecuencia de envio de 20 Hz cambiando los parametros de amplitud A y Frecuencia F con los siguientes valores :
+
+- A1 : 10 Grados
+- A2 : 19 Grados
+- F1 : 0.09 HZ
+- F2 : 0.2 HZ
+
+Se hace la aclaración que las pruebas presentadas se realizaron en la implemtación fisica pero por un error de archivos no se puedieron encontrar las graficas de dichas pruebas, por lo anterior se presentan las pruebas hechas en simulación
+
+Prueba 1 ( A1 y F1 / 10 Grados y 0.09 HZ)
+
+<p align="center">
+  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+</p>
+
+Prueba 2 ( A1 y F2 / 10 Grados y 0.2 HZ)
+
+<p align="center">
+  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+</p>
+
+Prueba 3 ( A2 y F1 / 19 Grados y  0.09 HZ)
+
+<p align="center">
+  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+</p>
+
+Prueba 4 ( A2 y F2 / 19 Grados y   0.2 HZ)
+
+<p align="center">
+  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+</p>
+
+
 
 
 
