@@ -213,49 +213,179 @@ El siguiente diagrama detalla la interacción exhaustiva entre la interfaz gráf
 ```md
 ```mermaid
 flowchart TD
-    Inicio["Inicio del programa (main)"]
+    Inicio["Inicio del sistema (main)"]
     Inicializar_ROS["Inicializar ROS 2 (rclpy.init)"]
-    Crear_Nodo["Crear PincherGuiNode (Publishers, Subs, Clients)"]
-    Crear_GUI["Crear PincherGui (Tkinter Layout & Tabs)"]
-    Bucle_Principal["Bucle principal (mainloop + spin_ros)"]
-    Interaccion_Usuario["Eventos de usuario en la GUI"]
-    Accion_Topicos["Publicar tópicos (/pincher/command, velocity)"]
-    Accion_Servicios["Llamar servicios (/pincher/home, stop, torque)"]
-    Cerrar_App["Cerrar aplicación y apagar ROS 2"]
+    Crear_Nodo["Crear PincherGuiNode (Pubs, Subs, Clients)"]
+    Crear_GUI["Crear Interfaz PincherGui (Tkinter Notebook)"]
+    Bucle_Eventos["Bucle de eventos (mainloop + _spin_ros)"]
 
+    %% Categorías Principales
+    Controles_Generales["Controles Generales"]
+    Modos_Operacion["Modos de Operación (Pestañas)"]
+
+    %% Modos de la GUI (Notebook Tabs)
+    Modo_Manual["1. Manual"]
+    Modo_Presets["2. Presets"]
+    Modo_Ensenanza["3. Modo Enseñanza"]
+    Modo_Triangulo["4. Triángulo"]
+    Modo_Baile["5. Baile"]
+    Modo_Trayectorias["6. Trayectorias"]
+    Modo_Senoidal["7. Senoidal"]
+
+    %% Acciones específicas de cada modo
+    Accion_Manual["Leer entradas de usuario (grados)"]
+    Accion_Presets["Cargar diccionario PRESETS"]
+    Accion_Ensenanza["Cargar/Guardar en YAML y reproducir poses"]
+    Accion_Triangulo["Ejecutar secuencia TRIANGLE_POSES"]
+    Accion_Baile["Ejecutar DANCE_POSES y reproducir audio"]
+    Accion_Trayectorias["Interpolar (Lineal, Cúbica, Quíntica)"]
+    Accion_Senoidal["Generar q(t) = q0 + A·sin(2πf·t)"]
+
+    %% Despacho de comandos
+    Dispatch["Función _dispatch()"]
+    Selector_Modo{"Modo de envío seleccionado"}
+    Envio_Simultaneo["Envío Simultáneo"]
+    Envio_Secuencial["Envío Secuencial (Base -> Pinza)"]
+    Publicar_Comando["Publicar en /pincher/command"]
+
+    %% Servicios
+    Llamar_Servicios["Llamar servicios (/home, /torque_enable, /software_stop, /profile_velocity)"]
+
+    %% Conexiones iniciales
     Inicio --> Inicializar_ROS
     Inicializar_ROS --> Crear_Nodo
     Crear_Nodo --> Crear_GUI
-    Crear_GUI --> Bucle_Principal
-    Bucle_Principal --> Interaccion_Usuario
-    Interaccion_Usuario --> Accion_Topicos
-    Interaccion_Usuario --> Accion_Servicios
-    Accion_Topicos --> Bucle_Principal
-    Accion_Servicios --> Bucle_Principal
-    Bucle_Principal --> Cerrar_App
+    Crear_GUI --> Bucle_Eventos
+
+    %% Bifurcación de la interfaz
+    Bucle_Eventos --> Controles_Generales
+    Bucle_Eventos --> Modos_Operacion
+
+    %% Controles Generales
+    Controles_Generales --> Llamar_Servicios
+
+    %% Pestañas
+    Modos_Operacion --> Modo_Manual
+    Modos_Operacion --> Modo_Presets
+    Modos_Operacion --> Modo_Ensenanza
+    Modos_Operacion --> Modo_Triangulo
+    Modos_Operacion --> Modo_Baile
+    Modos_Operacion --> Modo_Trayectorias
+    Modos_Operacion --> Modo_Senoidal
+
+    %% Flujo de las pestañas hacia sus acciones
+    Modo_Manual --> Accion_Manual
+    Modo_Presets --> Accion_Presets
+    Modo_Ensenanza --> Accion_Ensenanza
+    Modo_Triangulo --> Accion_Triangulo
+    Modo_Baile --> Accion_Baile
+    Modo_Trayectorias --> Accion_Trayectorias
+    Modo_Senoidal --> Accion_Senoidal
+
+    %% Los modos discretos usan la función _dispatch
+    Accion_Manual --> Dispatch
+    Accion_Presets --> Dispatch
+    Accion_Ensenanza --> Dispatch
+    Accion_Triangulo --> Dispatch
+    Accion_Baile --> Dispatch
+
+    Dispatch --> Selector_Modo
+    Selector_Modo -->|Simultáneo| Envio_Simultaneo
+    Selector_Modo -->|Secuencial| Envio_Secuencial
+    Envio_Simultaneo --> Publicar_Comando
+    Envio_Secuencial --> Publicar_Comando
+
+    %% Los modos continuos/calculados publican directamente saltándose el _dispatch
+    Accion_Trayectorias -->|Paso a paso iterativo| Publicar_Comando
+    Accion_Senoidal -->|Paso a paso iterativo| Publicar_Comando
 ```
 ```mermaid
 flowchart TD
-    Inicio["Inicio del programa (main)"]
+    Inicio["Inicio del sistema (main)"]
     Inicializar_ROS["Inicializar ROS 2 (rclpy.init)"]
-    Crear_Nodo["Crear PincherGuiNode (Publishers, Subs, Clients)"]
-    Crear_GUI["Crear PincherGui (Tkinter Layout & Tabs)"]
-    Bucle_Principal["Bucle principal (mainloop + spin_ros)"]
-    Interaccion_Usuario["Eventos de usuario en la GUI"]
-    Accion_Topicos["Publicar tópicos (/pincher/command, velocity)"]
-    Accion_Servicios["Llamar servicios (/pincher/home, stop, torque)"]
-    Cerrar_App["Cerrar aplicación y apagar ROS 2"]
+    Crear_Nodo["Crear PincherGuiNode (Pubs, Subs, Clients)"]
+    Crear_GUI["Crear Interfaz PincherGui (Tkinter Notebook)"]
+    Bucle_Eventos["Bucle de eventos (mainloop + _spin_ros)"]
 
+    %% Categorías Principales
+    Controles_Generales["Controles Generales"]
+    Modos_Operacion["Modos de Operación (Pestañas)"]
+
+    %% Modos de la GUI (Notebook Tabs)
+    Modo_Manual["1. Manual"]
+    Modo_Presets["2. Presets"]
+    Modo_Ensenanza["3. Modo Enseñanza"]
+    Modo_Triangulo["4. Triángulo"]
+    Modo_Baile["5. Baile"]
+    Modo_Trayectorias["6. Trayectorias"]
+    Modo_Senoidal["7. Senoidal"]
+
+    %% Acciones específicas de cada modo
+    Accion_Manual["Leer entradas de usuario (grados)"]
+    Accion_Presets["Cargar diccionario PRESETS"]
+    Accion_Ensenanza["Cargar/Guardar en YAML y reproducir poses"]
+    Accion_Triangulo["Ejecutar secuencia TRIANGLE_POSES"]
+    Accion_Baile["Ejecutar DANCE_POSES y reproducir audio"]
+    Accion_Trayectorias["Interpolar (Lineal, Cúbica, Quíntica)"]
+    Accion_Senoidal["Generar q(t) = q0 + A·sin(2πf·t)"]
+
+    %% Despacho de comandos
+    Dispatch["Función _dispatch()"]
+    Selector_Modo{"Modo de envío seleccionado"}
+    Envio_Simultaneo["Envío Simultáneo"]
+    Envio_Secuencial["Envío Secuencial (Base -> Pinza)"]
+    Publicar_Comando["Publicar en /pincher/command"]
+
+    %% Servicios
+    Llamar_Servicios["Llamar servicios (/home, /torque_enable, /software_stop, /profile_velocity)"]
+
+    %% Conexiones iniciales
     Inicio --> Inicializar_ROS
     Inicializar_ROS --> Crear_Nodo
     Crear_Nodo --> Crear_GUI
-    Crear_GUI --> Bucle_Principal
-    Bucle_Principal --> Interaccion_Usuario
-    Interaccion_Usuario --> Accion_Topicos
-    Interaccion_Usuario --> Accion_Servicios
-    Accion_Topicos --> Bucle_Principal
-    Accion_Servicios --> Bucle_Principal
-    Bucle_Principal --> Cerrar_App
+    Crear_GUI --> Bucle_Eventos
+
+    %% Bifurcación de la interfaz
+    Bucle_Eventos --> Controles_Generales
+    Bucle_Eventos --> Modos_Operacion
+
+    %% Controles Generales
+    Controles_Generales --> Llamar_Servicios
+
+    %% Pestañas
+    Modos_Operacion --> Modo_Manual
+    Modos_Operacion --> Modo_Presets
+    Modos_Operacion --> Modo_Ensenanza
+    Modos_Operacion --> Modo_Triangulo
+    Modos_Operacion --> Modo_Baile
+    Modos_Operacion --> Modo_Trayectorias
+    Modos_Operacion --> Modo_Senoidal
+
+    %% Flujo de las pestañas hacia sus acciones
+    Modo_Manual --> Accion_Manual
+    Modo_Presets --> Accion_Presets
+    Modo_Ensenanza --> Accion_Ensenanza
+    Modo_Triangulo --> Accion_Triangulo
+    Modo_Baile --> Accion_Baile
+    Modo_Trayectorias --> Accion_Trayectorias
+    Modo_Senoidal --> Accion_Senoidal
+
+    %% Los modos discretos usan la función _dispatch
+    Accion_Manual --> Dispatch
+    Accion_Presets --> Dispatch
+    Accion_Ensenanza --> Dispatch
+    Accion_Triangulo --> Dispatch
+    Accion_Baile --> Dispatch
+
+    Dispatch --> Selector_Modo
+    Selector_Modo -->|Simultáneo| Envio_Simultaneo
+    Selector_Modo -->|Secuencial| Envio_Secuencial
+    Envio_Simultaneo --> Publicar_Comando
+    Envio_Secuencial --> Publicar_Comando
+
+    %% Los modos continuos/calculados publican directamente saltándose el _dispatch
+    Accion_Trayectorias -->|Paso a paso iterativo| Publicar_Comando
+    Accion_Senoidal -->|Paso a paso iterativo| Publicar_Comando
 ```
 
 ## Videos 
