@@ -76,7 +76,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | 00 | 25 | -35 | 85 | 80 |
 | 2 | 00 | 25 | 35 | -20 | -35 |
-| 3 | 00 | 25 | 20 | -30 | 55 |
+| 3 | 00 | 20 | -30 | 55 | 55 |
 | 4 | 00 | -20 | 30 | 25 | -45 |
 | 5 | 00 | 00 | 00 | 00 | 00 |
 
@@ -545,7 +545,7 @@ Visualización completa en MATLAB
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | 00 | 25 | -35 | 85 | 80 |
 | 2 | 00 | 25 | 35 | -20 | -35 |
-| 3 | 00 | 25 | 20 | -30 | 55 |
+| 3 | 00 | 20 | -30 | 55 | 55 |
 | 4 | 00 | -20 | 30 | 25 | -45 |
 | 5 | 00 | 00 | 00 | 00 | 00 |
 
@@ -596,28 +596,163 @@ Pose 5:
 
 ## Calibración, Graficas de interpolación y trayectoria sinusoidal
 
-A continuación las imagenes de la posición real en las poses implementadas anteriormente con su respectivo error en cada  articulaciòn:
+A continuación las imagenes de la posición real en las poses implementadas anteriormente con su respectivo error en cada articulaciòn medido en radianes :
+
 
 Error Pose 1/Home:
+
+<div align="center">
+
+| Articulación | Grados | Radianes |
+| :---: | :---: | :---: |
+| 1 | 00 | 00 |
+| 2 | 00 | 00 | 
+| 3 | 00 | 00 | 
+| 4 | 00 | 00 | 
+| 5 | 00 | 00 | 
+
+</div>
+
 <p align="center">
   <img src="images/Posicion1.jpeg" alt="Home" width="450">
 </p>
+
+<div align="center">
+
+| Articulación | Deseado | Medido | Error articular |
+| :---: | :---: | :---: | :---: | 
+| 1 | 00 | -0.051 | 0.0511 |
+| 2 | 00 | -0.051 | 0.0511 |  
+| 3 | 00 | -0.051 | 0.0511 | 
+| 4 | 00 | -00000 | 00000 |
+| 5 | 00 | -0.051 | 0.0511 |
+
+</div>
+
 Error Pose 2:
+
+<div align="center">
+
+| Articulación | Grados | Radianes |
+| :---: | :---: | :---: |
+| 1 | 25 | 0.4363 |
+| 2 | 25 | 0.4363 |
+| 3 | 20 | 0.3491 |
+| 4 | -20 | -0.3491 |
+| 5 | 00 | 0.0000 |
+
+</div>
+
 <p align="center">
   <img src="images/Posicion2.jpeg" alt="Rutina R2" width="450">
 </p>
+
+<div align="center">
+
+| Articulación | Deseado | Medido | Error articular |
+| :---: | :---: | :---: | :---: | 
+| 1 | 0.4363 | 0.4350 | 0.0013 |
+| 2 | 0.4363 | 0.4606 | 0.0243 | 
+| 3 | 0.3491 | 0.3633 | 0.0142 |
+| 4 | -0.3491 | -0.3480 | 0.0011 |
+| 5 | 0.0000 | -0.0511 | 0.0511 |
+
+</div>
+
 Error Pose 3:
+
+<div align="center">
+
+| Articulación | Grados | Radianes |
+| :---: | :---: | :---: |
+| 1 | -35 | -0.6109 |
+| 2 | 35 | 0.6109 |
+| 3 | -30 | -0.5236 |
+| 4 | 30 | 0.5236 |
+| 5 | 00 | 0.0000 |
+
+</div>
+
 <p align="center">
   <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
 </p>
+
+
+<div align="center">
+
+| Articulación | Deseado | Medido | Error articular |
+| :---: | :---: | :---: | :---: | 
+| 1 | -0.6109 | -0.6141 | 0.0032|
+| 2 |  0.6109 | 0.6295 | 0.0186 | 
+| 3 | -0.5236 | -0.5271 | 0.0035 |
+| 4 | 0.5236 | 0.5322 | 0.0086 |
+| 5 | 0.0000 | -0.0511 | 0.0511 |
+
+</div>
+
 Error Pose 4:
+
+<div align="center">
+
+| Articulación | Grados | Radianes |
+| :---: | :---: | :---: |
+| 1 | 85 | 1.4835 |
+| 2 | -20 | -0.3491 |
+| 3 | 55 | 0.9599 |
+| 4 | 25 | 0.4363 |
+| 5 | 00 |0.0000|
+
+</div>
+
 <p align="center">
   <img src="images/Posicion4.jpeg" alt="Rutina R4" width="450">
 </p>
+
+<div align="center">
+
+| Articulación | Deseado | Medido | Error articular |
+| :---: | :---: | :---: | :---: | 
+| 1 | 1.4835 | 1.4894 | 0.0059|
+| 2 | -0.3491 | -0.3378 | 0.0113 | 
+| 3 | 0.9599 | 0.9827 | 0.0228 |
+| 4 | 0.4363 | 0.4452 | 0.0089 |
+| 5 |0.0000| -0.0511 | 0.0511 |
+
+</div>
+
 Error Pose 5 :
+
+<div align="center">
+
+| Articulación | Grados | Radianes |
+| :---: | :---: | :---: |
+| 1 | 80 | 1.3963 |
+| 2 | -35 | -0.6109 |
+| 3 | 55 | 0.9599 |
+| 4 | -45 | -0.7854 |
+| 5 | 00 | 0.0000 |
+
+</div>
+
 <p align="center">
   <img src="images/Posicion5.jpeg" alt="Rutina R5" width="450">
 </p>
+
+<div align="center">
+
+| Articulación | Deseado | Medido | Error articular |
+| :---: | :---: | :---: | :---: | 
+| 1 | 1.3963 | 1.4024 | 0.0061|
+| 2 | -0.6109 | -0.6244 | 0.0135 | 
+| 3 | 0.9599 | 0.9673 | 0.0074 |
+| 4 | -0.7854 | 0.7882 | 0.0028 |
+| 5 | 0.0000 | -0.0511 | 0.0511 |
+
+</div>
+
+Se llego a la conclu
+
+
 
 
 
