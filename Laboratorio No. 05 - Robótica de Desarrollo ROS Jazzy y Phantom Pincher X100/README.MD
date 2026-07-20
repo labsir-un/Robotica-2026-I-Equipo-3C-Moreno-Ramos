@@ -508,12 +508,13 @@ A continuación se muestra el plano de planta
 
 La cinemática directa se implementó usando parámetros Denavit-Hartenberg medidos directamente del robot:
 <div align="center">
+
 | i | θᵢ | dᵢ | aᵢ | αᵢ |
-|:---:|:---:|:---:|:---:|:---:|
-| 1 | q1 | L1 | 0  | -π/2 |
-| 2 | q2 | 0  | L2 | 0 |
-| 3 | q3 | 0  | L3 | 0 |
-| 4 | q4 | 0  | 0  | π/2 |
+| :---: | :---: | :---: | :---: | :---: |
+| 1 | q1 | L1 | 0 | -π/2 |
+| 2 | q2 | 0 | L2 | 0 |
+| 3 | q3 | 0 | L3 | 0 |
+| 4 | q4 | 0 | 0 | π/2 |
 
 </div>
 
