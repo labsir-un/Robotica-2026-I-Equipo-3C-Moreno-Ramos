@@ -572,27 +572,32 @@ Continuamos con la pose R4:
 </p>
 
 
-Poses implementadas Fisicamente:
+Poses implementadas Fisicamente y en Simuación:
 
 HOME/ Pose 1:
 <p align="center">
-  <img src="images/homereal.jpg" alt="Home" width="450">
+  <img src="images/homereal.jpg" alt="Home" width="285" style="border: none !important; box-shadow: none !important;">
+  <img src="images/Pose1HomeS.jpeg" alt="Pose1HomeS" width="285" style="border: none !important; box-shadow: none !important;">
 </p>
 Pose 2:
 <p align="center">
-  <img src="images/r2.jpg" alt="Rutina R2" width="450">
+  <img src="images/r2.jpg" alt="Rutina R2" width="285" style="border: none !important; box-shadow: none !important;">
+  <img src="images/Pose2S.jpeg" alt="Pose2S" width="285" style="border: none !important; box-shadow: none !important;">
 </p>
 Pose 3:
 <p align="center">
-  <img src="images/r3.jpg" alt="Rutina R3" width="450">
+  <img src="images/r3.jpg" alt="Rutina R3" width="285" style="border: none !important; box-shadow: none !important;">
+  <img src="images/Pose3S.jpeg" alt="Pose3S" width="285" style="border: none !important; box-shadow: none !important;">
 </p>
 Pose 4:
 <p align="center">
-  <img src="images/r4.jpg" alt="Rutina R4" width="450">
+  <img src="images/r4.jpg" alt="Rutina R4" width="285" style="border: none !important; box-shadow: none !important;">
+  <img src="images/Pose4S.jpeg" alt="Pose4S" width="285" style="border: none !important; box-shadow: none !important;">
 </p>
 Pose 5:
 <p align="center">
-  <img src="images/r5.jpg" alt="Rutina R5" width="450">
+  <img src="images/r5.jpg" alt="Rutina R5" width="285" style="border: none !important; box-shadow: none !important;">
+  <img src="images/Pose5S.jpeg" alt="Pose5S" width="285" style="border: none !important; box-shadow: none !important;">
 </p>
 
 ## Calibración
@@ -790,6 +795,22 @@ Desplazamiento de Cero
 | 3 | 2.9278 | 0.0511 | 
 | 4 | 0.0000 | 0.0000 | 
 | 5 | 2.9278 | 0.0511 | 
+
+</div>
+
+##Graficas de interpolación y trayectoria sinusoidal
+
+Se presentan a continuacion las graficas de interpolación lineal y cubica de las diferentes artiulaciones (Menos de la pinza ya que no cambia) para una trayectoria de Home a la Pose 1 con una duracio de 5 Segundos.
+
+<div align="center">
+
+| Articulación | Home | Pose 1|
+| :---: | :---: | :---: |
+| 1 | 00 | 80 |
+| 2 | 00 | -35 |
+| 3 | 00 | 55 |
+| 4 | 00 | -45 |
+| 5 | 00 | 00 |
 
 </div>
 
