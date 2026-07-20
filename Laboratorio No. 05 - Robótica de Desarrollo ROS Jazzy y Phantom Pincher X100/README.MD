@@ -22,7 +22,7 @@
 
 1. [Descripción detallada de la solución planteada](#Descripción-detallada-de-la-solución-planteada)
 2. [Diagrama de flujo de las acciones del robot](#Diagrama-de-flujo-de-las-acciones-del-robot)
-3. [Código fuente](#Diagrama de flujo)(#Codigo)
+3. [Código fuente](#Diagrama de flujo)(#Código-fuente)
 4. [Plano de planta](#Diagrama de flujo)(#Codigo)
 3. [Diagramas digitales y DH utilizado](#diagramas)
 4. [Gráficas digitales comparativas/Gráficas de calibración, interpolación y trayectoria sinusoidal](#graf_dig)
@@ -336,79 +336,9 @@ flowchart TD
     Accion_Trayectorias -->|Paso a paso iterativo| Publicar_Comando
     Accion_Senoidal -->|Paso a paso iterativo| Publicar_Comando
 ```
+## Código fuente
 
-
-## Diagramas digitales y DH utilizado
-
-La cinemática directa se implementó usando parámetros Denavit-Hartenberg medidos directamente del robot:
-
-| i | θᵢ | dᵢ | aᵢ | αᵢ |
-|---|----|----|----|----|
-| 1 | q1 | L1 | 0  | -π/2 |
-| 2 | q2 | 0  | L2 | 0 |
-| 3 | q3 | 0  | L3 | 0 |
-| 4 | q4 | 0  | 0  | π/2 |
-
-A continuación los diagramas utilizados.
-
-![Diagrama DH](images/dh.jpg)
-
-Visualización completa en MATLAB
-
-![MATLAB](images/dhcompleto.jpg)
-![alt text](images/dhcompleto2.jpg)
-
-A continuación podemos observar la interfaz que implementamos.
-
-AA VAN LAS IMAGENES
-
-## Graficas digitales comparativas
-A continuación los diagramas digitales de las diferentes poses.
-Empezando por HOME:
-![Diagrama digital pose HOME](images/diagramadig2.png)
-
-Continuamos con la pose R4:
-![Diagrama digital pose R4](images/diagramadig.jpg)
-
-Poses r2 y r3, estas dos poses son equivalentes, solamente cambia q1.
-![Diagrama digital pose R2 y R3](images/rutinar2yr3.png)
-
-A continuación las fotos de las poses implementadas:
-HOME:
-![Home](images/homereal.jpg)
-
-R2:
-![Rutina R2](images/r2.jpg)
-
-R3
-![Rutina R3](images/r3.jpg)
-
-R4
-![Rutina R4](images/r4.jpg)
-
-R5
-![Rutina R5](images/r5.jpg)
-
-## Diagrama de flujo de acciones del robot
-
-## Arquitectura de Software: PhantomX Pincher X100 (ROS 2)
-
-
-## Videos 
-A continuación se presentan los videos implemnetando la interfaz con todos sus modos ademas del video con el baile
-
-
-
-- [Video – Ejecución de poses del robot y demostración de la interfaz gráfica](https://drive.google.com/drive/folders/1bRAAmgxF9P8DvvkPTRfy_nz_58mMI_Yz?usp=sharing)
-
-![Vista previa del laboratorio](images/ReviewPhantom.gif)
-
-## Plano de planta
-A continuación se muestra el plano de planta
-![Plano de planta](images/planodeplanta.png)
-
-## Código
-Esta sección describe el código desarrollado para el laboratorio, el cual permite el control del manipulador Phantom X Pincher, el cálculo de la cinemática directa y la visualización del estado del robot mediante RViz y una interfaz gráfica.
+Esta sección describe el código de la iterfaz grafica desarrollada para el laboratorio 
 
 El archivo que contiene el código completo del sistema es:
 
@@ -514,6 +444,78 @@ def r2_all_motors(self, list_q):
                 break
 
             self.move_motor(motor_id, point_q[index])
+
+## Diagramas digitales y DH utilizado
+
+La cinemática directa se implementó usando parámetros Denavit-Hartenberg medidos directamente del robot:
+
+| i | θᵢ | dᵢ | aᵢ | αᵢ |
+|---|----|----|----|----|
+| 1 | q1 | L1 | 0  | -π/2 |
+| 2 | q2 | 0  | L2 | 0 |
+| 3 | q3 | 0  | L3 | 0 |
+| 4 | q4 | 0  | 0  | π/2 |
+
+A continuación los diagramas utilizados.
+
+![Diagrama DH](images/dh.jpg)
+
+Visualización completa en MATLAB
+
+![MATLAB](images/dhcompleto.jpg)
+![alt text](images/dhcompleto2.jpg)
+
+A continuación podemos observar la interfaz que implementamos.
+
+AA VAN LAS IMAGENES
+
+## Graficas digitales comparativas
+A continuación los diagramas digitales de las diferentes poses.
+Empezando por HOME:
+![Diagrama digital pose HOME](images/diagramadig2.png)
+
+Continuamos con la pose R4:
+![Diagrama digital pose R4](images/diagramadig.jpg)
+
+Poses r2 y r3, estas dos poses son equivalentes, solamente cambia q1.
+![Diagrama digital pose R2 y R3](images/rutinar2yr3.png)
+
+A continuación las fotos de las poses implementadas:
+HOME:
+![Home](images/homereal.jpg)
+
+R2:
+![Rutina R2](images/r2.jpg)
+
+R3
+![Rutina R3](images/r3.jpg)
+
+R4
+![Rutina R4](images/r4.jpg)
+
+R5
+![Rutina R5](images/r5.jpg)
+
+## Diagrama de flujo de acciones del robot
+
+## Arquitectura de Software: PhantomX Pincher X100 (ROS 2)
+
+
+## Videos 
+A continuación se presentan los videos implemnetando la interfaz con todos sus modos ademas del video con el baile
+
+
+
+- [Video – Ejecución de poses del robot y demostración de la interfaz gráfica](https://drive.google.com/drive/folders/1bRAAmgxF9P8DvvkPTRfy_nz_58mMI_Yz?usp=sharing)
+
+![Vista previa del laboratorio](images/ReviewPhantom.gif)
+
+## Plano de planta
+A continuación se muestra el plano de planta
+![Plano de planta](images/planodeplanta.png)
+
+## Código
+
 
       
 
