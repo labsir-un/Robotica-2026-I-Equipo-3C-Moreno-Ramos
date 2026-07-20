@@ -886,13 +886,13 @@ A continuación se presentan los videos de implementación de la interfaz Grafic
 <p align="center">
   <b>
 
-     implementación de la Interfaz Grafica
+     Implementación de la Interfaz Grafica
 
   </b><br>
 </p>
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1ncUSyCpmaQdeZ-cfhXGmuzgUaalBSjXP/view?usp=sharing">
+  <a href="https://drive.google.com/file/d/1kGw2yJDOtI3jXdlSQUl3BQY8gadnQ37S/view?usp=drive_link">
     <img src="images/Interfaz.png" alt="Ver video de Simulación" width="600">
   </a>
 </p>
@@ -906,7 +906,7 @@ A continuación se presentan los videos de implementación de la interfaz Grafic
 </p>
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1zcaH6DsCg6bbYIwTE01ld8Er0W8gi8Cl/view?usp=sharing">
+  <a href="https://drive.google.com/file/d/1JVY8RK-ZjUBz8cqOHkR_KZ-Letxmoqsy/view?usp=drive_link">
     <img src="images/Triangulo.png" alt="Ver video en Drive" width="600">
   </a>
 </p>
@@ -920,7 +920,7 @@ A continuación se presentan los videos de implementación de la interfaz Grafic
 </p>
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1zcaH6DsCg6bbYIwTE01ld8Er0W8gi8Cl/view?usp=sharing">
+  <a href="https://drive.google.com/file/d/1aq7QyFYzW7-oRnuxK7H2QA2z3oO8PaTD/view?usp=drive_link">
     <img src="images/Baile.png" alt="Ver video en Drive" width="600">
   </a>
 </p>
@@ -931,9 +931,7 @@ A continuación se presentan los videos de implementación de la interfaz Grafic
 
 
 
-- [Video – Ejecución de poses del robot y demostración de la interfaz gráfica](https://drive.google.com/drive/folders/1bRAAmgxF9P8DvvkPTRfy_nz_58mMI_Yz?usp=sharing)
 
-![Vista previa del laboratorio](images/ReviewPhantom.gif)
 
 ## Conclusiones
 - La arquitectura distribuida en tres ejes (nodo de control en ROS 2, interfaz en Tkinter y visualización en RViz) demostró ser robusta. La separación de responsabilidades permitió ejecutar tareas discretas, diferentes modos de prueba y procesos continuos de cálculo iterativo (trayectorias sinusoidales e interpolación) de manera simultánea sin bloquear la interfaz de usuario, garantizando una comunicación serial estable con los motores Dynamixelse, se encontro un problema de comunicaciòn en cuanto al cable usb que realiza esta pero ya es cuestion de problemas de hardware y su desgasto a traves de los años.
