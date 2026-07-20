@@ -213,162 +213,49 @@ El siguiente diagrama detalla la interacción exhaustiva entre la interfaz gráf
 ```md
 ```mermaid
 flowchart TD
-    %% Declaración de nodos y etiquetas
-    App["Interfaz Principal (PincherGui)"]
-    Modo{"Modo de Envío seleccionado"}
-    EnvioDirecto["Publicación Inmediata"]
-    EnvioSec["Bucle Secuencial (Base -> Hombro -> Pinza)"]
-    Vel["Entrada de Velocidad"]
-    BtnHome["Botón: HOME"]
-    BtnTorque["Botones: Torque ON/OFF"]
-    BtnStop["Botón: PARADA DE SOFTWARE"]
-    PanelEstado["Panel de Estado en GUI"]
+    Inicio["Inicio del programa (main)"]
+    Inicializar_ROS["Inicializar ROS 2 (rclpy.init)"]
+    Crear_Nodo["Crear PincherGuiNode (Publishers, Subs, Clients)"]
+    Crear_GUI["Crear PincherGui (Tkinter Layout & Tabs)"]
+    Bucle_Principal["Bucle principal (mainloop + spin_ros)"]
+    Interaccion_Usuario["Eventos de usuario en la GUI"]
+    Accion_Topicos["Publicar tópicos (/pincher/command, velocity)"]
+    Accion_Servicios["Llamar servicios (/pincher/home, stop, torque)"]
+    Cerrar_App["Cerrar aplicación y apagar ROS 2"]
 
-    PubCmd["Publish: /pincher/command"]
-    PubVel["Publish: /pincher/profile_velocity"]
-    SubStatus["Subscribe: /pincher/status"]
-    SubJoint["Subscribe: /joint_states"]
-    SrvHome["Client: /pincher/home"]
-    SrvStop["Client: /pincher/software_stop"]
-    SrvTorque["Client: /pincher/torque_enable"]
-
-    T1["Pestaña 1: Manual (Validación de Límites)"]
-    T2["Pestaña 2: Presets (Diccionario de Poses)"]
-    T3["Pestaña 3: Trayectorias (Lineal, Cúbica, Quíntica)"]
-    T4["Pestaña 4: Senoidal (q = q0 + A*sin)"]
-    T5["Pestaña 5: Enseñanza (Archivo YAML)"]
-    T6["Pestaña 6: Triángulo (TRIANGLE_POSES)"]
-    T7["Pestaña 7: Baile (DANCE_POSES + Audio)"]
-
-    Plot1["Renderizado Matplotlib (Trayectorias)"]
-    Plot2["Comparación Gráfica (Deseada vs Medida)"]
-    SubProceso["Subproceso de Audio (ffplay)"]
-
-    %% Conexiones de la Aplicación Principal
-    App --> T1
-    App --> T2
-    App --> T3
-    App --> T4
-    App --> T5
-    App --> T6
-    App --> T7
-    App --> Vel
-    App --> BtnHome
-    App --> BtnTorque
-    App --> BtnStop
-
-    %% Flujo de las Pestañas hacia el Generador de Movimiento
-    T1 --> Modo
-    T2 --> Modo
-    
-    T3 --> Plot1
-    T3 --> PubCmd
-    
-    T4 --> Plot2
-    T4 --> PubCmd
-    
-    T5 --> PubCmd
-    T6 --> PubCmd
-    
-    T7 --> SubProceso
-    T7 --> PubCmd
-
-    %% Lógica del Modo de Envío
-    Modo --> EnvioDirecto
-    Modo --> EnvioSec
-    EnvioDirecto --> PubCmd
-    EnvioSec --> PubCmd
-
-    %% Conexiones de Controles Globales a Servicios y Publicadores
-    Vel --> PubVel
-    BtnHome --> SrvHome
-    BtnTorque --> SrvTorque
-    BtnStop --> SrvStop
-
-    %% Retroalimentación de Tópicos hacia la GUI
-    SubStatus --> PanelEstado
-    SubJoint --> PanelEstado
-    SubJoint --> Plot2
+    Inicio --> Inicializar_ROS
+    Inicializar_ROS --> Crear_Nodo
+    Crear_Nodo --> Crear_GUI
+    Crear_GUI --> Bucle_Principal
+    Bucle_Principal --> Interaccion_Usuario
+    Interaccion_Usuario --> Accion_Topicos
+    Interaccion_Usuario --> Accion_Servicios
+    Accion_Topicos --> Bucle_Principal
+    Accion_Servicios --> Bucle_Principal
+    Bucle_Principal --> Cerrar_App
 ```
 ```mermaid
 flowchart TD
-flowchart TD
-    %% Declaración de nodos y etiquetas
-    App["Interfaz Principal (PincherGui)"]
-    Modo{"Modo de Envío seleccionado"}
-    EnvioDirecto["Publicación Inmediata"]
-    EnvioSec["Bucle Secuencial (Base -> Hombro -> Pinza)"]
-    Vel["Entrada de Velocidad"]
-    BtnHome["Botón: HOME"]
-    BtnTorque["Botones: Torque ON/OFF"]
-    BtnStop["Botón: PARADA DE SOFTWARE"]
-    PanelEstado["Panel de Estado en GUI"]
+    Inicio["Inicio del programa (main)"]
+    Inicializar_ROS["Inicializar ROS 2 (rclpy.init)"]
+    Crear_Nodo["Crear PincherGuiNode (Publishers, Subs, Clients)"]
+    Crear_GUI["Crear PincherGui (Tkinter Layout & Tabs)"]
+    Bucle_Principal["Bucle principal (mainloop + spin_ros)"]
+    Interaccion_Usuario["Eventos de usuario en la GUI"]
+    Accion_Topicos["Publicar tópicos (/pincher/command, velocity)"]
+    Accion_Servicios["Llamar servicios (/pincher/home, stop, torque)"]
+    Cerrar_App["Cerrar aplicación y apagar ROS 2"]
 
-    PubCmd["Publish: /pincher/command"]
-    PubVel["Publish: /pincher/profile_velocity"]
-    SubStatus["Subscribe: /pincher/status"]
-    SubJoint["Subscribe: /joint_states"]
-    SrvHome["Client: /pincher/home"]
-    SrvStop["Client: /pincher/software_stop"]
-    SrvTorque["Client: /pincher/torque_enable"]
-
-    T1["Pestaña 1: Manual (Validación de Límites)"]
-    T2["Pestaña 2: Presets (Diccionario de Poses)"]
-    T3["Pestaña 3: Trayectorias (Lineal, Cúbica, Quíntica)"]
-    T4["Pestaña 4: Senoidal (q = q0 + A*sin)"]
-    T5["Pestaña 5: Enseñanza (Archivo YAML)"]
-    T6["Pestaña 6: Triángulo (TRIANGLE_POSES)"]
-    T7["Pestaña 7: Baile (DANCE_POSES + Audio)"]
-
-    Plot1["Renderizado Matplotlib (Trayectorias)"]
-    Plot2["Comparación Gráfica (Deseada vs Medida)"]
-    SubProceso["Subproceso de Audio (ffplay)"]
-
-    %% Conexiones de la Aplicación Principal
-    App --> T1
-    App --> T2
-    App --> T3
-    App --> T4
-    App --> T5
-    App --> T6
-    App --> T7
-    App --> Vel
-    App --> BtnHome
-    App --> BtnTorque
-    App --> BtnStop
-
-    %% Flujo de las Pestañas hacia el Generador de Movimiento
-    T1 --> Modo
-    T2 --> Modo
-    
-    T3 --> Plot1
-    T3 --> PubCmd
-    
-    T4 --> Plot2
-    T4 --> PubCmd
-    
-    T5 --> PubCmd
-    T6 --> PubCmd
-    
-    T7 --> SubProceso
-    T7 --> PubCmd
-
-    %% Lógica del Modo de Envío
-    Modo --> EnvioDirecto
-    Modo --> EnvioSec
-    EnvioDirecto --> PubCmd
-    EnvioSec --> PubCmd
-
-    %% Conexiones de Controles Globales a Servicios y Publicadores
-    Vel --> PubVel
-    BtnHome --> SrvHome
-    BtnTorque --> SrvTorque
-    BtnStop --> SrvStop
-
-    %% Retroalimentación de Tópicos hacia la GUI
-    SubStatus --> PanelEstado
-    SubJoint --> PanelEstado
-    SubJoint --> Plot2
+    Inicio --> Inicializar_ROS
+    Inicializar_ROS --> Crear_Nodo
+    Crear_Nodo --> Crear_GUI
+    Crear_GUI --> Bucle_Principal
+    Bucle_Principal --> Interaccion_Usuario
+    Interaccion_Usuario --> Accion_Topicos
+    Interaccion_Usuario --> Accion_Servicios
+    Accion_Topicos --> Bucle_Principal
+    Accion_Servicios --> Bucle_Principal
+    Bucle_Principal --> Cerrar_App
 ```
 
 ## Videos 
