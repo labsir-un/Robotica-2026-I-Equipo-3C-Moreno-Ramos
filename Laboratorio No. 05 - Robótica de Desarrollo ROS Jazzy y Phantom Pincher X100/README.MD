@@ -66,7 +66,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Presets 
 
-* **Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio 
+* **Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio** 
 
 | Articulación | Preset 1 | Preset 2 | Preset 3 | Preset 4 | Preset 5 |
 | ------------ | -------- | -------- | -------- | -------- | -------- | 
