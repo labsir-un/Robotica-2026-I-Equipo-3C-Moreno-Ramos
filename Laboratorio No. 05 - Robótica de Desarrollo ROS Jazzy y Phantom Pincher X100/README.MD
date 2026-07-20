@@ -90,7 +90,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 * **Muestras:** Cuantas Muestras se van a tomar para la interpolación .
 * **Interpolaciòn:** Seleccionar el tipo de interpolación (Lineal,Cúbica,Quintica) .
 * **Enviar Trayectoria:** Envia la trayectoria que se le indico al robot.
-* **Graficar Trayectoria:** Grafica latrayectoria en posición angular vs tiempo con su respectiva interpolación lineal vs cubica/Quintica.
+* **Graficar Trayectoria:** Grafica la trayectoria en posición angular vs tiempo con su respectiva interpolación lineal vs cubica/Quintica.
 * **Grafica Trayectoria:** Muestra la Grafica.
 
 ---
@@ -99,15 +99,16 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 **Selecciona una articulación y le da los parametros con  $q(t) = q_0 + A \sin(2\pi f t)$**
 
 
-* **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
-* **Pose Final** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
+* **Articulación:** Ingresar a cual articulaciòn se le va aplicar la función .
+* **Q0:**  Ingresar numericamente el centro de la función.
+* **Amplitud A1/A2** Ingresar numericamente las amplitudes de las funciones.
+* **Frecuencia F1/F2** Ingresar numericamente las Frecuencias de las funciones.
 * **Articulación a graficar:** Selecionar cual recorrido de las 5 articulaciones se va a graficar .
 * **Duración:** Duración en segundos de la grafica .
-* **Muestras:** Cuantas Muestras se van a tomar para la interpolación .
-* **Interpolaciòn:** Seleccionar el tipo de interpolación (Lineal,Cúbica,Quintica) .
-* **Enviar Trayectoria:** Envia la trayectoria que se le indico al robot.
-* **Graficar Trayectoria:** Grafica latrayectoria en posición angular vs tiempo con su respectiva interpolación lineal vs cubica/Quintica.
-* **Grafica Trayectoria:** Muestra la Grafica.
+* **Ejecutar:** Ejecuta las 4 pruebas .
+* **Ver Prueba:** Ve la prueba seleccionada .
+* **Error:** Muestra un error si este se ha presentado.
+* **Posición enviada vs Posición medida:** Grafica de la operación.
 
 ---
 
