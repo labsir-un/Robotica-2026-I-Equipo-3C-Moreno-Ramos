@@ -25,7 +25,7 @@
 3. [Código fuente](#Código-fuente)
 4. [Plano de planta](#Plano-de-planta)
 5. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
-6. [Calibración, Graficas de interpolación y trayectoria sinusoidal](#Calibración,-Graficas-de-interpolación-y-trayectoria-sinusoidal)
+6. [Calibración, Graficas de interpolación y trayectoria sinusoidal](#Calibración,Graficas-de-interpolación-y-trayectoria-sinusoidal)
 7. [Videos](#videos)
 8. [Conclusiones individuales.](#Conclusiones individuales.)
 
@@ -594,7 +594,7 @@ Pose 5:
   <img src="images/r5.jpg" alt="Rutina R5" width="450">
 </p>
 
-## Calibración, Graficas de interpolación y trayectoria sinusoidal
+## Calibración,Graficas-de-interpolación-y-trayectoria-sinusoidal
 
 A continuación las imagenes de la posición real en las poses implementadas anteriormente con su respectivo error en cada articulaciòn medido en radianes :
 
@@ -750,7 +750,52 @@ Error Pose 5 :
 
 </div>
 
-Se llego a la conclu
+Error Máximo
+
+<div align="center">
+
+| Articulación | Grados | Radianes |
+| :---: | :---: | :---: |
+| 1 | 2.9278 | 0.0511 |
+| 2 | 2.9278 | 0.0511 | 
+| 3 | 2.9278 | 0.0511 | 
+| 4 | 0.5099 | 0.0089 | 
+| 5 | 2.9278 | 0.0511 | 
+
+</div>
+
+Error Promedio
+
+<div align="center">
+
+| Articulación | Grados | Radianes |
+| :---: | :---: | :---: |
+| 1 | 0.7735 | 0.0135 |
+| 2 | 1.3636 | 0.0238 | 
+| 3 | 1.1345 | 0.0198 | 
+| 4 | 0.2464 | 0.0043 | 
+| 5 | 2.9278 | 0.0511 | 
+
+</div>
+
+Desplazamiento de Cero
+
+<div align="center">
+
+| Articulación | Grados | Radianes |
+| :---: | :---: | :---: |
+| 1 | 2.9278 | 0.0511 |
+| 2 | 2.9278 | 0.0511 | 
+| 3 | 2.9278 | 0.0511 | 
+| 4 | 0.0000 | 0.0000 | 
+| 5 | 2.9278 | 0.0511 | 
+
+</div>
+
+
+
+
+
 
 
 
@@ -767,6 +812,15 @@ A continuación se presentan los videos implemnetando la interfaz con todos sus 
 
 ![Vista previa del laboratorio](images/ReviewPhantom.gif)
 
+## Conclusiones
+
+*Las articulaciones 1, 2, 3 y 5 presentan exactamente el mismo desplazamiento de cero inicial (0.0511 radianes) en la Pose 1 (Home). Se intuye que hay un desfase sistemático de calibración en los encoders o potenciómetros , o una holgura mecánica compartida en su diseño.
+
+*La articulación 4 (muñeca) es la más precisa de todo el sistema al no presentar desplazamiento de cero en la posición Home y cuenta con el error promedio más bajo (0.0043 rad) y el error máximo más bajo (0.0089 rad) de todas las articulaciones.
+
+*La articulación 5 mantiene un error constante de 0.0511 radianes en todas y cada una de las poses. Esto significa que el error no es dinámico; es puramente un offset de cero que no fue compensado en el controlador de la pinza.
+
+*Para las articulaciones 1, 2 y 3, el Error Máximo se registra en la posición de reposo (Pose 1). Cuando el robot se mueve a posiciones articulares distintas de cero (Poses 2 a 5), los errores articulares disminuyen considerablemente en comparación con el offset inicial.
 
 
 
