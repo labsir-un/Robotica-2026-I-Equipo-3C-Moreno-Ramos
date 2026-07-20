@@ -205,10 +205,14 @@ R5
 
 ## Diagrama de flujo de acciones del robot
 
+## Arquitectura de Software: PhantomX Pincher X100 (ROS 2)
+
+El siguiente diagrama detalla la interacción exhaustiva entre la interfaz gráfica de usuario (`PincherGui`), el nodo de ROS 2 (`PincherGuiNode`) y el controlador de hardware.
+
 ```mermaid
 graph TD
     %% ---------------- NODO ROS 2 ----------------
-    subgraph Nodo_ROS2 [PincherGuiNode - ROS 2 Jazzy]
+    subgraph Nodo_ROS2 ["PincherGuiNode - ROS 2 Jazzy"]
         direction LR
         PubCmd[/Publish: /pincher/command <br/> JointState/]
         PubVel[/Publish: /pincher/profile_velocity <br/> UInt32/]
@@ -225,48 +229,48 @@ graph TD
     App --> Pestanas
 
     %% ---------------- CONTROLES GLOBALES ----------------
-    subgraph Controles_Globales [Controles Fijos y Estado]
+    subgraph Controles_Globales ["Controles Fijos y Estado"]
         Modo{Modo de Envío}
         Modo -->|Simultáneo| EnvioDirecto[Publicación Inmediata]
-        Modo -->|Secuencial| EnvioSec[Bucle Secuencial: <br/>Base->Hombro->...->Pinza]
+        Modo -->|Secuencial| EnvioSec["Bucle Secuencial: <br/>Base->Hombro->...->Pinza"]
         
         Vel[Input: Velocidad] --> PubVel
-        BtnHome[Botón: HOME] --> SrvHome
-        BtnTorque[Botones: Torque ON/OFF] --> SrvTorque
+        BtnHome["Botón: HOME"] --> SrvHome
+        BtnTorque["Botones: Torque ON/OFF"] --> SrvTorque
         BtnStop[PARADA DE SOFTWARE] --> SrvStop
         
         PanelEstado[Panel de Estado GUI] <-- SubStatus
     end
 
     %% ---------------- PESTAÑAS (NOTEBOOK) ----------------
-    subgraph Pestanas [Notebook: Pestañas de Operación]
+    subgraph Pestanas ["Notebook: Pestañas de Operación"]
         direction TB
         
-        T1[1. Manual] --> |Valida Límites| GeneradorObjetivos
-        T2[2. Presets] --> |Diccionario de Poses| GeneradorObjetivos
+        T1["1. Manual"] -->|Valida Límites| GeneradorObjetivos
+        T2["2. Presets"] -->|Diccionario de Poses| GeneradorObjetivos
         
-        T3[3. Trayectorias] --> |Genera Muestras| Interp[Lineal, Cúbica, Quíntica]
+        T3["3. Trayectorias"] -->|Genera Muestras| Interp["Lineal, Cúbica, Quíntica"]
         Interp --> Plot1[Renderizado Matplotlib]
         Interp --> LoopTraj[Bucle: Envío paso a paso]
         
-        T4[4. Senoidal] --> |Matemática| MathEq["q(t) = q0 + A*sin(2πft)"]
+        T4["4. Senoidal"] -->|Matemática| MathEq["q(t) = q0 + A*sin(2πft)"]
         MathEq --> LoopSin[Ejecución de 4 Pruebas]
-        LoopSin --> Plot2[Comparación: Deseada vs Medida]
+        LoopSin --> Plot2["Comparación: Deseada vs Medida"]
         
-        T5[5. Enseñanza] --> |E/S de Archivo| YAML[pincher_taught_poses.yaml]
+        T5["5. Enseñanza"] -->|E/S de Archivo| YAML["pincher_taught_poses.yaml"]
         YAML --> ListBox[Lista de Poses]
         ListBox --> LoopTeach[Bucle: Reproducción con retardo]
         
-        T6[6. Triángulo] --> |Carga de constantes| ArrTri[TRIANGLE_POSES]
+        T6["6. Triángulo"] -->|Carga de constantes| ArrTri[TRIANGLE_POSES]
         ArrTri --> LoopTri[Bucle: Ejecución con 500ms fijo]
         
-        T7[7. Baile] --> |Carga de constantes| ArrDance[DANCE_POSES]
-        ArrDance --> SubProceso[Audio Subproceso: <br/> ffplay / mpg123...]
+        T7["7. Baile"] -->|Carga de constantes| ArrDance[DANCE_POSES]
+        ArrDance --> SubProceso["Audio Subproceso: <br/> ffplay / mpg123..."]
         ArrDance --> LoopDance[Bucle: Ejecución con retardos variables]
     end
 
     %% ---------------- CONEXIONES DE ENVÍO ----------------
-    GeneradorObjetivos(Posición Objetivo) --> Modo
+    GeneradorObjetivos --> Modo
     
     EnvioDirecto --> PubCmd
     EnvioSec --> PubCmd
@@ -277,8 +281,8 @@ graph TD
     LoopDance --> PubCmd
 
     %% Retroalimentación (Feedback)
-    SubJoint -.->|latest_measured_deg| LoopSin
-    SubJoint -.->|Actualiza Estado| PanelEstado
+    SubJoint -.-> LoopSin
+    SubJoint -.-> PanelEstado
 
     %% ---------------- ESTILOS ----------------
     style BtnStop fill:#c53030,color:#fff,stroke:#fff
