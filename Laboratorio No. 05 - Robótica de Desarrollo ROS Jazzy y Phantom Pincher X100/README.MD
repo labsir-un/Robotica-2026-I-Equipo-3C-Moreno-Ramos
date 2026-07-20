@@ -461,18 +461,18 @@ A continuación los diagramas utilizados.
 
 
 <p align="center">
-  <img src="images/dh.jpg" alt="Diagrama DH" width="800">
+  <img src="images/dh.jpg" alt="Diagrama DH" width="450">
 </p>
 
 
 Visualización completa en MATLAB
 
 <p align="center">
-  <img src="images/dhcompleto.jpg" alt="MATLAB" width="800">
+  <img src="images/dhcompleto.jpg" alt="MATLAB" width="450">
 </p>
 
 <p align="center">
-  <img src="images/dhcompleto2.jpg" alt="alt text" width="800">
+  <img src="images/dhcompleto2.jpg" alt="alt text" width="450">
 </p>
   
 
@@ -482,44 +482,44 @@ A continuación los diagramas digitales de las diferentes poses.
 Empezando por HOME:
 
 <p align="center">
-  <img src="images/diagramadig2.png" alt="Diagrama digital pose HOME" width="800">
+  <img src="images/diagramadig2.png" alt="Diagrama digital pose HOME" width="450">
 </p>
 
 
 Continuamos con la pose R4:
 
 <p align="center">
-  <img src="images/diagramadig.jpg" alt="Diagrama digital pose R4" width="800">
+  <img src="images/diagramadig.jpg" alt="Diagrama digital pose R4" width="450">
 </p>
 
 
 Poses r2 y r3, estas dos poses son equivalentes, solamente cambia q1.
 
 <p align="center">
-  <img src="images/rutinar2yr3.png" alt="Diagrama digital pose R2 y R3" width="800">
+  <img src="images/rutinar2yr3.png" alt="Diagrama digital pose R2 y R3" width="450">
 </p>
 
 
 A continuación las fotos de las poses implementadas:
 HOME:
 <p align="center">
-  <img src="images/homereal.jpg" alt="Home" width="800">
+  <img src="images/homereal.jpg" alt="Home" width="450">
 </p>
 R2:
 <p align="center">
-  <img src="images/r2.jpg" alt="Rutina R2" width="800">
+  <img src="images/r2.jpg" alt="Rutina R2" width="450">
 </p>
 R3:
 <p align="center">
-  <img src="images/r3.jpg" alt="Rutina R3" width="800">
+  <img src="images/r3.jpg" alt="Rutina R3" width="450">
 </p>
 R4:
 <p align="center">
-  <img src="images/r4.jpg" alt="Rutina R4" width="800">
+  <img src="images/r4.jpg" alt="Rutina R4" width="450">
 </p>
 R5:
 <p align="center">
-  <img src="images/r5.jpg" alt="Rutina R5" width="800">
+  <img src="images/r5.jpg" alt="Rutina R5" width="450">
 </p>
 
 
