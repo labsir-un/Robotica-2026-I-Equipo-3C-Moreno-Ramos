@@ -81,10 +81,10 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Trayectoria
 
-* **Genera una trayectoria entre dos configuraciones aleajdas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica **
+* **Genera una trayectoria entre dos configuraciones aleajdas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
 
 * **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
-* **Pose Final ** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
+* **Pose Final** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
 * **Articulación a graficar:** Selecionar cual recorrido de las 5 articulaciones se va a graficar .
 * **Duración:** Duración en segundos de la grafica .
 * **Muestras:** Cuantas Muestras se van a tomar para la interpolación .
@@ -96,10 +96,10 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Senoidal
 
-* **Genera una trayectoria entre dos configuraciones aleajdas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica **
+* **Genera una trayectoria entre dos configuraciones aleajdas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
 
-* **Pose Inicia:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
-* **Pose Inicia:** Ingresar directamente a cual posición ya preestablecidad o actual va a it el robot .
+* **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
+* **Pose Final** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
 * **Articulación a graficar:** Selecionar cual recorrido de las 5 articulaciones se va a graficar .
 * **Duración:** Duración en segundos de la grafica .
 * **Muestras:** Cuantas Muestras se van a tomar para la interpolación .
@@ -108,6 +108,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 * **Graficar Trayectoria:** Grafica latrayectoria en posición angular vs tiempo con su respectiva interpolación lineal vs cubica/Quintica.
 * **Grafica Trayectoria:** Muestra la Grafica.
 
+---
 
 
 
