@@ -21,12 +21,15 @@
 # Índice
 
 1. [Descripción detallada de la solución planteada](#descripcion)
-2. [Diagramas digitales y DH utilizado](#diagramas)
-3. [Gráficas digitales comparativas](#graf_dig)
-4. [Diagrama de flujo de acciones del robot](#diagrama_flujo)
-5. [Videos](#videos)
-6. [Plano de planta](#plano_planta)
-7. [Código explicado](#codigo)
+2. [Diagrama de flujo de las acciones del robot](#Diagrama de flujo)
+3. [Código fuente](#Diagrama de flujo)(#Codigo)
+4. [Plano de planta](#Diagrama de flujo)(#Codigo)
+3. [Diagramas digitales y DH utilizado](#diagramas)
+4. [Gráficas digitales comparativas/Gráficas de calibración, interpolación y trayectoria sinusoidal](#graf_dig)
+5. [Diagrama de flujo de acciones del robot](#diagrama_flujo)
+6. [Videos](#videos)
+7. [Conclusiones individuales.](#Conclusiones individuales.)
+
 
 ## Descripción detallada de la solución planteada
 Se desarrolló un nodo de ROS 2 en Python que permite:
