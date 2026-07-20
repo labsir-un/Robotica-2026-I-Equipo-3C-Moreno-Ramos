@@ -815,13 +815,13 @@ A continuación se presentan los videos implemnetando la interfaz con todos sus 
 
 ## Conclusiones
 
--Las articulaciones 1, 2, 3 y 5 presentan exactamente el mismo desplazamiento de cero inicial (0.0511 radianes) en la Pose 1 (Home). Se intuye que hay un desfase sistemático de calibración en los encoders o potenciómetros , o una holgura mecánica compartida en su diseño.
+- Las articulaciones 1, 2, 3 y 5 presentan exactamente el mismo desplazamiento de cero inicial (0.0511 radianes) en la Pose 1 (Home). Se intuye que hay un desfase sistemático de calibración en los encoders o potenciómetros , o una holgura mecánica compartida en su diseño.
 
--La articulación 4 (muñeca) es la más precisa de todo el sistema al no presentar desplazamiento de cero en la posición Home y cuenta con el error promedio más bajo (0.0043 rad) y el error máximo más bajo (0.0089 rad) de todas las articulaciones.
+- La articulación 4 (muñeca) es la más precisa de todo el sistema al no presentar desplazamiento de cero en la posición Home y cuenta con el error promedio más bajo (0.0043 rad) y el error máximo más bajo (0.0089 rad) de todas las articulaciones.
 
--La articulación 5 mantiene un error constante de 0.0511 radianes en todas y cada una de las poses. Esto significa que el error no es dinámico; es puramente un offset de cero que no fue compensado en el controlador de la pinza.
+- La articulación 5 mantiene un error constante de 0.0511 radianes en todas y cada una de las poses. Esto significa que el error no es dinámico; es puramente un offset de cero que no fue compensado en el controlador de la pinza.
 
--Para las articulaciones 1, 2 y 3, el Error Máximo se registra en la posición de reposo (Pose 1). Cuando el robot se mueve a posiciones articulares distintas de cero (Poses 2 a 5), los errores articulares disminuyen considerablemente en comparación con el offset inicial.
+- Para las articulaciones 1, 2 y 3, el Error Máximo se registra en la posición de reposo (Pose 1). Cuando el robot se mueve a posiciones articulares distintas de cero (Poses 2 a 5), los errores articulares disminuyen considerablemente en comparación con el offset inicial.
 
 
 
