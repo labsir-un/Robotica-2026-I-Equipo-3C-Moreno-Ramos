@@ -41,8 +41,11 @@ La arquitectura del sistema integra tres componentes principales:
 2. Interfaz gráfica (GUI) en Tkinter.
 3. Modelo del robot visualizado en RViz.
 
-*Funciones utilizadas*
-Se presentan a continuaciòn las funciones utilizadas en la interfaz grafica tanto en todos los modos como en modos especificos 
+### Funciones utilizadas
+
+Se presentan a continuación las funciones utilizadas en la interfaz gráfica tanto en todos los modos como en modos específicos:
+
+---
 ### Todos los modos
 
 * **Movimiento Simultáneo:** Todas las articulaciones se mueven simultáneamente a la posición enviada.
