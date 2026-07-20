@@ -877,23 +877,57 @@ Prueba 4 ( A2 y F2 / 19 Grados y   0.2 HZ)
 </p>
 
 
-
-
-
-
-
-
 ---
 
-
-
-
-
-
-
-
 ## Videos 
-A continuación se presentan los videos implemnetando la interfaz con todos sus modos ademas del video con el baile
+
+A continuación se presentan los videos de implementación de la interfaz Grafica con todos sus modos, El video en fisico de la realización de la figura (Triangulo) y por ultimo el video con la coreografia propuesta:
+
+<p align="center">
+  <b>
+
+     implementación de la Interfaz Grafica
+
+  </b><br>
+</p>
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1ncUSyCpmaQdeZ-cfhXGmuzgUaalBSjXP/view?usp=sharing">
+    <img src="images/Interfaz.png" alt="Ver video de Simulación" width="600">
+  </a>
+</p>
+
+<p align="center">
+  <b>
+
+    Realización de el Triangulo
+      
+  </b><br>
+</p>
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1zcaH6DsCg6bbYIwTE01ld8Er0W8gi8Cl/view?usp=sharing">
+    <img src="images/Triangulo.png" alt="Ver video en Drive" width="600">
+  </a>
+</p>
+
+<p align="center">
+  <b>
+
+    Coreografia
+      
+  </b><br>
+</p>
+
+<p align="center">
+  <a href="https://drive.google.com/file/d/1zcaH6DsCg6bbYIwTE01ld8Er0W8gi8Cl/view?usp=sharing">
+    <img src="images/Baile.png" alt="Ver video en Drive" width="600">
+  </a>
+</p>
+
+
+
+
 
 
 
@@ -902,6 +936,10 @@ A continuación se presentan los videos implemnetando la interfaz con todos sus 
 ![Vista previa del laboratorio](images/ReviewPhantom.gif)
 
 ## Conclusiones
+- La arquitectura distribuida en tres ejes (nodo de control en ROS 2, interfaz en Tkinter y visualización en RViz) demostró ser robusta. La separación de responsabilidades permitió ejecutar tareas discretas, diferentes modos de prueba y procesos continuos de cálculo iterativo (trayectorias sinusoidales e interpolación) de manera simultánea sin bloquear la interfaz de usuario, garantizando una comunicación serial estable con los motores Dynamixelse, se encontro un problema de comunicaciòn en cuanto al cable usb que realiza esta pero ya es cuestion de problemas de hardware y su desgasto a traves de los años.
+-El modelo matemático construido a partir de los parámetros Denavit-Hartenberg (DH) representa fielmente la estructura física del robot, validado por la correspondencia visual entre el entorno de RViz y las poses físicas (R1 a R5).
+
+- La inclusión de interpolación cúbica y quíntica frente a la lineal clásica es un paso vital para garantizar arranques y paradas suaves, mitigando aceleraciones bruscas que podrían inducir estrés mecánico o vibraciones
 
 - Las articulaciones 1, 2, 3 y 5 presentan exactamente el mismo desplazamiento de cero inicial (0.0511 radianes) en la Pose 1 (Home). Se intuye que hay un desfase sistemático de calibración en los encoders o potenciómetros , o una holgura mecánica compartida en su diseño.
 
@@ -909,7 +947,13 @@ A continuación se presentan los videos implemnetando la interfaz con todos sus 
 
 - La articulación 5 mantiene un error constante de 0.0511 radianes en todas y cada una de las poses. Esto significa que el error no es dinámico; es puramente un offset de cero que no fue compensado en el controlador de la pinza.
 
-- Para las articulaciones 1, 2 y 3, el Error Máximo se registra en la posición de reposo (Pose 1). Cuando el robot se mueve a posiciones articulares distintas de cero (Poses 2 a 5), los errores articulares disminuyen considerablemente en comparación con el offset inicial.
+- Para las articulaciones 1, 2 y 3, el Error Máximo se registra en la posición de reposo (Pose 1). Cuando el robot se mueve a posiciones articulares distintas de cero (Poses 2 a 5), los errores articulares disminuyen considerablemente en comparación con el offset inicial,Esto apunta a una desalineación mecánica inicial o al juego de engranajes (backlash) inherente de los servomotores que el control de lazo abierto actual no logra compensar por completa.
+
+- Fue un reto bastante grande el baile al tener que sincronizar ritmo , delays , posiciones y velocidades para que el resultado fuera agradable , dando comprensiòn que todo en conjunto es de vital importancia 
+
+- En la figura de triangulo se utilizo cinematica inversa para sus vertices y de ahi se utilizo interpolación lineal para encontrar los valores de las articulaciones en los otros puntos , dotando de gran practicidad el uso de estas herramientas teoricas aprendidas en el curso.
+
+
 
 
 
