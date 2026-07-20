@@ -594,7 +594,7 @@ Pose 5:
   <img src="images/r5.jpg" alt="Rutina R5" width="450">
 </p>
 
-## Calibración,Graficas-de-interpolación-y-trayectoria-sinusoidal
+## Calibración,Graficas de interpolación y trayectoria sinusoidal
 
 A continuación las imagenes de la posición real en las poses implementadas anteriormente con su respectivo error en cada articulaciòn medido en radianes :
 
