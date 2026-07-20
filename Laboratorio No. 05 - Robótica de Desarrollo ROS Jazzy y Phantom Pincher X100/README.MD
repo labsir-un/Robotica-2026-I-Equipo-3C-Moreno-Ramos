@@ -131,7 +131,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 
 ### Modo Triangulo
 
-**Ejecuta una secuencia de poses para el desarrollo de un triangulo previamente encontradas gracias a cinematica inversa (Tres vertices) e interpolación lineal, se utilizan 60 muestras totalmente editables para quitar o agregar mas en la constante Triangle_Poses*
+**Ejecuta una secuencia de poses para el desarrollo de un triangulo previamente encontradas gracias a cinematica inversa (Tres vertices) e interpolación lineal, se utilizan 60 muestras totalmente editables para quitar o agregar mas en la constante Triangle_Poses**
 
 
 * **Secuencia:** Lista de poses de Triangle_Poses con sus respectivos parametros .
@@ -142,7 +142,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 
 ### Modo Baile
 
-**Ejecuta una coreografia de poses definidas, cada pose tiene su propio retardo y reprodruce automaticamente la canción "Chipi chipi" al inicio de la coreografia*
+**Ejecuta una coreografia de poses definidas, cada pose tiene su propio retardo y reprodruce automaticamente la canción "Chipi chipi" al inicio de la coreografia**
 
 
 * **Coreografia:** Lista de poses de la coreografia con sus respectivos parametros .
