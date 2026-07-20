@@ -23,7 +23,7 @@
 1. [Descripción detallada de la solución planteada](#Descripción-detallada-de-la-solución-planteada)
 2. [Diagrama de flujo de las acciones del robot](#Diagrama-de-flujo-de-las-acciones-del-robot)
 3. [Código fuente](#Código-fuente)
-4. [Plano de planta](#Diagrama de flujo)(#Codigo)
+4. [Plano de planta](#Plano-de-planta)
 5. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
 6. [Gráficas digitales comparativas/Gráficas de calibración, interpolación y trayectoria sinusoidal](#graf_dig)
 7. [Videos](#videos)
@@ -445,7 +445,61 @@ def r2_all_motors(self, list_q):
             self.move_motor(motor_id, point_q[index])
 ```
 
+## Plano de planta
+A continuación se muestra el plano de planta
+
+<p align="center">
+  <img src="images/PlanoPlanta.png" alt="PlanoPlanta" width="800">
+</p>
+
+
 ## Diagramas digitales y DH utilizado
+<svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect width="44" height="44" rx="16" fill="url(#paint0_linear_107_117)"/>
+<g clip-path="url(#clip0_107_117)">
+<g clip-path="url(#clip1_107_117)">
+<g clip-path="url(#clip2_107_117)">
+<mask id="mask0_107_117" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="8" y="8" width="28" height="28">
+<path d="M36 8H8V36H36V8Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_107_117)">
+<g opacity="0.9">
+<mask id="mask1_107_117" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="8" y="8" width="28" height="28">
+<path d="M36 8H8V36H36V8Z" fill="white"/>
+</mask>
+<g mask="url(#mask1_107_117)">
+<mask id="mask2_107_117" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="8" y="8" width="28" height="28">
+<path d="M36 8H8V36H36V8Z" fill="white"/>
+</mask>
+<g mask="url(#mask2_107_117)">
+<path d="M35.7634 8H8V35.7634H35.7634V8Z" fill="url(#pattern0_107_117)"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<pattern id="pattern0_107_117" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_107_117" transform="scale(0.01)"/>
+</pattern>
+<linearGradient id="paint0_linear_107_117" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F6B640"/>
+<stop offset="1" stop-color="#F6B63D"/>
+</linearGradient>
+<clipPath id="clip0_107_117">
+<rect width="28" height="28" fill="white" transform="translate(8 8)"/>
+</clipPath>
+<clipPath id="clip1_107_117">
+<rect width="28" height="28" fill="white" transform="translate(8 8)"/>
+</clipPath>
+<clipPath id="clip2_107_117">
+<rect width="28" height="28" fill="white" transform="translate(8 8)"/>
+</clipPath>
+<image id="image0_107_117" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
+</defs>
+</svg>
 
 La cinemática directa se implementó usando parámetros Denavit-Hartenberg medidos directamente del robot:
 
@@ -534,11 +588,9 @@ A continuación se presentan los videos implemnetando la interfaz con todos sus 
 
 ![Vista previa del laboratorio](images/ReviewPhantom.gif)
 
-## Plano de planta
-A continuación se muestra el plano de planta
-![Plano de planta](images/planodeplanta.png)
 
-## Código
+
+
 
 
       
