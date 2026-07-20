@@ -25,7 +25,7 @@
 3. [Código fuente](#Código-fuente)
 4. [Plano de planta](#Plano-de-planta)
 5. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
-6. [Gráficas digitales comparativas/Gráficas de calibración, interpolación y trayectoria sinusoidal](#graf_dig)
+6. [Calibración, Graficas de interpolación y trayectoria sinusoidal](#Calibración,-Graficas-de-interpolación-y-trayectoria-sinusoidal)
 7. [Videos](#videos)
 8. [Conclusiones individuales.](#Conclusiones individuales.)
 
@@ -69,8 +69,8 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ### Modo Presets 
 
 **Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio**
-
-| Articulación | Preset 1 | Preset 2 | Preset 3 | Preset 4 | Preset 5 |
+                   
+| Articulación |  Pose 1  |  Pose 2  |  Pose 3  |  Pose 4  |  Pose 5  |
 | ------------ | -------- | -------- | -------- | -------- | -------- | 
 |      1       |    00    |    25    |   −35    |    85    |    80    |
 |      2       |    00    |    25    |    35    |   −20    |   −35    |
@@ -454,6 +454,7 @@ A continuación se muestra el plano de planta
 
 
 ## Diagramas digitales y DH utilizado
+
 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="44" height="44" rx="16" fill="url(#paint0_linear_107_117)"/>
 <g clip-path="url(#clip0_107_117)">
@@ -512,7 +513,6 @@ La cinemática directa se implementó usando parámetros Denavit-Hartenberg medi
 
 A continuación los diagramas utilizados.
 
-
 <p align="center">
   <img src="images/dh.jpg" alt="Diagrama DH" width="450">
 </p>
@@ -531,11 +531,25 @@ Visualización completa en MATLAB
 
 
 ## Graficas digitales comparativas
-A continuación los diagramas digitales de las diferentes poses.
-Empezando por HOME:
+
+| Articulación |  Pose 1  |  Pose 2  |  Pose 3  |  Pose 4  |  Pose 5  |
+| ------------ | -------- | -------- | -------- | -------- | -------- | 
+|      1       |    00    |    25    |   −35    |    85    |    80    |
+|      2       |    00    |    25    |    35    |   −20    |   −35    |
+|      3       |    00    |    20    |   −30    |    55    |    55    |
+|      4       |    00    |   -20    |    30    |    25    |   −45    |
+|      5       |    00    |    00    |    00    |    00    |    00    |
+
+A continuación los diagramas digitales de las diferentes poses empezando por HOME :
 
 <p align="center">
   <img src="images/diagramadig2.png" alt="Diagrama digital pose HOME" width="450">
+</p>
+
+Poses r2 y r3, estas dos poses son equivalentes, solamente cambia q1.
+
+<p align="center">
+  <img src="images/rutinar2yr3.png" alt="Diagrama digital pose R2 y R3" width="450">
 </p>
 
 
@@ -546,33 +560,52 @@ Continuamos con la pose R4:
 </p>
 
 
-Poses r2 y r3, estas dos poses son equivalentes, solamente cambia q1.
+Poses implementadas Fisicamente:
 
-<p align="center">
-  <img src="images/rutinar2yr3.png" alt="Diagrama digital pose R2 y R3" width="450">
-</p>
-
-
-A continuación las fotos de las poses implementadas:
-HOME:
+HOME/ Pose 1:
 <p align="center">
   <img src="images/homereal.jpg" alt="Home" width="450">
 </p>
-R2:
+Pose 2:
 <p align="center">
   <img src="images/r2.jpg" alt="Rutina R2" width="450">
 </p>
-R3:
+Pose 3:
 <p align="center">
   <img src="images/r3.jpg" alt="Rutina R3" width="450">
 </p>
-R4:
+Pose 4:
 <p align="center">
   <img src="images/r4.jpg" alt="Rutina R4" width="450">
 </p>
-R5:
+Pose 5:
 <p align="center">
   <img src="images/r5.jpg" alt="Rutina R5" width="450">
+</p>
+
+## Calibración, Graficas de interpolación y trayectoria sinusoidal
+
+A continuación las imagenes de la posición real en las poses implementadas anteriormente con su respectivo error en cada  articulaciòn:
+
+Error Pose 1/Home:
+<p align="center">
+  <img src="images/Posicion1.jpeg" alt="Home" width="450">
+</p>
+Error Pose 2:
+<p align="center">
+  <img src="images/Posicion2.jpeg" alt="Rutina R2" width="450">
+</p>
+Error Pose 3:
+<p align="center">
+  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+</p>
+Error Pose 4:
+<p align="center">
+  <img src="images/Posicion4.jpeg" alt="Rutina R4" width="450">
+</p>
+Error Pose 5 :
+<p align="center">
+  <img src="images/Posicion5.jpeg" alt="Rutina R5" width="450">
 </p>
 
 
