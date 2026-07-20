@@ -27,9 +27,8 @@
 5. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
 6. [Calibración](#Calibración)
 7. [Graficas de interpolación y trayectoria sinusoidal](#Graficas-de-interpolación-y-trayectoria-sinusoidal)
-
-7. [Videos](#videos)
-8. [Conclusiones individuales.](#Conclusiones individuales.)
+8. [Videos](#videos)
+9. [Conclusiones individuales.](#Conclusiones individuales.)
 
 
 ## Descripción detallada de la solución planteada
@@ -816,7 +815,7 @@ A continuación se presentan los videos implemnetando la interfaz con todos sus 
 
 ## Conclusiones
 
-*Las articulaciones 1, 2, 3 y 5 presentan exactamente el mismo desplazamiento de cero inicial (0.0511 radianes) en la Pose 1 (Home). Se intuye que hay un desfase sistemático de calibración en los encoders o potenciómetros , o una holgura mecánica compartida en su diseño.
+* **  ** Las articulaciones 1, 2, 3 y 5 presentan exactamente el mismo desplazamiento de cero inicial (0.0511 radianes) en la Pose 1 (Home). Se intuye que hay un desfase sistemático de calibración en los encoders o potenciómetros , o una holgura mecánica compartida en su diseño.
 
 *La articulación 4 (muñeca) es la más precisa de todo el sistema al no presentar desplazamiento de cero en la posición Home y cuenta con el error promedio más bajo (0.0043 rad) y el error máximo más bajo (0.0089 rad) de todas las articulaciones.
 
