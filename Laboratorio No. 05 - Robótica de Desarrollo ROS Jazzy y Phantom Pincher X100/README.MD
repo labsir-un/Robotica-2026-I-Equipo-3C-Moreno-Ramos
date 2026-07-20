@@ -76,7 +76,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 |      4       |    00    |   -20    |    30    |    25    |   −45    |
 |      5       |    00    |    00    |    00    |    00    |    00    |
 
-* *Los primeros cuatro valores corresponden al brazo y el quinto corresponde a la pinza. 
+*Los primeros cuatro valores corresponden al brazo y el quinto corresponde a la pinza. *
 ---
 - Modo Trayectorias
 
