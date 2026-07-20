@@ -81,7 +81,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Trayectoria
 
-* **Genera una trayectoria entre dos configuraciones alejadas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
+**Genera una trayectoria entre dos configuraciones alejadas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
 
 * **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
 * **Pose Final** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
@@ -96,7 +96,8 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Senoidal
 
-* **Genera una trayectoria entre dos configuraciones aleajdas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
+**Selecciona una articulación y le da los parametros con la siguiente ecuación **
+$$q(t) = q_0 + A \sin(2\pi f t)$$
 
 * **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
 * **Pose Final** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
