@@ -25,7 +25,9 @@
 3. [Código fuente](#Código-fuente)
 4. [Plano de planta](#Plano-de-planta)
 5. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
-6. [Calibración, Graficas de interpolación y trayectoria sinusoidal](#Calibración-Graficas-de-interpolación-y-trayectoria-sinusoidal)
+6. [Calibración](#Calibración)
+7. [Graficas de interpolación y trayectoria sinusoidal](#Graficas-de-interpolación-y-trayectoria-sinusoidal)
+
 7. [Videos](#videos)
 8. [Conclusiones individuales.](#Conclusiones individuales.)
 
@@ -594,7 +596,7 @@ Pose 5:
   <img src="images/r5.jpg" alt="Rutina R5" width="450">
 </p>
 
-## Calibración,Graficas de interpolación y trayectoria sinusoidal
+## Calibración
 
 A continuación las imagenes de la posición real en las poses implementadas anteriormente con su respectivo error en cada articulaciòn medido en radianes :
 
