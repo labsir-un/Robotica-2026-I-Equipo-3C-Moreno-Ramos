@@ -21,7 +21,7 @@
 # Índice
 
 1. [Descripción detallada de la solución planteada](#descripcion)
-2. [Diagrama de flujo de las acciones del robot](#Diagrama de flujo)
+2. [Diagrama de flujo de las acciones del robot](#Diagramadeflujo)
 3. [Código fuente](#Diagrama de flujo)(#Codigo)
 4. [Plano de planta](#Diagrama de flujo)(#Codigo)
 3. [Diagramas digitales y DH utilizado](#diagramas)
