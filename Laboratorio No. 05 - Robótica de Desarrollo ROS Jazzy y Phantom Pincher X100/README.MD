@@ -25,7 +25,7 @@
 3. [Código fuente](#Código-fuente)
 4. [Plano de planta](#Plano-de-planta)
 5. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
-6. [Calibración, Graficas de interpolación y trayectoria sinusoidal](#Calibración,Graficas-de-interpolación-y-trayectoria-sinusoidal)
+6. [Calibración, Graficas de interpolación y trayectoria sinusoidal](#calibración-graficas-de-interpolación-y-trayectoria-sinusoidal)
 7. [Videos](#videos)
 8. [Conclusiones individuales.](#Conclusiones individuales.)
 
