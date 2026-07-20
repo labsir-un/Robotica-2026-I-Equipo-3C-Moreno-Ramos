@@ -907,7 +907,7 @@ A continuación se presentan los videos de implementación de la interfaz gráfi
 
 <p align="center">
   <a href="https://drive.google.com/file/d/1JVY8RK-ZjUBz8cqOHkR_KZ-Letxmoqsy/view?usp=drive_link">
-    <img src="images/Triángulo.png" alt="Ver video en Drive" width="600">
+    <img src="images/Triangulo.png" alt="Ver video en Drive" width="600">
   </a>
 </p>
 
