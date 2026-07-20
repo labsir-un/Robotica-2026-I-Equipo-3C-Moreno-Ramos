@@ -500,23 +500,18 @@ Poses r2 y r3, estas dos poses son equivalentes, solamente cambia q1.
 </p>
 
 
-
 A continuación las fotos de las poses implementadas:
 HOME:
 <p align="center">
   <img src="images/homereal.jpg" alt="Home" width="800">
 </p>
-R1:
+R2:
 <p align="center">
   <img src="images/r2.jpg" alt="Rutina R2" width="800">
 </p>
-R2:
-<p align="center">
-  <img src="images/r3.jpg" alt="Rutina R3" width="800">
-</p>
 R3:
 <p align="center">
-  <img src="images/rutinar2yr3.png" alt="Diagrama digital pose R2 y R3" width="800">
+  <img src="images/r3.jpg" alt="Rutina R3" width="800">
 </p>
 R4:
 <p align="center">
@@ -526,6 +521,7 @@ R5:
 <p align="center">
   <img src="images/r5.jpg" alt="Rutina R5" width="800">
 </p>
+
 
 
 
