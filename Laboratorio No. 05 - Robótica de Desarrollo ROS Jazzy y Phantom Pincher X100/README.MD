@@ -43,18 +43,24 @@ La arquitectura del sistema integra tres componentes principales:
 
 *Funciones utilizadas*
 Se presentan a continuaciòn las funciones utilizadas en la interfaz grafica tanto en todos los modos como en modos especificos 
-- Todos los modos
--
-Movimiento Simultaneo: Todas las articulaciones se mueven simultaneamente a la posicion enviada.
-Movimiento Secuencial: Todas las articulaciones se mueven en orden a la posicion enviada ( Base-Hombro-Codo-Muñeca-Pinza ).
-Velocidad Por Ingreso Numerico: Permite ingresar directamente valores de velocidad para todos los motores y enviarlas al sistema.
-Home: Manda al robot a Home.
-Torque On / Torque Off : Energiza y Desenergiza los motores.
-Pararada De Sofware : Desenergiza el sistema de inmediato por sofware (Recomendable no confirse totalmente y tener la mano cerca al boton de energia de la multitoma).
-Estado : Muestra el estado del robot y que instruccion se encuentra realizando.
-Visualización en RViz: Se sincroniza el robot físico con el modelo virtual del PhantomX Pincher X100 usando `robot_state_publisher`.
-- Modo Manual
-Control articular por ingreso numérico: Permite ingresar directamente valores de posición para cada articulación en un rango seguro y enviarlas al sistema.
+### Todos los modos
+
+* **Movimiento Simultáneo:** Todas las articulaciones se mueven simultáneamente a la posición enviada.
+* **Movimiento Secuencial:** Todas las articulaciones se mueven en orden a la posición enviada (Base-Hombro-Codo-Muñeca-Pinza).
+* **Velocidad Por Ingreso Numérico:** Permite ingresar directamente valores de velocidad para todos los motores y enviarlas al sistema.
+* **Home:** Manda al robot a Home.
+* **Torque On / Torque Off:** Energiza y desenergiza los motores.
+* **Parada De Software:** Desenergiza el sistema de inmediato por software (Recomendable no confiarse totalmente y tener la mano cerca al botón de energía de la multitoma).
+* **Estado:** Muestra el estado del robot y qué instrucción se encuentra realizando.
+* **Visualización en RViz:** Se sincroniza el robot físico con el modelo virtual del PhantomX Pincher X100 usando `robot_state_publisher`.
+
+---
+
+### Modo Manual
+
+* **Control articular por ingreso numérico:** Permite ingresar directamente valores de posición para cada articulación en un rango seguro y enviarlas al sistema.
+
+---
 - Modo Presets 
 
 Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio :
