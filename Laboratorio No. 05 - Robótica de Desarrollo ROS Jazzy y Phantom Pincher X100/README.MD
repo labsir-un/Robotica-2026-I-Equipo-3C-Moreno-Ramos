@@ -28,7 +28,7 @@
 6. [Calibración](#Calibración)
 7. [Graficas de interpolación y trayectoria sinusoidal](#Graficas-de-interpolación-y-trayectoria-sinusoidal)
 8. [Videos](#videos)
-9. [Conclusiones.](#Conclusiones)
+9. [Conclusiones](#Conclusiones)
 
 
 ## Descripción detallada de la solución planteada
