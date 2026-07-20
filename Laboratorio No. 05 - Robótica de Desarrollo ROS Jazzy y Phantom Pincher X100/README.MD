@@ -14,7 +14,7 @@
 </div>
 
 # Integrantes
-1. Juan Andrés Moreno Benavides [jumorenobe@unal.co](Jumorenobe)
+1. Juan Andrés Moreno Benavides [jumorenobe@unal.edu.co](Jumorenobe)
 2. Mateo Ramos Cujer [mramoscu@unal.edu.co](MateoKGR)
 
 
@@ -26,7 +26,7 @@
 4. [Plano de planta](#Plano-de-planta)
 5. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
 6. [Calibración](#Calibración)
-7. [Graficas de interpolación y trayectoria sinusoidal](#Graficas-de-interpolación-y-trayectoria-sinusoidal)
+7. [Gráficas de interpolación y trayectoria sinusoidal](#Gráficas-de-interpolación-y-trayectoria-sinusoidal)
 8. [Videos](#videos)
 9. [Conclusiones](#Conclusiones)
 
@@ -37,7 +37,7 @@ Se desarrolló un nodo de ROS 2 en Python que permite:
 Comunicación directa con los motores Dynamixel mediante puerto serial.
 Control individual y conjunto de cada articulación del manipulador.
 Publicación del mensaje `/joint_states` para animación del modelo en RViz.
-Implementación de una interfaz gráfica con control articular, visualización en RViz y aplicacion de los diferentes modos pedidos en el laboratorio .
+Implementación de una interfaz gráfica con control articular, visualización en RViz y aplicación de los diferentes modos pedidos en el laboratorio.
 
 La arquitectura del sistema integra tres componentes principales:
 1. Nodo ROS 2 de control de motores.
@@ -69,7 +69,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Presets 
 
-**Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio**
+**Se presenta el envío por botones de diferentes poses predefinidas al robot presentadas en el laboratorio**
 
 <div align="center">
 
@@ -88,73 +88,73 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Trayectoria
 
-**Genera una trayectoria entre dos configuraciones alejadas y compara la suavidad de la imterpolación lineal frente a la cubica / quintica**
+**Genera una trayectoria entre dos configuraciones alejadas y compara la suavidad de la interpolación lineal frente a la cúbica / quíntica**
 
-* **Pose Inicial:** Ingresar directamente de que posición ya preestablecidad o actual va a iniciar el robot .
-* **Pose Final:** Ingresar directamente a cual posición ya preestablecidad va a ir el robot .
-* **Articulación a graficar:** Selecionar cual recorrido de las 5 articulaciones se va a graficar .
-* **Duración:** Duración en segundos de la grafica .
-* **Muestras:** Cuantas Muestras se van a tomar para la interpolación .
-* **Interpolaciòn:** Seleccionar el tipo de interpolación (Lineal,Cúbica,Quintica) .
-* **Enviar Trayectoria:** Envia la trayectoria que se le indico al robot.
-* **Graficar Trayectoria:** Grafica la trayectoria en posición angular vs tiempo con su respectiva interpolación lineal vs cubica/Quintica.
-* **Grafica Trayectoria:** Muestra la Grafica.
+* **Pose Inicial:** Ingresar directamente de qué posición ya preestablecida o actual va a iniciar el robot.
+* **Pose Final:** Ingresar directamente a cuál posición ya preestablecida va a ir el robot.
+* **Articulación a graficar:** Seleccionar cuál recorrido de las 5 articulaciones se va a graficar.
+* **Duración:** Duración en segundos de la gráfica.
+* **Muestras:** Cuántas muestras se van a tomar para la interpolación.
+* **Interpolación:** Seleccionar el tipo de interpolación (Lineal,Cúbica,Quíntica).
+* **Enviar Trayectoria:** Envía la trayectoria que se le indicó al robot.
+* **Graficar Trayectoria:** Gráfica la trayectoria en posición angular vs tiempo con su respectiva interpolación lineal vs cúbica/quíntica.
+* **Gráfica Trayectoria:** Muestra la gráfica.
 
 ---
 ### Modo Senoidal
 
-**Selecciona una articulación y le da los parametros con  $q(t) = q_0 + A \sin(2\pi f t)$**
+**Selecciona una articulación y le da los parámetros con  $q(t) = q_0 + A \sin(2\pi f t)$**
 
 
-* **Articulación:** Ingresar a cual articulaciòn se le va aplicar la función .
-* **Q0:**  Ingresar numericamente el centro de la función.
-* **Amplitud A1/A2** Ingresar numericamente las amplitudes de las funciones.
-* **Frecuencia F1/F2** Ingresar numericamente las Frecuencias de las funciones.
-* **Articulación a graficar:** Selecionar cual recorrido de las 5 articulaciones se va a graficar .
-* **Duración:** Duración en segundos de la grafica .
-* **Ejecutar:** Ejecuta las 4 pruebas .
-* **Ver Prueba:** Ve la prueba seleccionada .
+* **Articulación:** Ingresar a cuál articulación se le va a aplicar la función.
+* **Q0:**  Ingresar numéricamente el centro de la función.
+* **Amplitud A1/A2:** Ingresar numéricamente las amplitudes de las funciones.
+* **Frecuencia F1/F2:** Ingresar numéricamente las frecuencias de las funciones.
+* **Articulación a graficar:** Seleccionar cuál recorrido de las 5 articulaciones se va a graficar.
+* **Duración:** Duración en segundos de la gráfica.
+* **Ejecutar:** Ejecuta las 4 pruebas.
+* **Ver Prueba:** Ve la prueba seleccionada.
 * **Error:** Muestra un error si este se ha presentado.
-* **Posición enviada vs Posición medida:** Grafica de la operación.
+* **Posición enviada vs Posición medida:** Gráfica de la operación.
 
 ---
 ### Modo Enseñanza
 
-**Registra poses con su respectivo nombre de acuerdo a la posición del robot en el espacio gracias al modo manual, guarda el registro de loas poses en un yaml, las reproduce en orden con el tiempo de transición que se desea al igual que reproducir la que el usuario quiera**
+**Registra poses con su respectivo nombre de acuerdo a la posición del robot en el espacio gracias al modo manual, guarda el registro de las poses y sus parámetros en un yaml , las reproduce en orden con el tiempo de transición que se desea al igual que reproducir la que el usuario quiera**
 
 
-* **Nombre de la pose:** Ingresar por teclado el nombre de la pose actual .
+* **Nombre de la pose:** Ingresar por teclado el nombre de la pose actual.
 * **Guardar:** Guarda la pose actual con su respectivo nombre.
-* **Poses Registradas:** Lista de poses en orden de creación con sus parametros.
-* **Ir a la Pose seleccionada:** Envia la pose seleccionada al robot .
-* **Eliminar Pose seleccionada:**  Elimina la pose seleccionada de la lista .
-* **Guardar yaml:** Guarda el archivo yaml en /home/juan-moreno/pincher_taught_poses.yaml .
-* **Recargar yaml:** Elimina variables nuevas y va al ultimo archivo yaml creado.
-* **Tiempo de transición :** Tiempo de segundos entre poses cuando se repodruzcan en orden .
-* **Reproducir Todas:** Reproduce las poses de la lista en el tiempo preestablecio.
+* **Poses Registradas:** Lista de poses en orden de creación con sus parámetros.
+* **Ir a la Pose seleccionada:** Envía la pose seleccionada al robot.
+* **Eliminar Pose seleccionada:**  Elimina la pose seleccionada de la lista.
+* **Guardar yaml:** Guarda el archivo yaml en /home/juan-moreno/pincher_taught_poses.yaml.
+* **Recargar yaml:** Elimina variables nuevas y va al último archivo yaml creado.
+* **Tiempo de transición :** Tiempo en segundos entre poses cuando se reproduzcan en orden.
+* **Reproducir Todas:** Reproduce las poses de la lista en el tiempo preestablecido.
 * **Detener:** Detiene la reproducción de las poses.
 
 ---
 
-### Modo Triangulo
+### Modo Triángulo
 
-**Ejecuta una secuencia de poses para el desarrollo de un triangulo previamente encontradas gracias a cinematica inversa (Tres vertices) e interpolación lineal, se utilizan 60 muestras totalmente editables para quitar o agregar mas en la constante Triangle_Poses**
+**Ejecuta una secuencia de poses para el desarrollo de un Triángulo previamente encontradas gracias a cinemática inversa (Tres vértices) e interpolación lineal, se utilizan 60 muestras totalmente editables para quitar o agregar más en la constante Triangle_Poses**
 
 
-* **Secuencia:** Lista de poses de Triangle_Poses con sus respectivos parametros .
-* **ejecutar:** Ejecuta la secuencia de Triangulo.
-* **Detener:** Detiene la secuencia de triangulo.
+* **Secuencia:** Lista de poses de Triangle_Poses con sus respectivos parámetros.
+* **Ejecutar:** Ejecuta la secuencia de Triángulo.
+* **Detener:** Detiene la secuencia de Triángulo.
 
 ---
 
 ### Modo Baile
 
-**Ejecuta una coreografia de poses definidas, cada pose tiene su propio retardo y reprodruce automaticamente la canción "Chipi chipi" al inicio de la coreografia**
+**Ejecuta una coreografía de poses definidas, cada pose tiene su propio retardo y reproduce automáticamente la canción "Chipi chipi" al inicio de la coreografía**
 
 
-* **Coreografia:** Lista de poses de la coreografia con sus respectivos parametros .
-* **ejecutar:** Ejecuta la coreografia y la musica.
-* **Detener:** Detiene la coreografia y la musica.
+* **Coreografía:** Lista de poses de la coreografía con sus respectivos parámetros.
+* **Ejecutar:** Ejecuta la coreografía y la música.
+* **Detener:** Detiene la coreografía y la música.
 
 ---
 
@@ -180,7 +180,7 @@ flowchart TD
     Modo_Manual["1. Manual"]
     Modo_Presets["2. Presets"]
     Modo_Ensenanza["3. Modo Enseñanza"]
-    Modo_Triangulo["4. Triángulo"]
+    Modo_Triángulo["4. Triángulo"]
     Modo_Baile["5. Baile"]
     Modo_Trayectorias["6. Trayectorias"]
     Modo_Senoidal["7. Senoidal"]
@@ -189,7 +189,7 @@ flowchart TD
     Accion_Manual["Leer entradas de usuario (grados)"]
     Accion_Presets["Cargar diccionario PRESETS"]
     Accion_Ensenanza["Cargar/Guardar en YAML y reproducir poses"]
-    Accion_Triangulo["Ejecutar secuencia TRIANGLE_POSES"]
+    Accion_Triángulo["Ejecutar secuencia TRIANGLE_POSES"]
     Accion_Baile["Ejecutar DANCE_POSES y reproducir audio"]
     Accion_Trayectorias["Interpolar (Lineal, Cúbica, Quíntica)"]
     Accion_Senoidal["Generar q(t) = q0 + A·sin(2πf·t)"]
@@ -221,7 +221,7 @@ flowchart TD
     Modos_Operacion --> Modo_Manual
     Modos_Operacion --> Modo_Presets
     Modos_Operacion --> Modo_Ensenanza
-    Modos_Operacion --> Modo_Triangulo
+    Modos_Operacion --> Modo_Triángulo
     Modos_Operacion --> Modo_Baile
     Modos_Operacion --> Modo_Trayectorias
     Modos_Operacion --> Modo_Senoidal
@@ -230,7 +230,7 @@ flowchart TD
     Modo_Manual --> Accion_Manual
     Modo_Presets --> Accion_Presets
     Modo_Ensenanza --> Accion_Ensenanza
-    Modo_Triangulo --> Accion_Triangulo
+    Modo_Triángulo --> Accion_Triángulo
     Modo_Baile --> Accion_Baile
     Modo_Trayectorias --> Accion_Trayectorias
     Modo_Senoidal --> Accion_Senoidal
@@ -239,7 +239,7 @@ flowchart TD
     Accion_Manual --> Dispatch
     Accion_Presets --> Dispatch
     Accion_Ensenanza --> Dispatch
-    Accion_Triangulo --> Dispatch
+    Accion_Triángulo --> Dispatch
     Accion_Baile --> Dispatch
 
     Dispatch --> Selector_Modo
@@ -268,7 +268,7 @@ flowchart TD
     Modo_Manual["1. Manual"]
     Modo_Presets["2. Presets"]
     Modo_Ensenanza["3. Modo Enseñanza"]
-    Modo_Triangulo["4. Triángulo"]
+    Modo_Triángulo["4. Triángulo"]
     Modo_Baile["5. Baile"]
     Modo_Trayectorias["6. Trayectorias"]
     Modo_Senoidal["7. Senoidal"]
@@ -277,7 +277,7 @@ flowchart TD
     Accion_Manual["Leer entradas de usuario (grados)"]
     Accion_Presets["Cargar diccionario PRESETS"]
     Accion_Ensenanza["Cargar/Guardar en YAML y reproducir poses"]
-    Accion_Triangulo["Ejecutar secuencia TRIANGLE_POSES"]
+    Accion_Triángulo["Ejecutar secuencia TRIANGLE_POSES"]
     Accion_Baile["Ejecutar DANCE_POSES y reproducir audio"]
     Accion_Trayectorias["Interpolar (Lineal, Cúbica, Quíntica)"]
     Accion_Senoidal["Generar q(t) = q0 + A·sin(2πf·t)"]
@@ -309,7 +309,7 @@ flowchart TD
     Modos_Operacion --> Modo_Manual
     Modos_Operacion --> Modo_Presets
     Modos_Operacion --> Modo_Ensenanza
-    Modos_Operacion --> Modo_Triangulo
+    Modos_Operacion --> Modo_Triángulo
     Modos_Operacion --> Modo_Baile
     Modos_Operacion --> Modo_Trayectorias
     Modos_Operacion --> Modo_Senoidal
@@ -318,7 +318,7 @@ flowchart TD
     Modo_Manual --> Accion_Manual
     Modo_Presets --> Accion_Presets
     Modo_Ensenanza --> Accion_Ensenanza
-    Modo_Triangulo --> Accion_Triangulo
+    Modo_Triángulo --> Accion_Triángulo
     Modo_Baile --> Accion_Baile
     Modo_Trayectorias --> Accion_Trayectorias
     Modo_Senoidal --> Accion_Senoidal
@@ -327,7 +327,7 @@ flowchart TD
     Accion_Manual --> Dispatch
     Accion_Presets --> Dispatch
     Accion_Ensenanza --> Dispatch
-    Accion_Triangulo --> Dispatch
+    Accion_Triángulo --> Dispatch
     Accion_Baile --> Dispatch
 
     Dispatch --> Selector_Modo
@@ -342,7 +342,7 @@ flowchart TD
 ```
 ## Código fuente
 
-Esta sección describe el código de la iterfaz grafica desarrollada para el laboratorio 
+Esta sección describe el código de la interfaz gráfica desarrollada para el laboratorio 
 
 El archivo que contiene el código completo del sistema es:
 
@@ -420,7 +420,7 @@ A partir de la matriz homogénea total se obtienen las coordenadas cartesianas X
 ```
 class PincherGUI:
 ```
-La interfaz gráfica fue desarrollada utilizando Tkinter y organizada en varias pestañas que permiten los diferntes modos presentados anteriormente.
+La interfaz gráfica fue desarrollada utilizando Tkinter y organizada en varias pestañas que permiten los diferentes modos presentados anteriormente.
 
 10. Integración con RViz
 ```
@@ -439,7 +439,7 @@ Aclaraciones importantes
 
 def r2_all_motors(self, list_q):
 
-    # Convertir radianes a Dynmixel
+    # Convertir radianes a Dynamixel
         point_q = [self.radians_to_dxl(q) for q in list_q]
 
     # Enviar cada posición al motor correspondiente
@@ -503,7 +503,7 @@ A continuación se muestra el plano de planta
 <clipPath id="clip2_107_117">
 <rect width="28" height="28" fill="white" transform="translate(8 8)"/>
 </clipPath>
-<image id="image0_107_117" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
+<image id="image0_107_117" width="100" height="100" preserveAspectRatio="none" xlink:href="data:image/png;base64,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"/>
 </defs>
 </svg>
 
@@ -538,7 +538,7 @@ Visualización completa en MATLAB
   
 
 
-## Graficas digitales comparativas
+## Gráficas digitales comparativas
 
 <div align="center">
 
@@ -558,7 +558,7 @@ A continuación los diagramas digitales de las diferentes poses empezando por HO
   <img src="images/diagramadig2.png" alt="Diagrama digital pose HOME" width="450">
 </p>
 
-Poses r2 y r3, estas dos poses son equivalentes, solamente cambia q1.
+Poses R2 y R3, estas dos poses son equivalentes, solamente cambia q1.
 
 <p align="center">
   <img src="images/rutinar2yr3.png" alt="Diagrama digital pose R2 y R3" width="450">
@@ -572,7 +572,7 @@ Continuamos con la pose R4:
 </p>
 
 
-Poses implementadas Fisicamente y en Simuación:
+Poses implementadas Físicamente y en Simulación:
 
 HOME/ Pose 1:
 <p align="center">
@@ -602,14 +602,14 @@ Pose 5:
 
 ## Calibración
 
-A continuación las imagenes de la posición real en las poses implementadas anteriormente con su respectivo error en cada articulaciòn medido en radianes :
+A continuación las imágenes de la posición real en las poses implementadas anteriormente con su respectivo error en cada articulación medido en radianes :
 
 
 Error Pose 1/Home:
 
 <div align="center">
 
-| Articulación | Grados | Radianes |
+| Articulación | grados | Radianes |
 | :---: | :---: | :---: |
 | 1 | 00 | 00 |
 | 2 | 00 | 00 | 
@@ -639,7 +639,7 @@ Error Pose 2:
 
 <div align="center">
 
-| Articulación | Grados | Radianes |
+| Articulación | grados | Radianes |
 | :---: | :---: | :---: |
 | 1 | 25 | 0.4363 |
 | 2 | 25 | 0.4363 |
@@ -669,7 +669,7 @@ Error Pose 3:
 
 <div align="center">
 
-| Articulación | Grados | Radianes |
+| Articulación | grados | Radianes |
 | :---: | :---: | :---: |
 | 1 | -35 | -0.6109 |
 | 2 | 35 | 0.6109 |
@@ -700,7 +700,7 @@ Error Pose 4:
 
 <div align="center">
 
-| Articulación | Grados | Radianes |
+| Articulación | grados | Radianes |
 | :---: | :---: | :---: |
 | 1 | 85 | 1.4835 |
 | 2 | -20 | -0.3491 |
@@ -730,7 +730,7 @@ Error Pose 5 :
 
 <div align="center">
 
-| Articulación | Grados | Radianes |
+| Articulación | grados | Radianes |
 | :---: | :---: | :---: |
 | 1 | 80 | 1.3963 |
 | 2 | -35 | -0.6109 |
@@ -760,7 +760,7 @@ Error Máximo
 
 <div align="center">
 
-| Articulación | Grados | Radianes |
+| Articulación | grados | Radianes |
 | :---: | :---: | :---: |
 | 1 | 2.9278 | 0.0511 |
 | 2 | 2.9278 | 0.0511 | 
@@ -774,7 +774,7 @@ Error Promedio
 
 <div align="center">
 
-| Articulación | Grados | Radianes |
+| Articulación | grados | Radianes |
 | :---: | :---: | :---: |
 | 1 | 0.7735 | 0.0135 |
 | 2 | 1.3636 | 0.0238 | 
@@ -788,7 +788,7 @@ Desplazamiento de Cero
 
 <div align="center">
 
-| Articulación | Grados | Radianes |
+| Articulación | grados | Radianes |
 | :---: | :---: | :---: |
 | 1 | 2.9278 | 0.0511 |
 | 2 | 2.9278 | 0.0511 | 
@@ -798,11 +798,11 @@ Desplazamiento de Cero
 
 </div>
 
-## Graficas de interpolación y trayectoria sinusoidal
+## Gráficas de interpolación y trayectoria sinusoidal
 ---
 ### Interpolación
 
-Se presentan a continuaciòn las graficas de interpolación lineal y cubica de las diferentes artiulaciones (Menos de la pinza ya que no cambia) para una trayectoria de Home a la Pose 5 con una duracio de 5 Segundos.
+Se presentan a continuación las gráficas de interpolación lineal y cúbica de las diferentes articulaciones (menos de la pinza ya que no cambia) para una trayectoria de Home a la Pose 5 con una duración de 5 segundos.
 
 <div align="center">
 
@@ -843,34 +843,34 @@ Muñeca
 ---
 ### Trayectoria sinusoidal
 
-Se presentan a continuaciòn las graficas de 4 pruebas de la trayectoria de la articulación 1 (Base) de acuerdo a la función  $q(t) = q_0 + A \sin(2\pi f t)$ cib yba duraciòn de 10 segundos a una frecuencia de envio de 20 Hz cambiando los parametros de amplitud A y Frecuencia F con los siguientes valores :
+Se presentan a continuación las gráficas de 4 pruebas de la trayectoria de la articulación 1 (Base) de acuerdo a la función  $q(t) = q_0 + A \sin(2\pi f t)$ con una duración de 10 segundos a una frecuencia de envío de 20 Hz cambiando los parámetros de amplitud A y Frecuencia F con los siguientes valores :
 
-- A1 : 10 Grados
-- A2 : 19 Grados
-- F1 : 0.09 HZ
-- F2 : 0.2 HZ
+- A1 : 10 grados
+- A2 : 19 grados
+- F1 : 0.09 Hz
+- F2 : 0.2 Hz
 
-Se hace la aclaración que las pruebas presentadas se realizaron en la implemtación fisica pero por un error de archivos no se puedieron encontrar las graficas de dichas pruebas, por lo anterior se presentan las pruebas hechas en simulación
+Se hace la aclaración que las pruebas presentadas se realizaron en la implementación física pero por un error de archivos no se pudieron encontrar las gráficas de dichas pruebas, por lo anterior se presentan las pruebas hechas en simulación
 
-Prueba 1 ( A1 y F1 / 10 Grados y 0.09 HZ)
+Prueba 1 ( A1 y F1 / 10 grados y 0.09 Hz)
 
 <p align="center">
   <img src="images/Prueba1.jpeg" alt="Prueba1" width="550">
 </p>
 
-Prueba 2 ( A1 y F2 / 10 Grados y 0.2 HZ)
+Prueba 2 ( A1 y F2 / 10 grados y 0.2 Hz)
 
 <p align="center">
   <img src="images/Prueba2.jpeg" alt="Prueba2" width="550">
 </p>
 
-Prueba 3 ( A2 y F1 / 19 Grados y  0.09 HZ)
+Prueba 3 ( A2 y F1 / 19 grados y  0.09 Hz)
 
 <p align="center">
   <img src="images/Prueba3.jpeg" alt="Prueba3" width="550">
 </p>
 
-Prueba 4 ( A2 y F2 / 19 Grados y   0.2 HZ)
+Prueba 4 ( A2 y F2 / 19 grados y   0.2 Hz)
 
 <p align="center">
   <img src="images/Prueba4.jpeg" alt="Prueba4" width="550">
@@ -881,12 +881,12 @@ Prueba 4 ( A2 y F2 / 19 Grados y   0.2 HZ)
 
 ## Videos 
 
-A continuación se presentan los videos de implementación de la interfaz Grafica con todos sus modos, El video en fisico de la realización de la figura (Triangulo) y por ultimo el video con la coreografia propuesta:
+A continuación se presentan los videos de implementación de la interfaz gráfica con todos sus modos, el video en físico de la realización de la figura (Triángulo) y por último el video con la coreografía propuesta:
 
 <p align="center">
   <b>
 
-     Implementación de la Interfaz Grafica
+     Implementación de la Interfaz Gráfica
 
   </b><br>
 </p>
@@ -900,21 +900,21 @@ A continuación se presentan los videos de implementación de la interfaz Grafic
 <p align="center">
   <b>
 
-    Realización de el Triangulo
+    Realización del Triángulo
       
   </b><br>
 </p>
 
 <p align="center">
   <a href="https://drive.google.com/file/d/1JVY8RK-ZjUBz8cqOHkR_KZ-Letxmoqsy/view?usp=drive_link">
-    <img src="images/Triangulo.png" alt="Ver video en Drive" width="600">
+    <img src="images/Triángulo.png" alt="Ver video en Drive" width="600">
   </a>
 </p>
 
 <p align="center">
   <b>
 
-    Coreografia
+    Coreografía
       
   </b><br>
 </p>
@@ -934,10 +934,11 @@ A continuación se presentan los videos de implementación de la interfaz Grafic
 
 
 ## Conclusiones
-- La arquitectura distribuida en tres ejes (nodo de control en ROS 2, interfaz en Tkinter y visualización en RViz) demostró ser robusta. La separación de responsabilidades permitió ejecutar tareas discretas, diferentes modos de prueba y procesos continuos de cálculo iterativo (trayectorias sinusoidales e interpolación) de manera simultánea sin bloquear la interfaz de usuario, garantizando una comunicación serial estable con los motores Dynamixelse, se encontro un problema de comunicaciòn en cuanto al cable usb que realiza esta pero ya es cuestion de problemas de hardware y su desgasto a traves de los años.
--El modelo matemático construido a partir de los parámetros Denavit-Hartenberg (DH) representa fielmente la estructura física del robot, validado por la correspondencia visual entre el entorno de RViz y las poses físicas (R1 a R5).
+- La arquitectura distribuida en tres ejes (nodo de control en ROS 2, interfaz en Tkinter y visualización en RViz) demostró ser robusta. La separación de responsabilidades permitió ejecutar tareas discretas, diferentes modos de prueba y procesos continuos de cálculo iterativo (trayectorias sinusoidales e interpolación) de manera simultánea sin bloquear la interfaz de usuario, garantizando una comunicación serial estable con los motores Dynamixel, se encontró un problema de comunicación en cuanto al cable usb que realiza esta pero ya es cuestión de problemas de hardware y su desgaste a través de los años.
 
-- La inclusión de interpolación cúbica y quíntica frente a la lineal clásica es un paso vital para garantizar arranques y paradas suaves, mitigando aceleraciones bruscas que podrían inducir estrés mecánico o vibraciones
+- El modelo matemático construido a partir de los parámetros Denavit-Hartenberg (DH) representa fielmente la estructura física del robot, validado por la correspondencia visual entre el entorno de RViz y las poses físicas (R1 a R5).
+
+- La inclusión de interpolación cúbica y quíntica frente a la lineal clásica es un paso vital para garantizar arranques y paradas suaves, mitigando aceleraciones bruscas que podrían inducir estrés mecánico o vibraciones.
 
 - Las articulaciones 1, 2, 3 y 5 presentan exactamente el mismo desplazamiento de cero inicial (0.0511 radianes) en la Pose 1 (Home). Se intuye que hay un desfase sistemático de calibración en los encoders o potenciómetros , o una holgura mecánica compartida en su diseño.
 
@@ -945,11 +946,11 @@ A continuación se presentan los videos de implementación de la interfaz Grafic
 
 - La articulación 5 mantiene un error constante de 0.0511 radianes en todas y cada una de las poses. Esto significa que el error no es dinámico; es puramente un offset de cero que no fue compensado en el controlador de la pinza.
 
-- Para las articulaciones 1, 2 y 3, el Error Máximo se registra en la posición de reposo (Pose 1). Cuando el robot se mueve a posiciones articulares distintas de cero (Poses 2 a 5), los errores articulares disminuyen considerablemente en comparación con el offset inicial,Esto apunta a una desalineación mecánica inicial o al juego de engranajes (backlash) inherente de los servomotores que el control de lazo abierto actual no logra compensar por completa.
+- Para las articulaciones 1, 2 y 3, el Error Máximo se registra en la posición de reposo (Pose 1). Cuando el robot se mueve a posiciones articulares distintas de cero (Poses 2 a 5), los errores articulares disminuyen considerablemente en comparación con el offset inicial,Esto apunta a una desalineación mecánica inicial o al juego de engranajes (backlash) inherente de los servomotores que el control de lazo abierto actual no logra compensar por completo.
 
-- Fue un reto bastante grande el baile al tener que sincronizar ritmo , delays , posiciones y velocidades para que el resultado fuera agradable , dando comprensiòn que todo en conjunto es de vital importancia 
+- Fue un reto bastante grande el baile al tener que sincronizar ritmo , delays , posiciones y velocidades para que el resultado fuera agradable , dando comprensión que todo en conjunto es de vital importancia.
 
-- En la figura de triangulo se utilizo cinematica inversa para sus vertices y de ahi se utilizo interpolación lineal para encontrar los valores de las articulaciones en los otros puntos , dotando de gran practicidad el uso de estas herramientas teoricas aprendidas en el curso.
+- En la figura de Triángulo se utilizó cinemática inversa para sus vértices y de ahí se utilizó interpolación lineal para encontrar los valores de las articulaciones en los otros puntos , dotando de gran practicidad el uso de estas herramientas teóricas aprendidas en el curso.
 
 
 
