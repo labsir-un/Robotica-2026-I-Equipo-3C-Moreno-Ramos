@@ -799,8 +799,8 @@ Desplazamiento de Cero
 </div>
 
 ## Graficas de interpolación y trayectoria sinusoidal
-
-#Interpolación
+---
+### Interpolación
 
 Se presentan a continuacion las graficas de interpolación lineal y cubica de las diferentes artiulaciones (Menos de la pinza ya que no cambia) para una trayectoria de Home a la Pose 5 con una duracio de 5 Segundos.
 
@@ -819,35 +819,36 @@ Se presentan a continuacion las graficas de interpolación lineal y cubica de la
 Base 
 
 <p align="center">
-  <img src="images/Base.jpeg" alt="Base" width="300">
+  <img src="images/Base.jpeg" alt="Base" width="250">
 </p>
 
 Hombro
 
 <p align="center">
-  <img src="images/Hombro.jpeg" alt="Hombro" width="300">
+  <img src="images/Hombro.jpeg" alt="Hombro" width="250">
 </p>
 
 Codo
 
 <p align="center">
-  <img src="images/Codo.jpeg" alt="Codo" width="300">
+  <img src="images/Codo.jpeg" alt="Codo" width="250">
 </p>
 
 Muñeca
 
 <p align="center">
-  <img src="images/Muñeca.jpeg" alt="Muñeca" width="300">
+  <img src="images/Muñeca.jpeg" alt="Muñeca" width="250">
 </p>
 
-
-#trayectoria sinusoidal
-
-
+---
+###trayectoria sinusoidal
 
 
 
 
+
+
+---
 
 
 
