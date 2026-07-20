@@ -209,86 +209,47 @@ R5
 
 El siguiente diagrama detalla la interacción exhaustiva entre la interfaz gráfica de usuario (`PincherGui`), el nodo de ROS 2 (`PincherGuiNode`) y el controlador de hardware.
 
+
+```md
 ```mermaid
-graph TD
-    %% ---------------- NODO ROS 2 ----------------
-    subgraph NodoROS2 [Nodo ROS 2 Jazzy]
-        direction LR
-        PubCmd[/Publish: /pincher/command <br/> JointState/]
-        PubVel[/Publish: /pincher/profile_velocity <br/> UInt32/]
-        SubStatus[\Subscribe: /pincher/status <br/> String\]
-        SubJoint[\Subscribe: /joint_states <br/> JointState\]
-        
-        SrvHome((Client: <br/> /pincher/home))
-        SrvStop((Client: <br/> /pincher/software_stop))
-        SrvTorque((Client: <br/> /pincher/torque_enable))
-    end
+flowchart TD
+    Inicio["Inicio del sistema"]
+    Inicializar_ROS["Inicializar ROS 2"]
+    Conectar_Motores["Conectar motores Dynamixel"]
+    Interfaz_GUI["Interfaz gráfica"]
+    Mover_Motor["Enviar comandos a motores"]
+    Publicar_Joint_States["Publicar /joint_states"]
+    RViz["RViz + robot_state_publisher"]
+    Actualizar_TCP["Actualizar TCP (FK)"]
 
-    %% ---------------- CLASE MAIN / INTERFAZ ----------------
-    App([Main: PincherGui]) --> ControlesGlobales
-    App --> Pestanas
+    Inicio --> Inicializar_ROS
+    Inicializar_ROS --> Conectar_Motores
+    Conectar_Motores --> Interfaz_GUI
+    Interfaz_GUI --> Mover_Motor
+    Mover_Motor --> Publicar_Joint_States
+    Publicar_Joint_States --> RViz
+    RViz --> Actualizar_TCP
+```
+```mermaid
+flowchart TD
+    Inicio["Inicio del sistema"]
+    Inicializar_ROS["Inicializar ROS 2"]
+    Conectar_Motores["Conectar motores Dynamixel"]
+    Interfaz_GUI["Interfaz gráfica"]
+    Mover_Motor["Enviar comandos a motores"]
+    Publicar_Joint_States["Publicar /joint_states"]
+    RViz["RViz + robot_state_publisher"]
+    Actualizar_TCP["Actualizar TCP (FK)"]
 
-    %% ---------------- CONTROLES GLOBALES ----------------
-    subgraph ControlesGlobales [Controles Fijos y Estado]
-        Modo{Modo de Envío}
-        Modo -->|Simultaneo| EnvioDirecto[Publicación Inmediata]
-        Modo -->|Secuencial| EnvioSec[Bucle Secuencial: Base-Hombro-etc]
-        
-        Vel[Input: Velocidad] --> PubVel
-        BtnHome[Boton: HOME] --> SrvHome
-        BtnTorque[Botones: Torque ON-OFF] --> SrvTorque
-        BtnStop[PARADA DE SOFTWARE] --> SrvStop
-        
-        PanelEstado[Panel de Estado GUI] <-- SubStatus
-    end
+    Inicio --> Inicializar_ROS
+    Inicializar_ROS --> Conectar_Motores
+    Conectar_Motores --> Interfaz_GUI
+    Interfaz_GUI --> Mover_Motor
+    Mover_Motor --> Publicar_Joint_States
+    Publicar_Joint_States --> RViz
+    RViz --> Actualizar_TCP
+```
 
-    %% ---------------- PESTAÑAS (NOTEBOOK) ----------------
-    subgraph Pestanas [Notebook Pestañas de Operacion]
-        direction TB
-        
-        T1[1. Manual] -->|Valida Limites| GeneradorObjetivos
-        T2[2. Presets] -->|Diccionario de Poses| GeneradorObjetivos
-        
-        T3[3. Trayectorias] -->|Genera Muestras| Interp[Lineal, Cubica, Quintica]
-        Interp --> Plot1[Renderizado Matplotlib]
-        Interp --> LoopTraj[Bucle: Envio paso a paso]
-        
-        T4[4. Senoidal] -->|Matematica| MathEq[q t = q0 + A sin 2pi f t]
-        MathEq --> LoopSin[Ejecucion de 4 Pruebas]
-        LoopSin --> Plot2[Comparacion: Deseada vs Medida]
-        
-        T5[5. Ensenanza] -->|E-S de Archivo| YAML[pincher_taught_poses.yaml]
-        YAML --> ListBox[Lista de Poses]
-        ListBox --> LoopTeach[Bucle: Reproduccion con retardo]
-        
-        T6[6. Triangulo] -->|Carga de constantes| ArrTri[TRIANGLE_POSES]
-        ArrTri --> LoopTri[Bucle: Ejecucion con 500ms fijo]
-        
-        T7[7. Baile] -->|Carga de constantes| ArrDance[DANCE_POSES]
-        ArrDance --> SubProceso[Audio Subproceso]
-        ArrDance --> LoopDance[Bucle: Ejecucion con retardos variables]
-    end
-
-    %% ---------------- CONEXIONES DE ENVÍO ----------------
-    GeneradorObjetivos --> Modo
-    
-    EnvioDirecto --> PubCmd
-    EnvioSec --> PubCmd
-    LoopTraj --> PubCmd
-    LoopSin --> PubCmd
-    LoopTeach --> PubCmd
-    LoopTri --> PubCmd
-    LoopDance --> PubCmd
-
-    %% Retroalimentación (Feedback)
-    SubJoint -.-> LoopSin
-    SubJoint -.-> PanelEstado
-
-    %% ---------------- ESTILOS ----------------
-    style BtnStop fill:#c53030,color:#fff,stroke:#fff
-    style PubCmd fill:#2b6cb0,color:#fff,stroke:#fff
-    style PubVel fill:#2b6cb0,color:#fff,stroke:#fff
-    style YAML fill:#d69e2e,color:#fff,stroke:#fff
 ## Videos 
 A continuación se presentan los videos implemnetando la interfaz con todos sus modos ademas del video con el baile
 
