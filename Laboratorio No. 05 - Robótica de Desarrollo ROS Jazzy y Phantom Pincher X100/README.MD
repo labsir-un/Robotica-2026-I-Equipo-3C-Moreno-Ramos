@@ -212,7 +212,7 @@ El siguiente diagrama detalla la interacción exhaustiva entre la interfaz gráf
 ```mermaid
 graph TD
     %% ---------------- NODO ROS 2 ----------------
-    subgraph Nodo_ROS2 ["PincherGuiNode - ROS 2 Jazzy"]
+    subgraph NodoROS2 [Nodo ROS 2 Jazzy]
         direction LR
         PubCmd[/Publish: /pincher/command <br/> JointState/]
         PubVel[/Publish: /pincher/profile_velocity <br/> UInt32/]
@@ -225,48 +225,48 @@ graph TD
     end
 
     %% ---------------- CLASE MAIN / INTERFAZ ----------------
-    App([Main: PincherGui]) --> Controles_Globales
+    App([Main: PincherGui]) --> ControlesGlobales
     App --> Pestanas
 
     %% ---------------- CONTROLES GLOBALES ----------------
-    subgraph Controles_Globales ["Controles Fijos y Estado"]
+    subgraph ControlesGlobales [Controles Fijos y Estado]
         Modo{Modo de Envío}
-        Modo -->|Simultáneo| EnvioDirecto[Publicación Inmediata]
-        Modo -->|Secuencial| EnvioSec["Bucle Secuencial: <br/>Base->Hombro->...->Pinza"]
+        Modo -->|Simultaneo| EnvioDirecto[Publicación Inmediata]
+        Modo -->|Secuencial| EnvioSec[Bucle Secuencial: Base-Hombro-etc]
         
         Vel[Input: Velocidad] --> PubVel
-        BtnHome["Botón: HOME"] --> SrvHome
-        BtnTorque["Botones: Torque ON/OFF"] --> SrvTorque
+        BtnHome[Boton: HOME] --> SrvHome
+        BtnTorque[Botones: Torque ON-OFF] --> SrvTorque
         BtnStop[PARADA DE SOFTWARE] --> SrvStop
         
         PanelEstado[Panel de Estado GUI] <-- SubStatus
     end
 
     %% ---------------- PESTAÑAS (NOTEBOOK) ----------------
-    subgraph Pestanas ["Notebook: Pestañas de Operación"]
+    subgraph Pestanas [Notebook Pestañas de Operacion]
         direction TB
         
-        T1["1. Manual"] -->|Valida Límites| GeneradorObjetivos
-        T2["2. Presets"] -->|Diccionario de Poses| GeneradorObjetivos
+        T1[1. Manual] -->|Valida Limites| GeneradorObjetivos
+        T2[2. Presets] -->|Diccionario de Poses| GeneradorObjetivos
         
-        T3["3. Trayectorias"] -->|Genera Muestras| Interp["Lineal, Cúbica, Quíntica"]
+        T3[3. Trayectorias] -->|Genera Muestras| Interp[Lineal, Cubica, Quintica]
         Interp --> Plot1[Renderizado Matplotlib]
-        Interp --> LoopTraj[Bucle: Envío paso a paso]
+        Interp --> LoopTraj[Bucle: Envio paso a paso]
         
-        T4["4. Senoidal"] -->|Matemática| MathEq["q(t) = q0 + A*sin(2πft)"]
-        MathEq --> LoopSin[Ejecución de 4 Pruebas]
-        LoopSin --> Plot2["Comparación: Deseada vs Medida"]
+        T4[4. Senoidal] -->|Matematica| MathEq[q t = q0 + A sin 2pi f t]
+        MathEq --> LoopSin[Ejecucion de 4 Pruebas]
+        LoopSin --> Plot2[Comparacion: Deseada vs Medida]
         
-        T5["5. Enseñanza"] -->|E/S de Archivo| YAML["pincher_taught_poses.yaml"]
+        T5[5. Ensenanza] -->|E-S de Archivo| YAML[pincher_taught_poses.yaml]
         YAML --> ListBox[Lista de Poses]
-        ListBox --> LoopTeach[Bucle: Reproducción con retardo]
+        ListBox --> LoopTeach[Bucle: Reproduccion con retardo]
         
-        T6["6. Triángulo"] -->|Carga de constantes| ArrTri[TRIANGLE_POSES]
-        ArrTri --> LoopTri[Bucle: Ejecución con 500ms fijo]
+        T6[6. Triangulo] -->|Carga de constantes| ArrTri[TRIANGLE_POSES]
+        ArrTri --> LoopTri[Bucle: Ejecucion con 500ms fijo]
         
-        T7["7. Baile"] -->|Carga de constantes| ArrDance[DANCE_POSES]
-        ArrDance --> SubProceso["Audio Subproceso: <br/> ffplay / mpg123..."]
-        ArrDance --> LoopDance[Bucle: Ejecución con retardos variables]
+        T7[7. Baile] -->|Carga de constantes| ArrDance[DANCE_POSES]
+        ArrDance --> SubProceso[Audio Subproceso]
+        ArrDance --> LoopDance[Bucle: Ejecucion con retardos variables]
     end
 
     %% ---------------- CONEXIONES DE ENVÍO ----------------
@@ -289,7 +289,6 @@ graph TD
     style PubCmd fill:#2b6cb0,color:#fff,stroke:#fff
     style PubVel fill:#2b6cb0,color:#fff,stroke:#fff
     style YAML fill:#d69e2e,color:#fff,stroke:#fff
-
 ## Videos 
 A continuación se presentan los videos implemnetando la interfaz con todos sus modos ademas del video con el baile
 
