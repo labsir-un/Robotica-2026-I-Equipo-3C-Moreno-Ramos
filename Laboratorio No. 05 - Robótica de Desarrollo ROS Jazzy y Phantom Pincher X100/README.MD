@@ -213,41 +213,162 @@ El siguiente diagrama detalla la interacción exhaustiva entre la interfaz gráf
 ```md
 ```mermaid
 flowchart TD
-    Inicio["Inicio del sistema"]
-    Inicializar_ROS["Inicializar ROS 2"]
-    Conectar_Motores["Conectar motores Dynamixel"]
-    Interfaz_GUI["Interfaz gráfica"]
-    Mover_Motor["Enviar comandos a motores"]
-    Publicar_Joint_States["Publicar /joint_states"]
-    RViz["RViz + robot_state_publisher"]
-    Actualizar_TCP["Actualizar TCP (FK)"]
+    %% Declaración de nodos y etiquetas
+    App["Interfaz Principal (PincherGui)"]
+    Modo{"Modo de Envío seleccionado"}
+    EnvioDirecto["Publicación Inmediata"]
+    EnvioSec["Bucle Secuencial (Base -> Hombro -> Pinza)"]
+    Vel["Entrada de Velocidad"]
+    BtnHome["Botón: HOME"]
+    BtnTorque["Botones: Torque ON/OFF"]
+    BtnStop["Botón: PARADA DE SOFTWARE"]
+    PanelEstado["Panel de Estado en GUI"]
 
-    Inicio --> Inicializar_ROS
-    Inicializar_ROS --> Conectar_Motores
-    Conectar_Motores --> Interfaz_GUI
-    Interfaz_GUI --> Mover_Motor
-    Mover_Motor --> Publicar_Joint_States
-    Publicar_Joint_States --> RViz
-    RViz --> Actualizar_TCP
+    PubCmd["Publish: /pincher/command"]
+    PubVel["Publish: /pincher/profile_velocity"]
+    SubStatus["Subscribe: /pincher/status"]
+    SubJoint["Subscribe: /joint_states"]
+    SrvHome["Client: /pincher/home"]
+    SrvStop["Client: /pincher/software_stop"]
+    SrvTorque["Client: /pincher/torque_enable"]
+
+    T1["Pestaña 1: Manual (Validación de Límites)"]
+    T2["Pestaña 2: Presets (Diccionario de Poses)"]
+    T3["Pestaña 3: Trayectorias (Lineal, Cúbica, Quíntica)"]
+    T4["Pestaña 4: Senoidal (q = q0 + A*sin)"]
+    T5["Pestaña 5: Enseñanza (Archivo YAML)"]
+    T6["Pestaña 6: Triángulo (TRIANGLE_POSES)"]
+    T7["Pestaña 7: Baile (DANCE_POSES + Audio)"]
+
+    Plot1["Renderizado Matplotlib (Trayectorias)"]
+    Plot2["Comparación Gráfica (Deseada vs Medida)"]
+    SubProceso["Subproceso de Audio (ffplay)"]
+
+    %% Conexiones de la Aplicación Principal
+    App --> T1
+    App --> T2
+    App --> T3
+    App --> T4
+    App --> T5
+    App --> T6
+    App --> T7
+    App --> Vel
+    App --> BtnHome
+    App --> BtnTorque
+    App --> BtnStop
+
+    %% Flujo de las Pestañas hacia el Generador de Movimiento
+    T1 --> Modo
+    T2 --> Modo
+    
+    T3 --> Plot1
+    T3 --> PubCmd
+    
+    T4 --> Plot2
+    T4 --> PubCmd
+    
+    T5 --> PubCmd
+    T6 --> PubCmd
+    
+    T7 --> SubProceso
+    T7 --> PubCmd
+
+    %% Lógica del Modo de Envío
+    Modo --> EnvioDirecto
+    Modo --> EnvioSec
+    EnvioDirecto --> PubCmd
+    EnvioSec --> PubCmd
+
+    %% Conexiones de Controles Globales a Servicios y Publicadores
+    Vel --> PubVel
+    BtnHome --> SrvHome
+    BtnTorque --> SrvTorque
+    BtnStop --> SrvStop
+
+    %% Retroalimentación de Tópicos hacia la GUI
+    SubStatus --> PanelEstado
+    SubJoint --> PanelEstado
+    SubJoint --> Plot2
 ```
 ```mermaid
 flowchart TD
-    Inicio["Inicio del sistema"]
-    Inicializar_ROS["Inicializar ROS 2"]
-    Conectar_Motores["Conectar motores Dynamixel"]
-    Interfaz_GUI["Interfaz gráfica"]
-    Mover_Motor["Enviar comandos a motores"]
-    Publicar_Joint_States["Publicar /joint_states"]
-    RViz["RViz + robot_state_publisher"]
-    Actualizar_TCP["Actualizar TCP (FK)"]
+flowchart TD
+    %% Declaración de nodos y etiquetas
+    App["Interfaz Principal (PincherGui)"]
+    Modo{"Modo de Envío seleccionado"}
+    EnvioDirecto["Publicación Inmediata"]
+    EnvioSec["Bucle Secuencial (Base -> Hombro -> Pinza)"]
+    Vel["Entrada de Velocidad"]
+    BtnHome["Botón: HOME"]
+    BtnTorque["Botones: Torque ON/OFF"]
+    BtnStop["Botón: PARADA DE SOFTWARE"]
+    PanelEstado["Panel de Estado en GUI"]
 
-    Inicio --> Inicializar_ROS
-    Inicializar_ROS --> Conectar_Motores
-    Conectar_Motores --> Interfaz_GUI
-    Interfaz_GUI --> Mover_Motor
-    Mover_Motor --> Publicar_Joint_States
-    Publicar_Joint_States --> RViz
-    RViz --> Actualizar_TCP
+    PubCmd["Publish: /pincher/command"]
+    PubVel["Publish: /pincher/profile_velocity"]
+    SubStatus["Subscribe: /pincher/status"]
+    SubJoint["Subscribe: /joint_states"]
+    SrvHome["Client: /pincher/home"]
+    SrvStop["Client: /pincher/software_stop"]
+    SrvTorque["Client: /pincher/torque_enable"]
+
+    T1["Pestaña 1: Manual (Validación de Límites)"]
+    T2["Pestaña 2: Presets (Diccionario de Poses)"]
+    T3["Pestaña 3: Trayectorias (Lineal, Cúbica, Quíntica)"]
+    T4["Pestaña 4: Senoidal (q = q0 + A*sin)"]
+    T5["Pestaña 5: Enseñanza (Archivo YAML)"]
+    T6["Pestaña 6: Triángulo (TRIANGLE_POSES)"]
+    T7["Pestaña 7: Baile (DANCE_POSES + Audio)"]
+
+    Plot1["Renderizado Matplotlib (Trayectorias)"]
+    Plot2["Comparación Gráfica (Deseada vs Medida)"]
+    SubProceso["Subproceso de Audio (ffplay)"]
+
+    %% Conexiones de la Aplicación Principal
+    App --> T1
+    App --> T2
+    App --> T3
+    App --> T4
+    App --> T5
+    App --> T6
+    App --> T7
+    App --> Vel
+    App --> BtnHome
+    App --> BtnTorque
+    App --> BtnStop
+
+    %% Flujo de las Pestañas hacia el Generador de Movimiento
+    T1 --> Modo
+    T2 --> Modo
+    
+    T3 --> Plot1
+    T3 --> PubCmd
+    
+    T4 --> Plot2
+    T4 --> PubCmd
+    
+    T5 --> PubCmd
+    T6 --> PubCmd
+    
+    T7 --> SubProceso
+    T7 --> PubCmd
+
+    %% Lógica del Modo de Envío
+    Modo --> EnvioDirecto
+    Modo --> EnvioSec
+    EnvioDirecto --> PubCmd
+    EnvioSec --> PubCmd
+
+    %% Conexiones de Controles Globales a Servicios y Publicadores
+    Vel --> PubVel
+    BtnHome --> SrvHome
+    BtnTorque --> SrvTorque
+    BtnStop --> SrvStop
+
+    %% Retroalimentación de Tópicos hacia la GUI
+    SubStatus --> PanelEstado
+    SubJoint --> PanelEstado
+    SubJoint --> Plot2
 ```
 
 ## Videos 
