@@ -43,7 +43,7 @@ La arquitectura del sistema integra tres componentes principales:
 
 *Funciones utilizadas*
 Se presentan a continuaciòn las funciones utilizadas en la interfaz grafica tanto en todos los modos como en modos especificos 
-- Todos los modos
+- Todos los modos-
 Movimiento Simultaneo: Todas las articulaciones se mueven simultaneamente a la posicion enviada.
 Movimiento Secuencial: Todas las articulaciones se mueven en orden a la posicion enviada ( Base-Hombro-Codo-Muñeca-Pinza ).
 Velocidad Por Ingreso Numerico: Permite ingresar directamente valores de velocidad para todos los motores y enviarlas al sistema.
