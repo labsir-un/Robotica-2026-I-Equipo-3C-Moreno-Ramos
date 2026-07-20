@@ -7,7 +7,7 @@
 
 <h3>Curso de Robótica 2026-I</h3>
 
-<h1>Informe Laboratorio #3</h1>
+<h1>Informe Laboratorio #5</h1>
 
 <h2>Profesores: <br>Pedro Fabián Cárdenas Herrera <br> Manuel Felipe Carranza Montenegro<br></h2>
 
@@ -20,37 +20,57 @@
 
 # Índice
 
-1. [Cuadro comparativo de manipuladores](#Cuadro-comparativo-de-manipuladores)
-2. [Configuración de la posición Home](#configuración-de-la-posición-home)
-3. [Procedimiento de movimientos manuales](#procedimiento-de-movimientos-manuales)
-4. [Control y niveles de velocidad](#control-y-niveles-de-velocidad)
-5. [Funcionalidades de EPSON RC+ 7.0](#funcionalidades-de-epson-rc-70)
-6. [Análisis comparativo de herramientas de software](#análisis-comparativo-de-herramientas-de-software)
-7. [Diseño técnico del gripper neumático por vacío](#diseño-técnico-del-gripper-neumático-por-vacío)
-8. [Diagrama de flujo de la trayectoria](#diagrama-de-flujo-de-la-trayectoria)
-9. [Plano de planta y ubicación inicial](#plano-de-planta-y-ubicación-inicial)
-10. [Código desarrollado en SPEL+](#código-desarrollado-en-spel)
-11. [Videos demostrativos](#videos-demostrativos)
+1. [Descripción detallada de la solución planteada](#descripcion)
+2. [Diagramas digitales y DH utilizado](#diagramas)
+3. [Gráficas digitales comparativas](#graf_dig)
+4. [Diagrama de flujo de acciones del robot](#diagrama_flujo)
+5. [Videos](#videos)
+6. [Plano de planta](#plano_planta)
+7. [Código explicado](#codigo)
 
-## Cuadro comparativo de manipuladores
+## Descripción detallada de la solución planteada
+Se desarrolló un nodo de ROS 2 en Python que permite:
 
-| Característica | **EPSON T3-401S** | **Motoman MH6** | **ABB IRB140** |
-|:----------------:|:--------------------:|:------------------:|:----------------:|
-| **Tipo de robot** | SCARA (4 ejes) | Articulado (6 ejes) | Articulado (6 ejes) |
-| **Grados de libertad (DOF)** | 4 | 6 | 6 |
-| **Carga máxima (Payload)** | 3 kg | 6 kg | 6 kg |
-| **Alcance máximo** | 400 mm | 1373 mm | 810 mm |
-| **Repetibilidad** | ±0.02 mm | ±0.08 mm | ±0.03 mm |
-| **Velocidad máxima** | Hasta 4500 mm/s (ejes XY) | 230°/s (articulaciones) | 225°/s (articulaciones) |
-| **Montaje** | De mesa (compacto) | En piso, pared o techo | En piso, pared o invertido |
-| **Controlador** | EPSON RC+ 7.0 | NX100 / DX100 | IRC5 Compact |
-| **Fuente de potencia** | 200–240 V CA monofásico | 200–230 V CA trifásico | 200–600 V CA trifásico |
-| **Aplicaciones típicas** | Ensamble electrónico, empaque, pick and place | Soldadura, manipulación de piezas, paletizado | Ensamble, manipulación de materiales, mantenimiento de máquinas |
-| **Peso del robot** | ~27 kg | ~130 kg | ~98 kg |
-| **Ventajas principales** | Compacto, rápido, bajo costo y fácil de integrar | Alta carga, gran alcance, estructura robusta | Preciso, compacto, ideal para espacios reducidos |
-| **Limitaciones** | Alcance corto, solo 4 ejes | Menor precisión que ABB | Mayor costo que Epson |
-| **Software asociado** | EPSON RC+ 7.0 | MotoSim EG / NX100 | RobotStudio |
-| **Comunicación con PC** | USB / Ethernet | Ethernet / RS-232 | Ethernet / USB |
+Comunicación directa con los motores Dynamixel mediante puerto serial.
+Control individual y conjunto de cada articulación del manipulador.
+Publicación del mensaje `/joint_states` para animación del modelo en RViz.
+Implementación de una interfaz gráfica con control articular, visualización en RViz y aplicacion de los diferentes modos pedidos en el laboratorio .
+
+La arquitectura del sistema integra tres componentes principales:
+1. Nodo ROS 2 de control de motores.
+2. Interfaz gráfica (GUI) en Tkinter.
+3. Modelo del robot visualizado en RViz.
+
+*Funciones utilizadas*
+Se presentan a continuaciòn las funciones utilizadas en la interfaz grafica tanto en todos los modos como en modos especificos 
+- Todos los modos
+Movimiento Simultaneo: Todas las articulaciones se mueven simultaneamente a la posicion enviada.
+Movimiento Secuencial: Todas las articulaciones se mueven en orden a la posicion enviada ( Base-Hombro-Codo-Muñeca-Pinza ).
+Velocidad Por Ingreso Numerico: Permite ingresar directamente valores de velocidad para todos los motores y enviarlas al sistema.
+Home: Manda al robot a Home.
+Torque On / Torque Off : Energiza y Desenergiza los motores.
+Pararada De Sofware : Desenergiza el sistema de inmediato por sofware (Recomendable no confirse totalmente y tener la mano cerca al boton de energia de la multitoma).
+Estado : Muestra el estado del robot y que instruccion se encuentra realizando.
+Visualización en RViz: Se sincroniza el robot físico con el modelo virtual del PhantomX Pincher X100 usando `robot_state_publisher`.
+- Modo Manual
+Control articular por ingreso numérico: Permite ingresar directamente valores de posición para cada articulación en un rango seguro y enviarlas al sistema.
+- Modo Presets 
+
+Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio :
+
+| Articulación | Preset 1 | Preset 2 | Preset 3 | Preset 4 | Preset 5 |
+| ------------ | -------- | -------- | -------- | -------- | -------- | 
+|      1       |    00    |    25    |   −35    |    85    |    80    |
+|      2       |    00    |    25    |    35    |   −20    |   −35    |
+|      3       |    00    |    20    |   −30    |    55    |    55    |
+|      4       |    00    |   -20    |    30    |    25    |   −45    |
+|      5       |    00    |    00    |    00    |    00    |    00    |
+
+Los primeros cuatro valores corresponden al brazo y el quinto corresponde a la pinza. 
+- Modo Trayectorias
+
+
+
 
 ## Configuración de la posición Home
 
