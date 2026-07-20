@@ -113,7 +113,7 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 ---
 ### Modo Enseñanza
 
-**Registra poses con su respectivo nombre de acuerdo a la posición del robot en el espacio gracias al modo manual, guarda el registro de loas poses en un yaml, las reproduce en orden con el tiempo de transición que se desea al igual que reproducir la que el usuario quiera **
+**Registra poses con su respectivo nombre de acuerdo a la posición del robot en el espacio gracias al modo manual, guarda el registro de loas poses en un yaml, las reproduce en orden con el tiempo de transición que se desea al igual que reproducir la que el usuario quiera**
 
 
 * **Nombre de la pose:** Ingresar por teclado el nombre de la pose actual .
@@ -129,21 +129,25 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 
 ---
 
-### Modo Enseñanza
+### Modo Triangulo
 
-**Registra poses con su respectivo nombre de acuerdo a la posición del robot en el espacio gracias al modo manual, guarda el registro de loas poses en un yaml, las reproduce en orden con el tiempo de transición que se desea al igual que reproducir la que el usuario quiera **
+**Ejecuta una secuencia de poses para el desarrollo de un triangulo previamente encontradas gracias a cinematica inversa (Tres vertices) e interpolación lineal, se utilizan 60 muestras totalmente editables para quitar o agregar mas en la constante Triangle_Poses*
 
 
-* **Nombre de la pose:** Ingresar por teclado el nombre de la pose actual .
-* **Guardar:** Guarda la pose actual con su respectivo nombre.
-* **Poses Registradas:** Lista de poses en orden de creación con sus parametros.
-* **Ir a la Pose seleccionada:** Envia la pose seleccionada al robot .
-* **Eliminar Pose seleccionada:**  Elimina la pose seleccionada de la lista .
-* **Guardar yaml:** Guarda el archivo yaml en /home/juan-moreno/pincher_taught_poses.yaml .
-* **Recargar yaml:** Elimina variables nuevas y va al ultimo archivo yaml creado.
-* **Tiempo de transición :** Tiempo de segundos entre poses cuando se repodruzcan en orden .
-* **Reproducir Todas:** Reproduce las poses de la lista en el tiempo preestablecio.
-* **Detener:** Detiene la reproducción de las poses.
+* **Secuencia:** Lista de poses de Triangle_Poses con sus respectivos parametros .
+* **ejecutar:** Ejecuta la secuencia de Triangulo.
+* **Detener:** Detiene la secuencia de triangulo.
+
+---
+
+### Modo Baile
+
+**Ejecuta una coreografia de poses definidas, cada pose tiene su propio retardo y reprodruce automaticamente la canción "Chipi chipi" al inicio de la coreografia*
+
+
+* **Coreografia:** Lista de poses de la coreografia con sus respectivos parametros .
+* **ejecutar:** Ejecuta la coreografia y la musica.
+* **Detener:** Detiene la coreografia y la musica.
 
 ---
 
