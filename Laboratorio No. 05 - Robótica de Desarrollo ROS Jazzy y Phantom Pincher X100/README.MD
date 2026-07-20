@@ -43,7 +43,7 @@ La arquitectura del sistema integra tres componentes principales:
 
 ### Funciones utilizadas
 
-Se presentan a continuación las funciones utilizadas en la interfaz gráfica tanto en todos los modos como en modos específicos:
+Se presentan a continuación las funciones utilizadas en la interfaz gráfica tanto en todos los modos como en modos específicos
 
 ---
 ### Todos los modos
@@ -64,9 +64,9 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 * **Control articular por ingreso numérico:** Permite ingresar directamente valores de posición para cada articulación en un rango seguro y enviarlas al sistema.
 
 ---
-- Modo Presets 
+### Modo Presets 
 
-Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio :
+* ** Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio 
 
 | Articulación | Preset 1 | Preset 2 | Preset 3 | Preset 4 | Preset 5 |
 | ------------ | -------- | -------- | -------- | -------- | -------- | 
@@ -77,6 +77,7 @@ Se presentan el envio por botones de diferentes poses predefinidas al robot pres
 |      5       |    00    |    00    |    00    |    00    |    00    |
 
 Los primeros cuatro valores corresponden al brazo y el quinto corresponde a la pinza. 
+---
 - Modo Trayectorias
 
 
