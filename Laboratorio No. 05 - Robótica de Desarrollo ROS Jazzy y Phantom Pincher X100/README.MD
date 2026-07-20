@@ -71,13 +71,14 @@ Se presentan a continuación las funciones utilizadas en la interfaz gráfica ta
 **Se presentan el envio por botones de diferentes poses predefinidas al robot presentadas en el laboratorio**
 
 <div align="center">
-| Articulación |  Pose 1  |  Pose 2  |  Pose 3  |  Pose 4  |  Pose 5  |
-| ------------ | -------- | -------- | -------- | -------- | -------- | 
-|      1       |    00    |    25    |   −35    |    85    |    80    |
-|      2       |    00    |    25    |    35    |   −20    |   −35    |
-|      3       |    00    |    20    |   −30    |    55    |    55    |
-|      4       |    00    |   -20    |    30    |    25    |   −45    |
-|      5       |    00    |    00    |    00    |    00    |    00    |
+
+| Articulación | Pose 1 | Pose 2 | Pose 3 | Pose 4 | Pose 5 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | 00 | 25 | -35 | 85 | 80 |
+| 2 | 00 | 25 | 35 | -20 | -35 |
+| 3 | 00 | 25 | 20 | -30 | 55 |
+| 4 | 00 | -20 | 30 | 25 | -45 |
+| 5 | 00 | 00 | 00 | 00 | 00 |
 
 </div>
 
