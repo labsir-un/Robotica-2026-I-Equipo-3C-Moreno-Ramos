@@ -24,11 +24,10 @@
 2. [Diagrama de flujo de las acciones del robot](#Diagrama-de-flujo-de-las-acciones-del-robot)
 3. [Código fuente](#Código-fuente)
 4. [Plano de planta](#Diagrama de flujo)(#Codigo)
-3. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
-4. [Gráficas digitales comparativas/Gráficas de calibración, interpolación y trayectoria sinusoidal](#graf_dig)
-5. [Diagrama de flujo de acciones del robot](#diagrama_flujo)
-6. [Videos](#videos)
-7. [Conclusiones individuales.](#Conclusiones individuales.)
+5. [Diagramas digitales y DH utilizado](#Diagramas-digitales-y-DH-utilizado)
+6. [Gráficas digitales comparativas/Gráficas de calibración, interpolación y trayectoria sinusoidal](#graf_dig)
+7. [Videos](#videos)
+8. [Conclusiones individuales.](#Conclusiones individuales.)
 
 
 ## Descripción detallada de la solución planteada
