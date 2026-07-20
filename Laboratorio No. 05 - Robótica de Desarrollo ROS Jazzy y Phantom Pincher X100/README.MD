@@ -855,25 +855,25 @@ Se hace la aclaración que las pruebas presentadas se realizaron en la implemtac
 Prueba 1 ( A1 y F1 / 10 Grados y 0.09 HZ)
 
 <p align="center">
-  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+  <img src="images/Prueba1.jpeg" alt="Prueba1" width="550">
 </p>
 
 Prueba 2 ( A1 y F2 / 10 Grados y 0.2 HZ)
 
 <p align="center">
-  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+  <img src="images/Prueba2.jpeg" alt="Prueba2" width="550">
 </p>
 
 Prueba 3 ( A2 y F1 / 19 Grados y  0.09 HZ)
 
 <p align="center">
-  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+  <img src="images/Prueba3.jpeg" alt="Prueba3" width="550">
 </p>
 
 Prueba 4 ( A2 y F2 / 19 Grados y   0.2 HZ)
 
 <p align="center">
-  <img src="images/Posicion3.jpeg" alt="Rutina R3" width="450">
+  <img src="images/Prueba4.jpeg" alt="Prueba4" width="550">
 </p>
 
 
