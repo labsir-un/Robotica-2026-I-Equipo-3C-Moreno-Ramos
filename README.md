@@ -11,7 +11,7 @@
 
 <h2>Profesores: <br>Pedro Fabián Cárdenas Herrera <br> Manuel Felipe Carranza Montenegro</h2>
 
-<h4>¿Mateo Ramos Cujer<br>
+<h4>Mateo Ramos Cujer<br>
     Juan Andrés Moreno Benavides<br>
 
 <p>
