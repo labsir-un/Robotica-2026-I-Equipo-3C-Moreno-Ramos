@@ -53,7 +53,7 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
 
 ### Integrante 1
 <div align="center">
-  <img src="FotosIntegrantes/Mateo" alt="Foto integrante 1" style="border-radius: 50%; width: 180px;"><br>
+  <img src="fotos/mateo.png" alt="Foto integrante 1" style="border-radius: 50%; width: 180px;"><br>
 </div>
 
 - **Nombre completo:** Mateo Ramos Cujer
