@@ -33,3 +33,13 @@
 9. [Plano de planta](#plano-de-planta)
 10. [Videos demostrativos](#videos-demostrativos)
 
+## 1. Bitácora del desarrollo
+## 2. Diagrama de flujo del proceso global
+## 3. Diseño del gripper
+## 4. Simulación
+## 5. Código fuente
+## 6. Comparación manual vs automatizado
+## 7. Descripción detallada de la solución
+## 8. Diagrama de flujo acciones del robot
+## 9. Plano de planta
+## 10. Videos demostrativos
