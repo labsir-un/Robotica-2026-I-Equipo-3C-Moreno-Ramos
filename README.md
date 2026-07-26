@@ -11,9 +11,8 @@
 
 <h2>Profesores: <br>Pedro Fabián Cárdenas Herrera <br> Manuel Felipe Carranza Montenegro</h2>
 
-<h4>Nombre Integrante 1<br>
-    Nombre Integrante 2<br>
-    Nombre Integrante 3</h4>
+<h4>¿Mateo Ramos Cujer<br>
+    Juan Andrés Moreno Benavides<br>
 
 <p>
   <img alt="Ubuntu 24.04 LTS" src="https://img.shields.io/badge/Ubuntu-24.04%20LTS-E95420?logo=ubuntu&logoColor=white">
@@ -54,15 +53,15 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
 
 ### Integrante 1
 <div align="center">
-  <img src="./assets/integrantes/integrante1.jpg" alt="Foto integrante 1" style="border-radius: 50%; width: 180px;"><br>
+  <img src="Fotos - Integrantes/Mateo" alt="Foto integrante 1" style="border-radius: 50%; width: 180px;"><br>
 </div>
 
-- **Nombre completo:** Nombre Apellido
+- **Nombre completo:** Mateo Ramos Cujer
 - **Carrera:** Ingeniería Mecatrónica
-- **Correo institucional:** nombre@unal.edu.co
-- **Usuario de GitHub:** [usuariogithub](https://github.com/usuariogithub)
-- **Rol en el equipo:** Ej. Integración ROS 2, documentación, simulación
-- **Intereses:** Robótica móvil, visión artificial, automatización
+- **Correo institucional:** mramoscu@unal.edu.co
+- **Usuario de GitHub:** [MateoKGR](https://github.com/MateoKGR)
+- **Rol en el equipo:** Documentación, Simulaciones, Integración de verificación y validación
+- **Intereses:** Robótica móvil, automatización, sensores
 - **Descripción breve:**  
   Escribe aquí una breve presentación personal y académica del integrante.
 
@@ -73,28 +72,16 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
   <img src="./assets/integrantes/integrante2.jpg" alt="Foto integrante 2" style="border-radius: 50%; width: 180px;"><br>
 </div>
 
-- **Nombre completo:** Nombre Apellido
+- **Nombre completo:** Juan Andrés Moreno Benavides
 - **Carrera:** Ingeniería Mecatrónica
-- **Correo institucional:** nombre@unal.edu.co
-- **Usuario de GitHub:** [usuariogithub](https://github.com/usuariogithub)
-- **Rol en el equipo:** Ej. Modelado, programación, control
-- **Intereses:** Manipulación, ROS 2, control de robots
+- **Correo institucional:** jumorenobe@unal.co
+- **Usuario de GitHub:** [Jumorenobe](https://github.com/Jumorenobe)
+- **Rol en el equipo:** Modelado, programación
+- **Intereses:** ROS 2, control de robots
 - **Descripción breve:**  
   Escribe aquí una breve presentación personal y académica del integrante.
 
 ---
 
-### Integrante 3
-<div align="center">
-  <img src="./assets/integrantes/integrante3.jpg" alt="Foto integrante 3" style="border-radius: 50%; width: 180px;"><br>
-</div>
 
-- **Nombre completo:** Nombre Apellido
-- **Carrera:** Ingeniería Mecatrónica
-- **Correo institucional:** nombre@unal.edu.co
-- **Usuario de GitHub:** [usuariogithub](https://github.com/usuariogithub)
-- **Rol en el equipo:** Ej. Documentación, pruebas, simulación
-- **Intereses:** Robótica industrial, sistemas autónomos, IA
-- **Descripción breve:**  
-  Escribe aquí una breve presentación personal y académica del integrante.
 
