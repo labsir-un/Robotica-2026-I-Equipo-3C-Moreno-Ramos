@@ -63,13 +63,12 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
 - **Rol en el equipo:** Documentación, Simulaciones, Integración de verificación y validación
 - **Intereses:** Robótica móvil, automatización, sensores
 - **Descripción breve:**  
-  Escribe aquí una breve presentación personal y académica del integrante.
-
+  Estudiante de Ingeniería Mecatrónica de la Universidad Nacional de Colombia, con interés en la robótica, la automatización y el desarrollo de sistemas mecatrónicos. Este repositorio reúne la documentación, el desarrollo y los resultados de los laboratorios y proyectos realizados durante el curso de Robótica, incluyendo el diseño, implementación y validación de diferentes algoritmos y aplicaciones relacionadas con la materia.
 ---
 
 ### Integrante 2
 <div align="center">
-  <img src="./assets/integrantes/integrante2.jpg" alt="Foto integrante 2" style="border-radius: 50%; width: 180px;"><br>
+  <img src="fotos/juan.png" alt="Foto integrante 2" style="border-radius: 50%; width: 180px;"><br>
 </div>
 
 - **Nombre completo:** Juan Andrés Moreno Benavides
@@ -79,7 +78,7 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
 - **Rol en el equipo:** Modelado, programación
 - **Intereses:** ROS 2, control de robots
 - **Descripción breve:**  
-  Escribe aquí una breve presentación personal y académica del integrante.
+  Estudiante de Ingeniería Mecatrónica con interés en el diseño, programación e integración de sistemas robóticos. Este repositorio recopila la documentación, el desarrollo y los resultados de los laboratorios y proyectos realizados durante el curso de Robótica, reflejando el proceso de aprendizaje y la aplicación práctica de los conceptos estudiados.
 
 ---
 
