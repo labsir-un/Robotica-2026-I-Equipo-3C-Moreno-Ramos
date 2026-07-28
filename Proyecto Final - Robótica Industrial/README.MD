@@ -177,6 +177,7 @@ flowchart TD
 ```
 
 ## 3. Diseño del gripper
+
 ## 4. Simulación
 
 ## 5. Código fuente
@@ -217,6 +218,7 @@ Gestión del efector final (electroimán) a través de salidas digitales del con
 
 ## 6. Comparación manual vs automatizado
 ## 7. Descripción detallada de la solución
+
 ## 8. Diagrama de flujo acciones del robot
 El siguiente diagrama detalla la secuencia algorítmica y la toma de decisiones que ejecuta el robot  durante la **Etapa 2: Ensamblaje de Componentes**, reflejando la lógica programada en **SPEL+**:
 
@@ -262,4 +264,8 @@ flowchart TD
 ```
 
 ## 9. Plano de planta
+![Foto Plano de Planta](images/almacen.png)
+
+
 ## 10. Videos demostrativos
+Los videos demostrativos estan subidos en este repositorio en la carpeta de ```videos```
