@@ -34,7 +34,80 @@
 10. [Videos demostrativos](#videos-demostrativos)
 
 ## 1. Bitácora del desarrollo
-## 2. Diagrama de flujo del proceso globals
+
+A continuación se documenta el proceso cronológico de diseño, simulación, fabricación e integración en laboratorio para el desarrollo de la **Etapa 2: Ensamblaje de Componentes** con el robot **Epson T3 401S ("Junior")**.
+
+---
+
+### Fase 1: Definición de Requerimientos y Diseño Mecánico
+
+* **Definición del Concepto:** Se analizaron los requerimientos técnicos del proyecto para la Etapa 2 de la línea de producción (Pick & Place de componentes sobre la PCB).
+* **Diseño CAD del Gripper (Electroimán):** * Se diseñó el adaptador/Sujetador mecánico para acoplar el electroimán al eje del robot Epson T3 401S en software CAD (SolidWorks/Fusion 360).
+  * Se consideró un diseño liviano para no afectar la dinámica del robot y con tolerancia para alojar el núcleo magnético y el cableado de la señal digital `DO_09`.
+* **Acondicionamiento del Almacén Ordenado:**
+  * Se realizó la búsqueda y selección de la caja/almacén físico adecuado para disponer los componentes. Fue necesario conseguir una estructura con compartimentos adecuados en espaciado y profundidad para asegurar que el efector final pudiera ingresar sin colisiones y mantener una alta repetibilidad en el *pick*.
+
+![Foto de la caja](images/)
+
+> **[Agregen mas info]:** *Agregar especificaciones del material del gripper (impresión 3D PLA/PETG) y dimensiones exactas de la caja/almacén utilizada.*
+
+---
+
+### Fase 2: Programación Inicial y Simulación (EPSON RC+)
+
+* **Desarrollo del Código SPEL+:**
+  * Implementación de la rutina lógica principal (`main`) y declaración de matrices globales para el mapeo de posiciones de origen (`alm`) y destino (`baq`).
+  * Configuración de mallas de paletizado mediante las funciones `Pallet 1` (Almacén) y `Pallet 2` (Baquela).
+* **Simulación Virtual:**
+  * Verificación preliminar de trayectorias tipo `Jump` dentro del entorno virtual de **EPSON RC+** para garantizar que la elevación en $Z$ fuera suficiente para esquivar bordes de la caja y elementos sobre la PCB.
+
+> **[Agregen foto de la simulación]:** *Adjuntar captura de pantalla de la simulación en EPSON RC+ con la malla de paletizado generada.*
+
+---
+
+### Fase 3: Integración Hardware y Control Eléctrico
+
+* **Ensamble Mecánico y Eléctrico:**
+  * Montaje de la herramienta en el robot real.
+  * Conexión del relé de activación del electroimán al módulo de salidas digitales del controlador Epson (asignado a la salida `DO_09`).
+* **Protección ESD y Seguridad:**
+  * Implementación de precauciones antiestáticas en la zona de trabajo para evitar daños en los componentes electrónicos durante la manipulación.
+
+> **[Agregen info del electroimán]:** *Añadir esquema de conexión eléctrica del relé/electroimán a la tarjeta I/O del Epson.*
+
+---
+
+### Fase 4: Pruebas en Laboratorio y Calibración de Trabajo (Iterativas)
+
+Debido a las variaciones entre el modelo virtual y el montaje real, se realizaron múltiples visitas al laboratorio para ajustar los parámetros de precisión:
+
+* **Visita 1 - Calibración de Puntos y Frames:**
+  * Definición manual de los puntos origen y ejes ($X, Y$) para `Pallet 1` (Caja almacén) y `Pallet 2` (Baquela/PCB) usando el Jog de EPSON RC+.
+  * Ajuste de altura de seguridad $Z$ para evitar choques con las paredes de la caja de componentes.
+* **Visita 2 - Ajuste de Agarre Electromagnético:**
+  * Pruebas de campo para verificar la atracción y liberación de las borneras/componentes metálicos.
+  * **Problema detectado:** La remanencia magnética causaba que algunos componentes no se soltaran inmediatamente al apagar el electroimán.
+  * **Solución aplicada:** Ajuste de tiempos de espera (`Wait 1`) en las subrutinas `Tomar` y `Soltar` para dar estabilidad al proceso.
+* **Visita 3 - Calibración Fine-Tuning y Pruebas de Repetibilidad:**
+  * Corrección milimétrica de las coordenadas de la baquela para asegurar que las terminales de los componentes alinearan correctamente con los orificios de la PCB.
+  * Verificación del ciclo completo a velocidad real (`Speed 100`, `Accel 100 100`).
+
+> **[Agregen mas info aquí]:** *Agregar tabla o registro de fallos encontrados durante las pruebas de campo y cómo se corrigieron.*
+
+---
+
+### Evidencias del Desarrollo
+
+| Hito / Actividad | Descripción | Evidencia Fotográfica / Video |
+| :--- | :--- | :---: |
+| **Diseño CAD Herramienta** | Modelo 3D del soporte para el electroimán. | *(Insertar Imagen CAD)* |
+| **Acondicionamiento Almacén** | Caja seleccionada con componentes ordenados. | *![Almacen](images/almacen.png)* |
+| **Calibración en Lab** | Ajuste de puntos de paletizado en el Epson T3. | *![Calibracion](images/calibracion.png)* |
+| **Prueba de Agarre** | Verificación de sujeción electromagnética (`DO_09`). | *(Insertar GIF / Foto Pick)* |
+
+---
+
+## 2. Diagrama de flujo del proceso global
 
 El proceso global de la línea automatizada consta de cuatro estaciones robotizadas secuenciales e independientes para la manufactura, ensamble, soldadura y empaque de tarjetas electrónicas (PCBs).
 
