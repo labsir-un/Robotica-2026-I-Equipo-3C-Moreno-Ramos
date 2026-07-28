@@ -39,13 +39,12 @@
 ## 4. Simulación
 ## 5. Código fuente
 
-[cite_start]El control y automatización de la **Etapa 2: Ensamblaje de Componentes** ejecutada por el robot **Epson T3 401S ("Junior")** [cite: 387, 450] [cite_start]se desarrolló en el entorno **EPSON RC+** empleando el lenguaje de programación **SPEL+**. 
+El control y automatización de la **Etapa 2: Ensamblaje de Componentes** ejecutada por el robot **Epson T3 401S ("Junior")**  se desarrolló en el entorno **EPSON RC+** empleando el lenguaje de programación **SPEL+**. 
 
 A continuación se detalla la estructura y funcionamiento del código implementado para la manipulación y posicionamiento de componentes mediante el electroimán adaptado.
-
 ---
 
-### 📄 Estructura del Código
+### Estructura del Código
 
 #### 1. Declaración de Variables Globales
 ```i```: Variable de control para los iteradores en los bucles de ensamble.
@@ -55,8 +54,8 @@ NumComponentes: Determina el número total de piezas a manipular durante la ejec
 
 ### 2. Rutina Principal (main)
 Es el punto de entrada del programa. Establece la configuración de seguridad, velocidad del manipulador y coordina la secuencia global del ciclo de trabajo.
-Power High / Accel / Speed: Habilita la máxima potencia y fija las velocidades e inercias al 100% para optimizar el tiempo de ciclo.
-Home: Envía el robot a su posición segura inicial y final para prevenir colisiones durante el encendido o parada.
+```Power High / Accel / Speed```: Habilita la máxima potencia y fija las velocidades e inercias al 100% para optimizar el tiempo de ciclo.
+```Home```: Envía el robot a su posición segura inicial y final para prevenir colisiones durante el encendido o parada.
 Llamado a subrutinas: Ejecuta de manera secuencial la asignación de posiciones y el proceso de pick & place.
 
 ### 3. Mapeo de Componentes (CargarComponente)
