@@ -34,7 +34,75 @@
 10. [Videos demostrativos](#videos-demostrativos)
 
 ## 1. Bitácora del desarrollo
-## 2. Diagrama de flujo del proceso global
+## 2. Diagrama de flujo del proceso globals
+
+El proceso global de la línea automatizada consta de cuatro estaciones robotizadas secuenciales e independientes para la manufactura, ensamble, soldadura y empaque de tarjetas electrónicas (PCBs).
+
+```mermaid
+flowchart TD
+    %% Inicio del sistema
+    START([Inicio del Proceso Global]) --> HMI_INIT[Selección de Receta y Start en HMI]
+    
+    %% ETAPA 1
+    subgraph E1["Etapa 1: Clasificación y Ordenamiento (ABB IRB 140 - Caín)"]
+        E1_IN[Llegada de componentes en desorden por banda transportadora] --> E1_VIS["Visión Artificial (Kinect + MATLAB):<br/>Detección e Identificación de Tipo/Pose"]
+        E1_VIS --> E1_PICK[Pick de componente en banda]
+        E1_PICK --> E1_DEC{¿Clasificación exitosa?}
+        E1_DEC -- Sí --> E1_PLACE[Place en celda correspondiente del Almacén Ordenado]
+        E1_DEC -- No / Duda --> E1_REJ[Depositar en Bandeja de Rechazo / Alarma HMI]
+        E1_PLACE --> E1_COUNT[Incrementar Conteo por Tipo]
+        E1_COUNT --> E1_CHECK{¿Almacén Completo?<br/>N >= 30 componentes}
+        E1_CHECK -- No --> E1_IN
+        E1_CHECK -- Sí --> E1_READY[Señal: Almacén Listo / Transfiriendo]
+    end
+
+    HMI_INIT --> E1_IN
+
+    %% ETAPA 2
+    subgraph E2["Etapa 2: Ensamblaje en PCB (Epson T3 401S - Junior)"]
+        E2_SETUP[Fijar PCB en Fixture de Estación Epson] --> E2_RECIP[Cargar Receta de Posiciones X, Y, Ángulo]
+        E2_RECIP --> E2_LOOP_INIT[Inicializar i = 1]
+        E2_LOOP_INIT --> E2_LOOP_CHK{¿i <= N_componentes?}
+        E2_LOOP_CHK -- Sí --> E2_PICK[Pick desde Almacén Ordenado con Electroimán]
+        E2_PICK --> E2_PLACE[Jump Place/Inserción en coordenadas destino en PCB]
+        E2_PLACE --> E2_INC[i = i + 1]
+        E2_INC --> E2_LOOP_CHK
+        E2_LOOP_CHK -- No --> E2_VERIF[Inspección Visual Rápida / Foto Final]
+        E2_VERIF --> E2_READY[Señal: PCB Poblada / Transfiriendo]
+    end
+
+    E1_READY --> E2_SETUP
+
+    %% ETAPA 3
+    subgraph E3["Etapa 3: Soldadura (Yaskawa Motoman MH6 - El Chambeador)"]
+        E3_SETUP[Fijar PCB Poblada en Fixture de Soldadura] --> E3_PATH[Cargar Rutina y Patrón de Puntos P1..PN]
+        E3_PATH --> E3_EXEC[Ejecución de Trayectoria de Soldadura / Puntos]
+        E3_EXEC --> E3_LOG[Generación de Log de Registro Explicito]
+        E3_LOG --> E3_READY[Señal: PCB Soldada / Transfiriendo]
+    end
+
+    E2_READY --> E3_SETUP
+
+    %% ETAPA 4
+    subgraph E4["Etapa 4: Empaque y Envío (ABB IRB 140 - Abel)"]
+        E4_PICK[Pick de PCB Soldada desde Estación 3] --> E4_PACK[Colocar en Caja/Bandeja de Empaque]
+        E4_PACK --> E4_LABEL[Colocar Etiqueta de Lote]
+        E4_LABEL --> E4_BELT[Depositar en Banda Transportadora de Salida]
+        E4_BELT --> E4_COUNT[Incrementar Contador de Producción en HMI]
+    end
+
+    E3_READY --> E4_PICK
+    E4_COUNT --> END([Fin del Proceso - Producto Empacado])
+
+    %% Estilos de Nodos
+    style START fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    style END fill:#2196F3,stroke:#333,stroke-width:2px,color:#fff
+    style E1 fill:#FFF3E0,stroke:#FF9800,stroke-width:2px
+    style E2 fill:#E8F5E9,stroke:#4CAF50,stroke-width:2px
+    style E3 fill:#E1F5FE,stroke:#03A9F4,stroke-width:2px
+    style E4 fill:#F3E5F5,stroke:#9C27B0,stroke-width:2px
+```
+
 ## 3. Diseño del gripper
 ## 4. Simulación
 
