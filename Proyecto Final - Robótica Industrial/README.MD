@@ -77,5 +77,48 @@ Gestión del efector final (electroimán) a través de salidas digitales del con
 ## 6. Comparación manual vs automatizado
 ## 7. Descripción detallada de la solución
 ## 8. Diagrama de flujo acciones del robot
+El siguiente diagrama detalla la secuencia algorítmica y la toma de decisiones que ejecuta el robot  durante la **Etapa 2: Ensamblaje de Componentes**, reflejando la lógica programada en **SPEL+**:
+
+```mermaid
+flowchart TD
+    A([Inicio: main]) --> B[Habilitar Motores: Motor On]
+    B --> C[Configurar Dinámica: Power High, Speed 100, Accel 100, 100]
+    C --> D[Mover a Posición de Seguridad: Home]
+    
+    D --> E[Ejecutar: CargarComponentes]
+    E --> F[Definir NumComponentes]
+    F --> G[Mapear Arreglos: alm i -> Posición Almacén<br/>baq i -> Posición Baquela]
+    
+    G --> H[Ejecutar: EnsambleComponentes]
+    H --> I["Configurar Rejillas:<br/>Pallet 1 (Almacén 6x2)<br/>Pallet 2 (Baquela 27x22)"]
+    I --> J[Inicializar Contador: i = 1]
+    
+    J --> K{¿i <= NumComponentes?}
+    
+    K -- Sí --> L["Jump Pallet(1, alm(i))<br/>Desplazamiento tipo arco a la celda del almacén"]
+    L --> M[Wait 1s]
+    M --> N["Call Tomar<br/>Off DO_09 (Energiza Electroimán)"]
+    N --> O[Wait 1s]
+    
+    O --> P["Jump Pallet(2, baq(i))<br/>Desplazamiento tipo arco hacia la PCB"]
+    P --> Q[Wait 1s]
+    Q --> R["Call Soltar<br/>On DO_09 (Desenergiza Electroimán)"]
+    R --> S[Wait 1s]
+    
+    S --> T[Incrementar: i = i + 1]
+    T --> K
+    
+    K -- No --> U[Mover a Posición Final: Home]
+    U --> V([Fin del Programa: Fend])
+
+    %% Estilos visuales del diagrama
+    style A fill:#4CAF50,stroke:#333,stroke-width:2px,color:#fff
+    style V fill:#F44336,stroke:#333,stroke-width:2px,color:#fff
+    style K fill:#FF9800,stroke:#333,stroke-width:2px,color:#fff
+    style N fill:#2196F3,stroke:#333,stroke-width:2px,color:#fff
+    style R fill:#9C27B0,stroke:#333,stroke-width:2px,color:#fff
+
+```
+
 ## 9. Plano de planta
 ## 10. Videos demostrativos
