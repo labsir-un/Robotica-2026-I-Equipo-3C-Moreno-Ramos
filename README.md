@@ -68,7 +68,7 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
 
 ### Integrante 2
 <div align="center">
-  <img src="fotos/juan.png" alt="Foto integrante 2" style="border-radius: 50%; width: 180px;"><br>
+  <img src="fotos/juan.jpg" alt="Foto integrante 2" style="border-radius: 50%; width: 180px;"><br>
 </div>
 
 - **Nombre completo:** Juan Andrés Moreno Benavides
